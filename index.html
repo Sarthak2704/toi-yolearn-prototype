@@ -808,104 +808,419 @@ img{max-width:100%;display:block}
     <button onclick="tab('course','assign',this)">Assignment</button>
     <button onclick="tab('course','cert',this)">Certificate</button>
   </div>
-  <div data-tabgroup="course">
+    <div data-tabgroup="course">
     <!-- TAB 1: ALL (Shows Everything) -->
     <div class="tabpane on" id="pane-course-all">
       <div class="sec-h" style="margin:8px 0 14px">
         <h2>Classes &amp; Modules</h2>
         <span class="chip chip-ai">5 Modules · 24 Lessons</span>
       </div>
+
+      <!-- Module 1 -->
       <div class="mod open">
         <div class="mod-h" onclick="toggleMod(this)"><div class="num">✓</div><div style="flex:1"><div style="font-weight:700">Module 1 · Foundations of AI</div><div class="tiny muted">3 lessons · completed</div></div><span class="chip chip-tg">100%</span><svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
         <div class="mod-body">
-          <div class="topic-row"><div class="st done">✓</div><div style="flex:1"><div style="font-weight:600;font-size:14px">What is Artificial Intelligence?</div></div><span class="chip chip-gray">Video · 12m</span></div>
-          <div class="topic-row"><div class="st done">✓</div><div style="flex:1"><div style="font-weight:600;font-size:14px">How Machines Learn</div></div><span class="chip chip-gray">Video · Quiz</span></div>
-          <div class="topic-row"><div class="st done">✓</div><div style="flex:1"><div style="font-weight:600;font-size:14px">AI All Around Us</div></div><span class="chip chip-gray">Reading</span></div>
+          <!-- Video Lesson 1 -->
+          <div class="topic-row">
+            <div class="st done">✓</div>
+            <div style="flex:1;min-width:180px">
+              <div style="font-weight:600;font-size:14px">What is Artificial Intelligence?</div>
+              <div class="tiny muted">Video Lesson · 12m</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-soft btn-sm" data-go="video"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Watch Video</button>
+              <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE" data-go="tutor"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5zM9 17h6"/></svg> Learn with AI Tutor</button>
+            </div>
+          </div>
+          <!-- Video Lesson 2 -->
+          <div class="topic-row">
+            <div class="st done">✓</div>
+            <div style="flex:1;min-width:180px">
+              <div style="font-weight:600;font-size:14px">How Machines Learn</div>
+              <div class="tiny muted">Video Lesson · 15m</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-soft btn-sm" data-go="video"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Watch Video</button>
+              <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE" data-go="tutor"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5zM9 17h6"/></svg> Learn with AI Tutor</button>
+            </div>
+          </div>
+          <!-- PDF Lesson -->
+          <div class="topic-row">
+            <div class="st done">✓</div>
+            <div style="flex:1;min-width:180px">
+              <div style="font-weight:600;font-size:14px">AI All Around Us</div>
+              <div class="tiny muted">PDF Study Material · 6 pages</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-soft btn-sm" data-go="prereading"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
+              <button class="btn btn-sm" style="background:#EFF6FF;color:#2563EB;border:1px solid #BFDBFE" onclick="openDoubt('PDF: AI All Around Us')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
+            </div>
+          </div>
+          <!-- Assignment -->
+          <div class="topic-row">
+            <div class="st done">✓</div>
+            <div style="flex:1;min-width:180px">
+              <div style="font-weight:600;font-size:14px">Quiz 1 · Foundations of AI</div>
+              <div class="tiny muted">Score: 10/10 · Graded</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-pri btn-sm" data-go="assessment"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg> Start</button>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- Module 3 -->
       <div class="mod open">
         <div class="mod-h" onclick="toggleMod(this)"><div class="num">2</div><div style="flex:1"><div style="font-weight:700">Module 3 · AI Tools for Learning</div><div class="tiny muted">5 lessons · in progress</div></div><span class="chip chip-yl">60%</span><svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
         <div class="mod-body">
-          <div class="topic-row"><div class="st done">✓</div><div style="flex:1"><div style="font-weight:600;font-size:14px">AI for Notes &amp; Summaries</div></div><span class="chip chip-gray">Done</span></div>
-          <div class="topic-row" role="button" data-go="chapter"><div class="st now">▶</div><div style="flex:1"><div style="font-weight:700;font-size:14px;color:var(--yl-700)">Prompting like a Pro</div><div class="tiny muted">Video Lecture · Pre-reading · Practice</div></div><button class="btn btn-pri btn-sm" data-go="chapter">Open</button></div>
-          <div class="topic-row"><div class="st lock">🔒</div><div style="flex:1"><div style="font-weight:600;font-size:14px">Study Smarter with AI</div></div><span class="chip chip-gray">Locked</span></div>
+          <!-- Video Lesson -->
+          <div class="topic-row">
+            <div class="st done">✓</div>
+            <div style="flex:1;min-width:180px">
+              <div style="font-weight:600;font-size:14px">AI for Notes &amp; Summaries</div>
+              <div class="tiny muted">Video Lesson · 10m</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-soft btn-sm" data-go="video"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Watch Video</button>
+              <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE" data-go="tutor"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5zM9 17h6"/></svg> Learn with AI Tutor</button>
+            </div>
+          </div>
+          <!-- Video Lesson (Current) -->
+          <div class="topic-row">
+            <div class="st now">▶</div>
+            <div style="flex:1;min-width:180px">
+              <div style="font-weight:700;font-size:14px;color:var(--yl-700)">Prompting like a Pro</div>
+              <div class="tiny muted">Video Lesson · 14m · Current</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-pri btn-sm" data-go="video"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Watch Video</button>
+              <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE" data-go="tutor"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5zM9 17h6"/></svg> Learn with AI Tutor</button>
+            </div>
+          </div>
+          <!-- PDF Lesson -->
+          <div class="topic-row">
+            <div class="st now">📄</div>
+            <div style="flex:1;min-width:180px">
+              <div style="font-weight:600;font-size:14px">Module 3 — Prompting Handbook</div>
+              <div class="tiny muted">PDF Study Material · 1.2 MB</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-soft btn-sm" data-go="prereading"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
+              <button class="btn btn-sm" style="background:#EFF6FF;color:#2563EB;border:1px solid #BFDBFE" onclick="openDoubt('Module 3 — Prompting Handbook.pdf')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
+            </div>
+          </div>
+          <!-- Assignment -->
+          <div class="topic-row">
+            <div class="st lock" style="background:#FEF3C7;color:#B45309">📝</div>
+            <div style="flex:1;min-width:180px">
+              <div style="font-weight:600;font-size:14px">Assignment 3 · Build a Study Prompt</div>
+              <div class="tiny" style="color:#B45309;font-weight:600">Due in 2 days · AI-assisted evaluation</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-pri btn-sm" data-go="assessment"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg> Start</button>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- Module 4 -->
       <div class="mod">
         <div class="mod-h" onclick="toggleMod(this)"><div class="num">3</div><div style="flex:1"><div style="font-weight:700">Module 4 · Build with AI</div><div class="tiny muted">4 lessons</div></div><span class="chip chip-gray">0%</span><svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
-        <div class="mod-body"><div class="topic-row"><div class="st lock">🔒</div><div style="flex:1"><div style="font-weight:600;font-size:14px">No-code AI Apps</div></div></div></div>
+        <div class="mod-body">
+          <!-- Video Lesson -->
+          <div class="topic-row">
+            <div class="st lock">🔒</div>
+            <div style="flex:1;min-width:180px">
+              <div style="font-weight:600;font-size:14px">No-code AI Apps</div>
+              <div class="tiny muted">Video Lesson · 18m</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-soft btn-sm" data-go="video"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Watch Video</button>
+              <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE" data-go="tutor"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5zM9 17h6"/></svg> Learn with AI Tutor</button>
+            </div>
+          </div>
+          <!-- PDF Lesson -->
+          <div class="topic-row">
+            <div class="st lock">🔒</div>
+            <div style="flex:1;min-width:180px">
+              <div style="font-weight:600;font-size:14px">AI Project Blueprint.pdf</div>
+              <div class="tiny muted">PDF Study Material · 10 pages</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-soft btn-sm" data-go="prereading"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
+              <button class="btn btn-sm" style="background:#EFF6FF;color:#2563EB;border:1px solid #BFDBFE" onclick="openDoubt('AI Project Blueprint.pdf')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
+            </div>
+          </div>
+          <!-- Assignment -->
+          <div class="topic-row">
+            <div class="st lock">🔒</div>
+            <div style="flex:1;min-width:180px">
+              <div style="font-weight:600;font-size:14px">Capstone AI Project Submission</div>
+              <div class="tiny muted">Project Assessment</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-pri btn-sm" data-go="assessment"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg> Start</button>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="sec-h" style="margin:26px 0 14px">
         <h2>Resources &amp; PDFs</h2>
         <span class="chip chip-gray">Study Materials</span>
       </div>
+
       <div class="grid g-2">
-        <div class="res-row"><div class="ico-box" style="background:var(--red-50);color:var(--red)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Module 3 — Prompting Handbook.pdf</div><div class="tiny muted">1.2 MB · pre-reading</div></div><button class="btn btn-soft btn-sm" data-go="prereading">Read with AI</button></div>
-        <div class="res-row"><div class="ico-box" style="background:var(--blue-light);color:#fff"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v14H4zM4 9h16"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Prompting cheat-sheet</div><div class="tiny muted">Slides · 8 pages</div></div><button class="btn btn-ghost btn-sm">Open</button></div>
+        <div class="res-row">
+          <div class="ico-box" style="background:var(--red-50);color:var(--red)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg></div>
+          <div style="flex:1"><div style="font-weight:700;font-size:14px">Module 3 — Prompting Handbook.pdf</div><div class="tiny muted">1.2 MB · pre-reading</div></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn btn-soft btn-sm" data-go="prereading"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
+            <button class="btn btn-sm" style="background:#EFF6FF;color:#2563EB;border:1px solid #BFDBFE" onclick="openDoubt('Prompting Handbook.pdf')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
+          </div>
+        </div>
+        <div class="res-row">
+          <div class="ico-box" style="background:var(--blue-light);color:#fff"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v14H4zM4 9h16"/></svg></div>
+          <div style="flex:1"><div style="font-weight:700;font-size:14px">Prompting cheat-sheet.pdf</div><div class="tiny muted">Slides · 8 pages</div></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn btn-soft btn-sm" data-go="prereading"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
+            <button class="btn btn-sm" style="background:#EFF6FF;color:#2563EB;border:1px solid #BFDBFE" onclick="openDoubt('Prompting cheat-sheet.pdf')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
+          </div>
+        </div>
       </div>
 
       <div class="sec-h" style="margin:26px 0 14px">
         <h2>Assignments &amp; Quizzes</h2>
         <span class="chip chip-amber">1 pending submission</span>
       </div>
-      <div class="res-row" style="margin-bottom:12px"><div class="ico-box" style="background:var(--amber-50);color:#B45309"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Assignment 3 · Build a study prompt</div><div class="tiny" style="color:#B45309;font-weight:600">Due in 2 days · AI-assisted evaluation</div></div><button class="btn btn-pri btn-sm" data-go="assessment">Submit</button></div>
-      <div class="res-row"><div class="ico-box" style="background:var(--tg-50);color:#0C8F6A"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Quiz 2 · How Machines Learn</div><div class="tiny muted">8/10 · teacher-verified</div></div><button class="btn btn-ghost btn-sm" data-go="assessment">View result</button></div>
+
+      <div class="res-row" style="margin-bottom:12px">
+        <div class="ico-box" style="background:var(--amber-50);color:#B45309"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg></div>
+        <div style="flex:1"><div style="font-weight:700;font-size:14px">Assignment 3 · Build a study prompt</div><div class="tiny" style="color:#B45309;font-weight:600">Due in 2 days · AI-assisted evaluation</div></div>
+        <button class="btn btn-pri btn-sm" data-go="assessment"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg> Start</button>
+      </div>
+      <div class="res-row">
+        <div class="ico-box" style="background:var(--tg-50);color:#0C8F6A"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <div style="flex:1"><div style="font-weight:700;font-size:14px">Quiz 2 · How Machines Learn</div><div class="tiny muted">8/10 · teacher-verified</div></div>
+        <button class="btn btn-pri btn-sm" data-go="assessment"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg> Start</button>
+      </div>
 
       <div class="sec-h" style="margin:26px 0 14px">
         <h2>Certificate of Completion</h2>
         <span class="chip chip-tg">62% Completed</span>
       </div>
+
       <div class="card" style="padding:24px;display:flex;gap:20px;align-items:center;flex-wrap:wrap">
         <div class="cert" style="width:240px"><div class="top"><div><div class="tiny" style="opacity:.8">GrowFast × YoLearn.ai</div><div style="font-weight:800;margin-top:4px">Certificate of Completion</div></div><div class="seal">★</div><div class="tiny" style="opacity:.85">AI BootCamp for Students</div></div></div>
         <div style="flex:1;min-width:220px"><h3 style="font-size:18px">Almost there!</h3><p class="muted" style="margin:8px 0 14px">Complete the remaining 9 lessons to unlock your co-branded certificate, signed by The Times of India GrowFast.</p><div class="progress"><i style="width:62%"></i></div><button class="btn btn-ghost btn-sm" style="margin-top:14px" data-go="certificates">View certificates</button></div>
       </div>
+
     </div>
 
     <!-- TAB 2: CLASS (Curriculum / Classes) -->
     <div class="tabpane" id="pane-course-class">
+
+      <!-- Module 1 -->
       <div class="mod open">
         <div class="mod-h" onclick="toggleMod(this)"><div class="num">✓</div><div style="flex:1"><div style="font-weight:700">Module 1 · Foundations of AI</div><div class="tiny muted">3 lessons · completed</div></div><span class="chip chip-tg">100%</span><svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
         <div class="mod-body">
-          <div class="topic-row"><div class="st done">✓</div><div style="flex:1"><div style="font-weight:600;font-size:14px">What is Artificial Intelligence?</div></div><span class="chip chip-gray">Video · 12m</span></div>
-          <div class="topic-row"><div class="st done">✓</div><div style="flex:1"><div style="font-weight:600;font-size:14px">How Machines Learn</div></div><span class="chip chip-gray">Video · Quiz</span></div>
-          <div class="topic-row"><div class="st done">✓</div><div style="flex:1"><div style="font-weight:600;font-size:14px">AI All Around Us</div></div><span class="chip chip-gray">Reading</span></div>
+          <!-- Video Lesson 1 -->
+          <div class="topic-row">
+            <div class="st done">✓</div>
+            <div style="flex:1;min-width:180px">
+              <div style="font-weight:600;font-size:14px">What is Artificial Intelligence?</div>
+              <div class="tiny muted">Video Lesson · 12m</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-soft btn-sm" data-go="video"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Watch Video</button>
+              <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE" data-go="tutor"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5zM9 17h6"/></svg> Learn with AI Tutor</button>
+            </div>
+          </div>
+          <!-- Video Lesson 2 -->
+          <div class="topic-row">
+            <div class="st done">✓</div>
+            <div style="flex:1;min-width:180px">
+              <div style="font-weight:600;font-size:14px">How Machines Learn</div>
+              <div class="tiny muted">Video Lesson · 15m</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-soft btn-sm" data-go="video"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Watch Video</button>
+              <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE" data-go="tutor"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5zM9 17h6"/></svg> Learn with AI Tutor</button>
+            </div>
+          </div>
+          <!-- PDF Lesson -->
+          <div class="topic-row">
+            <div class="st done">✓</div>
+            <div style="flex:1;min-width:180px">
+              <div style="font-weight:600;font-size:14px">AI All Around Us</div>
+              <div class="tiny muted">PDF Study Material · 6 pages</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-soft btn-sm" data-go="prereading"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
+              <button class="btn btn-sm" style="background:#EFF6FF;color:#2563EB;border:1px solid #BFDBFE" onclick="openDoubt('PDF: AI All Around Us')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
+            </div>
+          </div>
+          <!-- Assignment -->
+          <div class="topic-row">
+            <div class="st done">✓</div>
+            <div style="flex:1;min-width:180px">
+              <div style="font-weight:600;font-size:14px">Quiz 1 · Foundations of AI</div>
+              <div class="tiny muted">Score: 10/10 · Graded</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-pri btn-sm" data-go="assessment"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg> Start</button>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- Module 3 -->
       <div class="mod open">
         <div class="mod-h" onclick="toggleMod(this)"><div class="num">2</div><div style="flex:1"><div style="font-weight:700">Module 3 · AI Tools for Learning</div><div class="tiny muted">5 lessons · in progress</div></div><span class="chip chip-yl">60%</span><svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
         <div class="mod-body">
-          <div class="topic-row"><div class="st done">✓</div><div style="flex:1"><div style="font-weight:600;font-size:14px">AI for Notes &amp; Summaries</div></div><span class="chip chip-gray">Done</span></div>
-          <div class="topic-row" role="button" data-go="chapter"><div class="st now">▶</div><div style="flex:1"><div style="font-weight:700;font-size:14px;color:var(--yl-700)">Prompting like a Pro</div><div class="tiny muted">Video Lecture · Pre-reading · Practice</div></div><button class="btn btn-pri btn-sm" data-go="chapter">Open</button></div>
-          <div class="topic-row"><div class="st lock">🔒</div><div style="flex:1"><div style="font-weight:600;font-size:14px">Study Smarter with AI</div></div><span class="chip chip-gray">Locked</span></div>
+          <!-- Video Lesson -->
+          <div class="topic-row">
+            <div class="st done">✓</div>
+            <div style="flex:1;min-width:180px">
+              <div style="font-weight:600;font-size:14px">AI for Notes &amp; Summaries</div>
+              <div class="tiny muted">Video Lesson · 10m</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-soft btn-sm" data-go="video"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Watch Video</button>
+              <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE" data-go="tutor"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5zM9 17h6"/></svg> Learn with AI Tutor</button>
+            </div>
+          </div>
+          <!-- Video Lesson (Current) -->
+          <div class="topic-row">
+            <div class="st now">▶</div>
+            <div style="flex:1;min-width:180px">
+              <div style="font-weight:700;font-size:14px;color:var(--yl-700)">Prompting like a Pro</div>
+              <div class="tiny muted">Video Lesson · 14m · Current</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-pri btn-sm" data-go="video"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Watch Video</button>
+              <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE" data-go="tutor"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5zM9 17h6"/></svg> Learn with AI Tutor</button>
+            </div>
+          </div>
+          <!-- PDF Lesson -->
+          <div class="topic-row">
+            <div class="st now">📄</div>
+            <div style="flex:1;min-width:180px">
+              <div style="font-weight:600;font-size:14px">Module 3 — Prompting Handbook</div>
+              <div class="tiny muted">PDF Study Material · 1.2 MB</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-soft btn-sm" data-go="prereading"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
+              <button class="btn btn-sm" style="background:#EFF6FF;color:#2563EB;border:1px solid #BFDBFE" onclick="openDoubt('Module 3 — Prompting Handbook.pdf')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
+            </div>
+          </div>
+          <!-- Assignment -->
+          <div class="topic-row">
+            <div class="st lock" style="background:#FEF3C7;color:#B45309">📝</div>
+            <div style="flex:1;min-width:180px">
+              <div style="font-weight:600;font-size:14px">Assignment 3 · Build a Study Prompt</div>
+              <div class="tiny" style="color:#B45309;font-weight:600">Due in 2 days · AI-assisted evaluation</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-pri btn-sm" data-go="assessment"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg> Start</button>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- Module 4 -->
       <div class="mod">
         <div class="mod-h" onclick="toggleMod(this)"><div class="num">3</div><div style="flex:1"><div style="font-weight:700">Module 4 · Build with AI</div><div class="tiny muted">4 lessons</div></div><span class="chip chip-gray">0%</span><svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
-        <div class="mod-body"><div class="topic-row"><div class="st lock">🔒</div><div style="flex:1"><div style="font-weight:600;font-size:14px">No-code AI Apps</div></div></div></div>
+        <div class="mod-body">
+          <!-- Video Lesson -->
+          <div class="topic-row">
+            <div class="st lock">🔒</div>
+            <div style="flex:1;min-width:180px">
+              <div style="font-weight:600;font-size:14px">No-code AI Apps</div>
+              <div class="tiny muted">Video Lesson · 18m</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-soft btn-sm" data-go="video"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Watch Video</button>
+              <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE" data-go="tutor"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5zM9 17h6"/></svg> Learn with AI Tutor</button>
+            </div>
+          </div>
+          <!-- PDF Lesson -->
+          <div class="topic-row">
+            <div class="st lock">🔒</div>
+            <div style="flex:1;min-width:180px">
+              <div style="font-weight:600;font-size:14px">AI Project Blueprint.pdf</div>
+              <div class="tiny muted">PDF Study Material · 10 pages</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-soft btn-sm" data-go="prereading"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
+              <button class="btn btn-sm" style="background:#EFF6FF;color:#2563EB;border:1px solid #BFDBFE" onclick="openDoubt('AI Project Blueprint.pdf')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
+            </div>
+          </div>
+          <!-- Assignment -->
+          <div class="topic-row">
+            <div class="st lock">🔒</div>
+            <div style="flex:1;min-width:180px">
+              <div style="font-weight:600;font-size:14px">Capstone AI Project Submission</div>
+              <div class="tiny muted">Project Assessment</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-pri btn-sm" data-go="assessment"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg> Start</button>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
 
     <!-- TAB 3: RESOURCES & PDFS -->
     <div class="tabpane" id="pane-course-res">
+
       <div class="grid g-2">
-        <div class="res-row"><div class="ico-box" style="background:var(--red-50);color:var(--red)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Module 3 — Prompting Handbook.pdf</div><div class="tiny muted">1.2 MB · pre-reading</div></div><button class="btn btn-soft btn-sm" data-go="prereading">Read with AI</button></div>
-        <div class="res-row"><div class="ico-box" style="background:var(--blue-light);color:#fff"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v14H4zM4 9h16"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Prompting cheat-sheet</div><div class="tiny muted">Slides · 8 pages</div></div><button class="btn btn-ghost btn-sm">Open</button></div>
+        <div class="res-row">
+          <div class="ico-box" style="background:var(--red-50);color:var(--red)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg></div>
+          <div style="flex:1"><div style="font-weight:700;font-size:14px">Module 3 — Prompting Handbook.pdf</div><div class="tiny muted">1.2 MB · pre-reading</div></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn btn-soft btn-sm" data-go="prereading"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
+            <button class="btn btn-sm" style="background:#EFF6FF;color:#2563EB;border:1px solid #BFDBFE" onclick="openDoubt('Prompting Handbook.pdf')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
+          </div>
+        </div>
+        <div class="res-row">
+          <div class="ico-box" style="background:var(--blue-light);color:#fff"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v14H4zM4 9h16"/></svg></div>
+          <div style="flex:1"><div style="font-weight:700;font-size:14px">Prompting cheat-sheet.pdf</div><div class="tiny muted">Slides · 8 pages</div></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn btn-soft btn-sm" data-go="prereading"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
+            <button class="btn btn-sm" style="background:#EFF6FF;color:#2563EB;border:1px solid #BFDBFE" onclick="openDoubt('Prompting cheat-sheet.pdf')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
+          </div>
+        </div>
       </div>
+
     </div>
 
     <!-- TAB 4: ASSIGNMENT -->
     <div class="tabpane" id="pane-course-assign">
-      <div class="res-row" style="margin-bottom:12px"><div class="ico-box" style="background:var(--amber-50);color:#B45309"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Assignment 3 · Build a study prompt</div><div class="tiny" style="color:#B45309;font-weight:600">Due in 2 days · AI-assisted evaluation</div></div><button class="btn btn-pri btn-sm" data-go="assessment">Submit</button></div>
-      <div class="res-row"><div class="ico-box" style="background:var(--tg-50);color:#0C8F6A"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Quiz 2 · How Machines Learn</div><div class="tiny muted">8/10 · teacher-verified</div></div><button class="btn btn-ghost btn-sm" data-go="assessment">View result</button></div>
+
+      <div class="res-row" style="margin-bottom:12px">
+        <div class="ico-box" style="background:var(--amber-50);color:#B45309"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg></div>
+        <div style="flex:1"><div style="font-weight:700;font-size:14px">Assignment 3 · Build a study prompt</div><div class="tiny" style="color:#B45309;font-weight:600">Due in 2 days · AI-assisted evaluation</div></div>
+        <button class="btn btn-pri btn-sm" data-go="assessment"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg> Start</button>
+      </div>
+      <div class="res-row">
+        <div class="ico-box" style="background:var(--tg-50);color:#0C8F6A"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <div style="flex:1"><div style="font-weight:700;font-size:14px">Quiz 2 · How Machines Learn</div><div class="tiny muted">8/10 · teacher-verified</div></div>
+        <button class="btn btn-pri btn-sm" data-go="assessment"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg> Start</button>
+      </div>
+
     </div>
 
     <!-- TAB 5: CERTIFICATE -->
     <div class="tabpane" id="pane-course-cert">
+
       <div class="card" style="padding:24px;display:flex;gap:20px;align-items:center;flex-wrap:wrap">
         <div class="cert" style="width:240px"><div class="top"><div><div class="tiny" style="opacity:.8">GrowFast × YoLearn.ai</div><div style="font-weight:800;margin-top:4px">Certificate of Completion</div></div><div class="seal">★</div><div class="tiny" style="opacity:.85">AI BootCamp for Students</div></div></div>
         <div style="flex:1;min-width:220px"><h3 style="font-size:18px">Almost there!</h3><p class="muted" style="margin:8px 0 14px">Complete the remaining 9 lessons to unlock your co-branded certificate, signed by The Times of India GrowFast.</p><div class="progress"><i style="width:62%"></i></div><button class="btn btn-ghost btn-sm" style="margin-top:14px" data-go="certificates">View certificates</button></div>
       </div>
+
     </div>
   </div>
 </section>
