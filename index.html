@@ -231,6 +231,12 @@ img{max-width:100%;display:block}
 .close-x{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;color:var(--muted);margin-left:auto}
 .close-x:hover{background:var(--bg)}
 
+
+.schedule-assign-box{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-radius:14px;border:1.5px solid var(--line);background:#fff;margin-top:10px;gap:14px;flex-wrap:wrap;transition:.2s}
+.schedule-assign-box.locked{border-style:dashed;background:#FAFAFC}
+.schedule-class-row{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:12px;background:#fff;border:1px solid var(--line);margin-bottom:8px;transition:.15s}
+.schedule-class-row:hover{border-color:var(--ai-100);box-shadow:var(--sh-sm)}
+
 /* practice */
 .practice-entry-card{background:#fff;border:1.5px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;justify-content:space-between;min-height:165px;transition:.2s;cursor:pointer}
 .practice-entry-card:hover{transform:translateY(-2px);box-shadow:var(--sh);border-color:var(--yl-100)}
@@ -689,120 +695,370 @@ img{max-width:100%;display:block}
   <div class="res-row" role="button" data-go="assessment" style="max-width:600px"><div class="ico-box" style="background:var(--amber-50);color:#B45309"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 2M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Assignment 3 · Build a study prompt</div><div class="tiny" style="color:#B45309;font-weight:600">Due in 2 days</div></div><button class="btn btn-ghost btn-sm" data-go="assessment">Open</button></div>
 </section>
 
-<!-- ========== 5. AI TUTOR + SKETCHPAD ========== -->
+<!-- ========== 5. AI TUTOR: COURSE SCHEDULE & CLASSROOM ========== -->
 <section class="screen" id="s-tutor">
-  <div class="crumb"><a data-go="course">AI BootCamp</a><span class="sep">/</span><span>Learn with AI Tutor</span></div>
+  <!-- SUB-VIEW 1: AI BOOTCAMP COURSE WITH AI TUTOR SCHEDULE -->
+  <div id="tutor-schedule-view">
+    <div class="crumb">
+      <a data-go="courses">My Courses</a>
+      <span class="sep">/</span>
+      <a data-go="course">AI BootCamp for Students</a>
+      <span class="sep">/</span>
+      <span>Learn with AI Tutor</span>
+    </div>
 
-  <!-- Course + topic selector bar -->
-  <div class="card" style="padding:14px 18px;margin-bottom:16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
-    <div class="ico-box" style="background:linear-gradient(135deg,var(--ai),#C44BF6);color:#fff;width:44px;height:44px;flex-shrink:0">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v14H4zM4 9h16M8 5v4"/></svg>
-    </div>
-    <div style="flex:1;min-width:200px">
-      <div style="font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.10em;color:var(--muted);margin-bottom:3px">AI BootCamp for Students — Batch 7</div>
-      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-        <span style="font-weight:700;font-size:13.5px;color:var(--ink-2)">Select topic to learn:</span>
-        <select id="topicSelect" onchange="switchTopic(this.value)" style="font-weight:700;font-size:13.5px;border:1.5px solid var(--line);padding:5px 12px;border-radius:9px;background:var(--bg);color:var(--ink);cursor:pointer">
-          <optgroup label="Module 1 · Foundations of AI">
-            <option value="ai-what">M1 · What is Artificial Intelligence?</option>
-            <option value="ml-basics">M1 · How Machines Learn</option>
-            <option value="ai-around">M1 · AI All Around Us</option>
-          </optgroup>
-          <optgroup label="Module 2 · How AI Works">
-            <option value="llm">M2 · How LLMs Work</option>
-            <option value="data">M2 · Data and Training</option>
-            <option value="bias">M2 · AI Bias &amp; Ethics</option>
-          </optgroup>
-          <optgroup label="Module 3 · Prompting like a Pro">
-            <option value="prompting" selected>M3 · Prompting like a Pro</option>
-            <option value="4part">M3 · The 4-Part Formula</option>
-            <option value="mistakes">M3 · Common Prompting Mistakes</option>
-          </optgroup>
-          <optgroup label="Module 4 · AI Tools for Students">
-            <option value="chatgpt">M4 · Using ChatGPT Safely</option>
-            <option value="ai-tools">M4 · AI for Study &amp; Notes</option>
-          </optgroup>
-          <optgroup label="Module 5 · AI Projects">
-            <option value="project">M5 · AI for My School Project</option>
-            <option value="present">M5 · Presenting AI Work</option>
-          </optgroup>
-        </select>
+    <!-- Course Hero Card with AI Tutor -->
+    <div class="card" style="overflow:hidden;margin-bottom:24px;border:1px solid var(--line)">
+      <div style="background:linear-gradient(135deg,#1e1240 0%,#3d257a 50%,#5B3DF5 100%);padding:28px 28px 24px;color:#fff;position:relative">
+        <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">
+          <span class="chip" style="background:rgba(255,255,255,.18);color:#fff;font-weight:700">⚡ AI Tutor Track</span>
+          <span class="chip" style="background:rgba(255,255,255,.18);color:#fff">Batch 7</span>
+          <span class="chip" style="background:rgba(255,255,255,.18);color:#fff">Class 6–12</span>
+        </div>
+        <h1 style="font-size:26px;color:#fff;margin-bottom:8px">AI BootCamp for Students — Learn with AI Tutor</h1>
+        <p style="color:rgba(255,255,255,.8);font-size:14.5px;max-width:620px;line-height:1.6">
+          Learn step-by-step with <b>Pragya</b>, your AI Tutor. Attend interactive sketchpad classes, resolve doubts live, and unlock your topic assignments after each class is watched.
+        </p>
+        <div style="display:flex;gap:24px;margin-top:20px;flex-wrap:wrap">
+          <div><div style="font-weight:800;font-size:19px">5</div><div class="tiny" style="opacity:.8">Modules</div></div>
+          <div><div style="font-weight:800;font-size:19px">24</div><div class="tiny" style="opacity:.8">AI Tutor Classes</div></div>
+          <div><div style="font-weight:800;font-size:19px">5</div><div class="tiny" style="opacity:.8">Assignments</div></div>
+          <div><div style="font-weight:800;font-size:19px">62%</div><div class="tiny" style="opacity:.8">Attendance</div></div>
+        </div>
+      </div>
+      <div style="padding:18px 26px;background:#fff;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+        <div style="display:flex;align-items:center;gap:14px">
+          <div style="width:44px;height:44px;border-radius:12px;background:var(--ai-50);display:grid;place-items:center;color:var(--ai-700)">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5zM9 17h6M10 21h4"/></svg>
+          </div>
+          <div>
+            <div style="font-weight:800;font-size:15px">Next Session: Class 3.2 · Prompting like a Pro</div>
+            <div class="tiny muted">15 min interactive session on the sketchpad with Pragya</div>
+          </div>
+        </div>
+        <button class="btn btn-pri" onclick="openTutorClassroom('prompting')">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 3l14 9-14 9V3z"/></svg>
+          Enter AI Tutor Class
+        </button>
       </div>
     </div>
-    <div style="display:flex;align-items:center;gap:8px">
-      <span class="chip chip-ai" id="topicChip">⚡ M3 · Prompting</span>
-      <button class="btn btn-ghost btn-sm" onclick="clearSketch()">Clear board</button>
-    </div>
-  </div>
 
-  <!-- AI Tutor workspace: sketchpad + chat -->
-  <div class="ai-wrap">
-    <div class="ai-top">
-      <div class="t-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5zM9 17h6"/></svg></div>
-      <div><h3>Pragya — AI Tutor</h3><div class="sub">NCERT-mapped · teaches step-by-step on the sketchpad</div></div>
-      <div style="margin-left:auto;display:flex;align-items:center;gap:14px">
-        <div class="voice-toggle">Voice replies <div class="switch on" onclick="toggleVoice(this)"><i></i></div></div>
+    <!-- AI Tutor Class Schedule & Assignments -->
+    <div class="sec-h" style="margin-bottom:16px">
+      <div>
+        <h2>AI Tutor Class Schedule &amp; Assignments</h2>
+        <p class="muted" style="font-size:13.5px;margin-top:2px">Watch each class with Pragya to automatically unlock its paired assignment.</p>
       </div>
+      <span class="chip chip-ai">⚡ 15 of 24 Classes Watched</span>
     </div>
-    <div class="ai-body">
-      <div class="canvas-col">
-        <div class="canvas-tools">
-          <button class="ctool on" title="Pen"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7-4-4-7 7v4zM16 6l2 2"/></svg></button>
-          <button class="ctool" title="Shapes"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="4"/><rect x="12" y="12" width="8" height="8"/></svg></button>
-          <button class="ctool" title="Text"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5h14M12 5v14"/></svg></button>
-          <button class="ctool" title="Eraser" onclick="clearSketch()"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16l6 6h10M8 20l12-12-6-6L4 12z"/></svg></button>
-          <span class="tiny" style="margin-left:auto;color:var(--muted)">✏️ Draw here — Pragya can see your work</span>
-        </div>
-        <canvas id="sketch"></canvas>
-      </div>
-      <div class="chat-col">
-        <div class="chat-feed" id="chatFeed">
-          <div class="msg ai"><div class="who">AI Tutor · Pragya</div>Hi Ramesh! 👋 Today we're learning <b>Prompting like a Pro</b> from Module 3.<br><br>I've written the 4-part prompt formula on the board →<br><b>Role · Task · Context · Format</b><br><br>Let me explain each part step by step. Ready? 🙂</div>
-          <div class="msg me">What does Role mean exactly?</div>
-          <div class="msg ai"><div class="who">AI Tutor · Pragya</div>Great question! <b>Role</b> tells the AI <i>who to be</i>. For example: <i>"Act as a Class 9 science teacher"</i>. This shapes the AI's tone, depth, and language. I've underlined it on the board — see the red circle? That's always step 1 of a good prompt. Try writing your own role for a maths doubt! ✏️</div>
-        </div>
-        <div class="chat-sugg">
-          <button onclick="tutorQuick('Explain more simply')">Simpler please</button>
-          <button onclick="tutorQuick('Show step by step')">Step by step</button>
-          <button onclick="tutorQuick('Give me an example')">Example</button>
-          <button onclick="tutorQuick('I am ready for assignment')">I'm ready ✓</button>
-        </div>
-        <div class="chat-in">
-          <input id="chatInput" placeholder="Ask Pragya anything about this topic…" onkeydown="if(event.key==='Enter')sendChat()">
-          <button class="mic" title="Voice" onclick="this.classList.toggle('live')"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></button>
-          <button class="send" onclick="sendChat()"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></button>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Assignment section — appears after lesson -->
-  <div style="margin-top:22px">
-    <div class="sec-h"><h2>Class Assignment</h2><span class="chip" style="background:var(--amber-50);color:#B45309;border:1px solid #FDE68A;font-weight:700">Due in 2 days</span></div>
-    <div class="card" style="padding:20px;border:2px solid #FDE68A">
-      <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:16px">
-        <div class="ico-box" style="background:var(--amber-50);color:#B45309;width:44px;height:44px;flex-shrink:0">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6M9 13h6M9 17h4"/></svg>
-        </div>
+    <!-- MODULE 1 -->
+    <div class="mod" style="margin-bottom:12px">
+      <div class="mod-h" onclick="toggleMod(this)">
+        <div class="num">✓</div>
         <div style="flex:1">
-          <div style="font-weight:800;font-size:16px;margin-bottom:2px">Assignment 3 — Build a Study Prompt</div>
-          <div class="tiny muted" style="margin-bottom:12px">Set by Pragya after today's session on Prompting like a Pro</div>
-          <p style="font-size:13.5px;line-height:1.75;color:var(--ink-2)">Write a prompt that asks an AI to explain the <b>water cycle</b> to a Class 9 student. Your prompt must include all 4 parts: <b>Role, Task, Context</b> and <b>Format</b>. Then compare your prompt with the example on the board and note what you would change.</p>
-          <div style="margin-top:12px;display:flex;gap:6px;flex-wrap:wrap">
-            <span class="chip chip-gray">🎯 Application</span>
-            <span class="chip chip-gray">📝 Written response</span>
-            <span class="chip chip-ai">⚡ AI-evaluated · teacher-verified</span>
+          <div style="font-weight:700">Module 1 · Foundations of AI</div>
+          <div class="tiny muted">3 AI classes · 1 assignment · completed</div>
+        </div>
+        <span class="chip chip-tg">100%</span>
+        <svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="mod-body" style="padding:10px 14px 16px">
+        <div class="schedule-class-row">
+          <div class="st done">✓</div>
+          <div style="flex:1"><div style="font-weight:600;font-size:14px">Class 1.1 · What is Artificial Intelligence?</div><div class="tiny muted">12 min · watched with Pragya</div></div>
+          <span class="chip chip-tg">Watched</span>
+          <button class="btn btn-ghost btn-sm" onclick="openTutorClassroom('ai-what')">Review</button>
+        </div>
+        <div class="schedule-class-row">
+          <div class="st done">✓</div>
+          <div style="flex:1"><div style="font-weight:600;font-size:14px">Class 1.2 · How Machines Learn</div><div class="tiny muted">14 min · watched with Pragya</div></div>
+          <span class="chip chip-tg">Watched</span>
+          <button class="btn btn-ghost btn-sm" onclick="openTutorClassroom('ml-basics')">Review</button>
+        </div>
+        <div class="schedule-class-row">
+          <div class="st done">✓</div>
+          <div style="flex:1"><div style="font-weight:600;font-size:14px">Class 1.3 · AI All Around Us</div><div class="tiny muted">10 min · watched with Pragya</div></div>
+          <span class="chip chip-tg">Watched</span>
+          <button class="btn btn-ghost btn-sm" onclick="openTutorClassroom('ai-around')">Review</button>
+        </div>
+        <!-- Assignment 1 -->
+        <div class="schedule-assign-box" style="border-color:var(--tg);background:var(--tg-50)">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="font-size:22px">📝</div>
+            <div>
+              <div style="font-weight:700;font-size:14px">Assignment 1 · Real-world AI Analysis</div>
+              <div class="tiny" style="color:#0C8F6A;font-weight:600">✓ Submitted · 9/10 score · teacher-verified</div>
+            </div>
+          </div>
+          <span class="chip chip-tg">Completed</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODULE 2 -->
+    <div class="mod" style="margin-bottom:12px">
+      <div class="mod-h" onclick="toggleMod(this)">
+        <div class="num">✓</div>
+        <div style="flex:1">
+          <div style="font-weight:700">Module 2 · How AI Works</div>
+          <div class="tiny muted">3 AI classes · 1 quiz · completed</div>
+        </div>
+        <span class="chip chip-tg">100%</span>
+        <svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="mod-body" style="padding:10px 14px 16px">
+        <div class="schedule-class-row">
+          <div class="st done">✓</div>
+          <div style="flex:1"><div style="font-weight:600;font-size:14px">Class 2.1 · How LLMs Work</div><div class="tiny muted">15 min · watched with Pragya</div></div>
+          <span class="chip chip-tg">Watched</span>
+          <button class="btn btn-ghost btn-sm" onclick="openTutorClassroom('llm')">Review</button>
+        </div>
+        <div class="schedule-class-row">
+          <div class="st done">✓</div>
+          <div style="flex:1"><div style="font-weight:600;font-size:14px">Class 2.2 · Data &amp; Training</div><div class="tiny muted">13 min · watched with Pragya</div></div>
+          <span class="chip chip-tg">Watched</span>
+          <button class="btn btn-ghost btn-sm" onclick="openTutorClassroom('data')">Review</button>
+        </div>
+        <div class="schedule-class-row">
+          <div class="st done">✓</div>
+          <div style="flex:1"><div style="font-weight:600;font-size:14px">Class 2.3 · AI Bias &amp; Ethics</div><div class="tiny muted">11 min · watched with Pragya</div></div>
+          <span class="chip chip-tg">Watched</span>
+          <button class="btn btn-ghost btn-sm" onclick="openTutorClassroom('bias')">Review</button>
+        </div>
+        <!-- Quiz 2 -->
+        <div class="schedule-assign-box" style="border-color:var(--tg);background:var(--tg-50)">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="font-size:22px">📝</div>
+            <div>
+              <div style="font-weight:700;font-size:14px">Quiz 2 · How Machines Learn</div>
+              <div class="tiny" style="color:#0C8F6A;font-weight:600">✓ Submitted · 8/10 score · teacher-verified</div>
+            </div>
+          </div>
+          <button class="btn btn-ghost btn-sm" data-go="assessment">View Result</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODULE 3 (CURRENT IN PROGRESS) -->
+    <div class="mod open" style="margin-bottom:12px;border:1.5px solid var(--ai-100)">
+      <div class="mod-h" onclick="toggleMod(this)" style="background:var(--ai-50)">
+        <div class="num" style="background:var(--ai);color:#fff">3</div>
+        <div style="flex:1">
+          <div style="font-weight:700;color:var(--ai-700)">Module 3 · AI Tools for Learning</div>
+          <div class="tiny muted">5 AI classes · 1 assignment · in progress</div>
+        </div>
+        <span class="chip chip-ai">60% · Current</span>
+        <svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--ai)" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="mod-body" style="padding:12px 14px 18px">
+        <div class="schedule-class-row">
+          <div class="st done">✓</div>
+          <div style="flex:1"><div style="font-weight:600;font-size:14px">Class 3.1 · AI for Notes &amp; Summaries</div><div class="tiny muted">12 min · watched with Pragya</div></div>
+          <span class="chip chip-tg">Watched</span>
+          <button class="btn btn-ghost btn-sm">Review</button>
+        </div>
+
+        <!-- Class 3.2 (CURRENT) -->
+        <div class="schedule-class-row" style="border:2px solid var(--ai);background:#FAF8FF">
+          <div class="st now">▶</div>
+          <div style="flex:1">
+            <div style="font-weight:700;font-size:14.5px;color:var(--ai-700)">Class 3.2 · Prompting like a Pro with Pragya</div>
+            <div class="tiny muted">15 min live sketchpad class · 4-part prompt formula on the sketchpad</div>
+          </div>
+          <span class="chip chip-ai" id="schedule-class-3-2-tag">Ready to Watch</span>
+          <button class="btn btn-pri btn-sm" id="schedule-class-3-2-btn" onclick="openTutorClassroom('prompting')">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 3l14 9-14 9V3z"/></svg>
+            Watch Class
+          </button>
+        </div>
+
+        <!-- Assignment 3 (PAIRED WITH CLASS 3.2 — UNLOCKS AFTER WATCHED) -->
+        <div class="schedule-assign-box locked" id="schedule-assign-3">
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="width:40px;height:40px;border-radius:10px;background:#FFFBEB;color:#B45309;display:grid;place-items:center;font-size:18px">📝</div>
+            <div>
+              <div style="font-weight:800;font-size:14.5px">Topic Assignment 3 · Build a Study Prompt</div>
+              <div class="tiny muted" id="schedule-assign-3-sub">Set by Pragya after today's session · Evaluated by AI &amp; verified by teacher</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <span class="chip" id="schedule-assign-3-badge" style="background:#FEF3C7;color:#B45309;font-weight:700">🔒 Unlocks after watching Class 3.2</span>
+            <button class="btn btn-ghost btn-sm" id="schedule-assign-3-btn" disabled style="opacity:.6;cursor:not-allowed">🔒 Locked</button>
+          </div>
+        </div>
+
+        <div class="schedule-class-row" style="margin-top:10px;opacity:.75">
+          <div class="st lock">🔒</div>
+          <div style="flex:1"><div style="font-weight:600;font-size:14px">Class 3.3 · Study Smarter with AI</div><div class="tiny muted">14 min · upcoming</div></div>
+          <span class="chip chip-gray">Locked</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODULE 4 -->
+    <div class="mod" style="margin-bottom:12px;opacity:.8">
+      <div class="mod-h" onclick="toggleMod(this)">
+        <div class="num">4</div>
+        <div style="flex:1">
+          <div style="font-weight:700">Module 4 · Build with AI</div>
+          <div class="tiny muted">4 AI classes · 1 assignment · upcoming</div>
+        </div>
+        <span class="chip chip-gray">Locked</span>
+        <svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="mod-body" style="padding:10px 14px 16px">
+        <div class="schedule-class-row"><div class="st lock">🔒</div><div style="flex:1"><div style="font-weight:600;font-size:14px">Class 4.1 · No-code AI Apps</div></div><span class="chip chip-gray">Locked</span></div>
+        <div class="schedule-class-row"><div class="st lock">🔒</div><div style="flex:1"><div style="font-weight:600;font-size:14px">Class 4.2 · Using ChatGPT Safely</div></div><span class="chip chip-gray">Locked</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUB-VIEW 2: INTERACTIVE AI TUTOR CLASSROOM -->
+  <div id="tutor-classroom-view" style="display:none">
+    <div class="crumb">
+      <a data-go="courses">My Courses</a>
+      <span class="sep">/</span>
+      <a onclick="openTutorSchedule()" style="cursor:pointer;font-weight:600">AI Tutor Schedule</a>
+      <span class="sep">/</span>
+      <span>Class 3.2 · Prompting like a Pro</span>
+    </div>
+
+    <!-- Classroom Header Bar -->
+    <div class="card" style="padding:14px 18px;margin-bottom:16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+      <button class="btn btn-ghost btn-sm" onclick="openTutorSchedule()" style="gap:6px">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Class Schedule
+      </button>
+
+      <div class="ico-box" style="background:linear-gradient(135deg,var(--ai),#C44BF6);color:#fff;width:40px;height:40px;flex-shrink:0">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v14H4zM4 9h16M8 5v4"/></svg>
+      </div>
+
+      <div style="flex:1;min-width:200px">
+        <div style="font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.10em;color:var(--muted);margin-bottom:2px">AI BootCamp — Class 3.2</div>
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+          <span style="font-weight:700;font-size:13.5px;color:var(--ink-2)">Topic:</span>
+          <select id="topicSelect" onchange="switchTopic(this.value)" style="font-weight:700;font-size:13.5px;border:1.5px solid var(--line);padding:5px 12px;border-radius:9px;background:var(--bg);color:var(--ink);cursor:pointer">
+            <optgroup label="Module 1 · Foundations of AI">
+              <option value="ai-what">M1 · What is Artificial Intelligence?</option>
+              <option value="ml-basics">M1 · How Machines Learn</option>
+              <option value="ai-around">M1 · AI All Around Us</option>
+            </optgroup>
+            <optgroup label="Module 2 · How AI Works">
+              <option value="llm">M2 · How LLMs Work</option>
+              <option value="data">M2 · Data and Training</option>
+              <option value="bias">M2 · AI Bias &amp; Ethics</option>
+            </optgroup>
+            <optgroup label="Module 3 · Prompting like a Pro">
+              <option value="prompting" selected>M3 · Prompting like a Pro (Active Session)</option>
+              <option value="4part">M3 · The 4-Part Formula</option>
+              <option value="mistakes">M3 · Common Prompting Mistakes</option>
+            </optgroup>
+            <optgroup label="Module 4 · AI Tools for Students">
+              <option value="chatgpt">M4 · Using ChatGPT Safely</option>
+              <option value="ai-tools">M4 · AI for Study &amp; Notes</option>
+            </optgroup>
+            <optgroup label="Module 5 · AI Projects">
+              <option value="project">M5 · AI for My School Project</option>
+              <option value="present">M5 · Presenting AI Work</option>
+            </optgroup>
+          </select>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:8px">
+        <span class="chip chip-ai" id="class-status-pill">🔴 In Session · 12/15 min</span>
+        <button class="btn btn-ghost btn-sm" onclick="clearSketch()">Clear board</button>
+        <button class="btn btn-pri btn-sm" id="btn-finish-class" onclick="markClassWatched()">
+          ✓ Complete Class &amp; Unlock Assignment
+        </button>
+      </div>
+    </div>
+
+    <!-- AI Tutor workspace: sketchpad + chat -->
+    <div class="ai-wrap">
+      <div class="ai-top">
+        <div class="t-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5zM9 17h6"/></svg></div>
+        <div><h3>Pragya — AI Tutor</h3><div class="sub">NCERT-mapped · teaches step-by-step on the sketchpad</div></div>
+        <div style="margin-left:auto;display:flex;align-items:center;gap:14px">
+          <div class="voice-toggle">Voice replies <div class="switch on" onclick="toggleVoice(this)"><i></i></div></div>
+        </div>
+      </div>
+      <div class="ai-body">
+        <div class="canvas-col">
+          <div class="canvas-tools">
+            <button class="ctool on" title="Pen"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7-4-4-7 7v4zM16 6l2 2"/></svg></button>
+            <button class="ctool" title="Shapes"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="4"/><rect x="12" y="12" width="8" height="8"/></svg></button>
+            <button class="ctool" title="Text"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5h14M12 5v14"/></svg></button>
+            <button class="ctool" title="Eraser" onclick="clearSketch()"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16l6 6h10M8 20l12-12-6-6L4 12z"/></svg></button>
+            <span class="tiny" style="margin-left:auto;color:var(--muted)">✏️ Draw here — Pragya can see your work</span>
+          </div>
+          <canvas id="sketch"></canvas>
+        </div>
+        <div class="chat-col">
+          <div class="chat-feed" id="chatFeed">
+            <div class="msg ai"><div class="who">AI Tutor · Pragya</div>Hi Ramesh! 👋 Today we're learning <b>Prompting like a Pro</b> from Module 3.<br><br>I've written the 4-part prompt formula on the board →<br><b>Role · Task · Context · Format</b><br><br>Let me explain each part step by step. When we finish, your Topic Assignment 3 will automatically unlock! Ready? 🙂</div>
+            <div class="msg me">What does Role mean exactly?</div>
+            <div class="msg ai"><div class="who">AI Tutor · Pragya</div>Great question! <b>Role</b> tells the AI <i>who to be</i>. For example: <i>"Act as a Class 9 science teacher"</i>. This shapes the AI's tone, depth, and language. I've underlined it on the board — see the red circle? That's always step 1 of a good prompt. Try writing your own role for a maths doubt! ✏️</div>
+          </div>
+          <div class="chat-sugg">
+            <button onclick="tutorQuick('Explain more simply')">Simpler please</button>
+            <button onclick="tutorQuick('Show step by step')">Step by step</button>
+            <button onclick="tutorQuick('Give me an example')">Example</button>
+            <button onclick="markClassWatched()">I'm finished with class ✓</button>
+          </div>
+          <div class="chat-in">
+            <input id="chatInput" placeholder="Ask Pragya anything about this topic…" onkeydown="if(event.key==='Enter')sendChat()">
+            <button class="mic" title="Voice" onclick="this.classList.toggle('live')"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="3" width="6" height="11" rx="3"/></svg></button>
+            <button class="send" onclick="sendChat()"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></button>
           </div>
         </div>
       </div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <button class="btn btn-pri" data-go="assessment">Start Assignment →</button>
-        <button class="btn btn-ghost btn-sm" onclick="tutorQuick('Help me understand the assignment')">Ask Pragya for a hint</button>
+    </div>
+
+    <!-- Assignment section below classroom — Unlocks after class is watched -->
+    <div style="margin-top:24px">
+      <div class="sec-h">
+        <h2>Topic Assignment (Paired with Class 3.2)</h2>
+        <span class="chip" id="classroom-assign-badge" style="background:var(--amber-50);color:#B45309;border:1px solid #FDE68A;font-weight:700">Due in 2 days</span>
+      </div>
+
+      <div class="card" id="classroom-assign-card" style="padding:22px;border:2px solid #FDE68A;transition:.2s">
+        <!-- Banner -->
+        <div class="verif-banner verif-pending" id="classroom-assign-banner" style="margin-bottom:16px">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4M12 16h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>
+          <div><b>Assignment is locked.</b> Complete today's AI class above with Pragya (or click "Complete Class") to unlock this assignment.</div>
+        </div>
+
+        <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:16px">
+          <div class="ico-box" style="background:var(--amber-50);color:#B45309;width:44px;height:44px;flex-shrink:0">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6M9 13h6M9 17h4"/></svg>
+          </div>
+          <div style="flex:1">
+            <div style="font-weight:800;font-size:16px;margin-bottom:2px">Assignment 3 — Build a Study Prompt</div>
+            <div class="tiny muted" style="margin-bottom:12px">Set by Pragya after today's session on Prompting like a Pro</div>
+            <p style="font-size:13.5px;line-height:1.75;color:var(--ink-2)">
+              Write a prompt that asks an AI to explain the <b>water cycle</b> to a Class 9 student. Your prompt must include all 4 parts: <b>Role, Task, Context</b> and <b>Format</b>. Then compare your prompt with the example on the board and note what you would change.
+            </p>
+            <div style="margin-top:12px;display:flex;gap:6px;flex-wrap:wrap">
+              <span class="chip chip-gray">🎯 Application</span>
+              <span class="chip chip-gray">📝 Written response</span>
+              <span class="chip chip-ai">⚡ AI-evaluated · teacher-verified</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-ghost" id="classroom-assign-btn" onclick="markClassWatched()">
+            🔒 Complete Class Above to Unlock Assignment
+          </button>
+          <button class="btn btn-ghost btn-sm" onclick="tutorQuick('Help me understand the assignment')">Ask Pragya for a hint</button>
+        </div>
       </div>
     </div>
   </div>
 </section>
-
 <!-- ========== 6. AI-ENHANCED VIDEO ========== -->
 <section class="screen" id="s-video">
   <div class="crumb"><a data-go="course">AI BootCamp</a><span class="sep">/</span><a data-go="chapter">Prompting like a Pro</a><span class="sep">/</span><span>Video</span></div>
@@ -1447,7 +1703,9 @@ function go(id, push){
   window.scrollTo({top:0,behavior:'instant'});
   document.querySelector('.rail').classList.remove('open');
   document.querySelector('.fab').style.display=(id==='tutor')?'none':'flex';
-  if(id==='tutor') setTimeout(initSketch,60);
+  if(id==='tutor') {
+    openTutorSchedule();
+  }
 }
 document.addEventListener('click',function(e){
   var t=e.target.closest('[data-go]');
@@ -1530,6 +1788,131 @@ function initSketch(){
 function clearSketch(){sketchInit=false;var c=document.getElementById('sketch');if(c)c.getContext('2d').clearRect(0,0,c.width,c.height);initSketch();}
 
 /* ============ PRACTICE ============ */
+
+
+/* ============ AI TUTOR SCHEDULE & CLASSROOM FLOW ============ */
+window._classWatched = false;
+
+function openTutorClassroom(topic) {
+  var sView = document.getElementById('tutor-schedule-view');
+  var cView = document.getElementById('tutor-classroom-view');
+  if (sView) sView.style.display = 'none';
+  if (cView) cView.style.display = 'block';
+
+  if (topic) {
+    var sel = document.getElementById('topicSelect');
+    if (sel) {
+      sel.value = topic;
+      switchTopic(topic);
+    }
+  }
+  setTimeout(function() {
+    initSketch();
+  }, 100);
+}
+
+function openTutorSchedule() {
+  var sView = document.getElementById('tutor-schedule-view');
+  var cView = document.getElementById('tutor-classroom-view');
+  if (sView) sView.style.display = 'block';
+  if (cView) cView.style.display = 'none';
+}
+
+function markClassWatched() {
+  window._classWatched = true;
+
+  // Update button in classroom
+  var btn = document.getElementById('btn-finish-class');
+  if (btn) {
+    btn.innerHTML = '✓ Class Completed';
+    btn.style.background = 'var(--tg)';
+    btn.disabled = true;
+  }
+  var pill = document.getElementById('class-status-pill');
+  if (pill) {
+    pill.textContent = '✓ Watched & Completed';
+    pill.className = 'chip chip-tg';
+  }
+
+  // Update assignment box in classroom view
+  var cAssign = document.getElementById('classroom-assign-card');
+  if (cAssign) {
+    cAssign.style.borderColor = 'var(--tg)';
+    var banner = document.getElementById('classroom-assign-banner');
+    if (banner) {
+      banner.className = 'verif-banner verif-done';
+      banner.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><div><b>Class Watched!</b> Assignment 3 is now unlocked. You can now complete and submit your work.</div>';
+    }
+    var cBtn = document.getElementById('classroom-assign-btn');
+    if (cBtn) {
+      cBtn.className = 'btn btn-pri';
+      cBtn.textContent = 'Start Assignment 3 →';
+      cBtn.onclick = function() { go('assessment'); };
+    }
+  }
+
+  // Update assignment box in schedule view
+  var sAssign = document.getElementById('schedule-assign-3');
+  if (sAssign) {
+    sAssign.style.borderColor = 'var(--tg)';
+    sAssign.style.background = 'var(--tg-50)';
+    var sBadge = document.getElementById('schedule-assign-3-badge');
+    if (sBadge) {
+      sBadge.className = 'chip chip-tg';
+      sBadge.textContent = '🔓 Unlocked';
+    }
+    var sSub = document.getElementById('schedule-assign-3-sub');
+    if (sSub) {
+      sSub.textContent = 'Class 3.2 watched! Ready to submit.';
+      sSub.style.color = '#0C8F6A';
+    }
+    var sBtn = document.getElementById('schedule-assign-3-btn');
+    if (sBtn) {
+      sBtn.className = 'btn btn-pri btn-sm';
+      sBtn.disabled = false;
+      sBtn.style.opacity = '1';
+      sBtn.style.cursor = 'pointer';
+      sBtn.textContent = 'Start Assignment 3 →';
+      sBtn.onclick = function() { go('assessment'); };
+    }
+  }
+
+  // Update class 3.2 in schedule view
+  var sClass = document.getElementById('schedule-class-3-2-btn');
+  if (sClass) {
+    sClass.className = 'btn btn-soft btn-sm';
+    sClass.innerHTML = '✓ Rewatch Class';
+  }
+  var sClassTag = document.getElementById('schedule-class-3-2-tag');
+  if (sClassTag) {
+    sClassTag.className = 'chip chip-tg';
+    sClassTag.textContent = '✓ Watched';
+  }
+
+  // Toast notification
+  var toast = document.createElement('div');
+  toast.style.position = 'fixed';
+  toast.style.bottom = '28px';
+  toast.style.right = '28px';
+  toast.style.background = '#0C8F6A';
+  toast.style.color = '#fff';
+  toast.style.padding = '14px 22px';
+  toast.style.borderRadius = '14px';
+  toast.style.boxShadow = '0 8px 30px rgba(0,0,0,.25)';
+  toast.style.zIndex = '9999';
+  toast.style.display = 'flex';
+  toast.style.alignItems = 'center';
+  toast.style.gap = '12px';
+  toast.style.fontSize = '14px';
+  toast.style.fontWeight = '700';
+  toast.innerHTML = '🎉 Class 3.2 Completed! Assignment 3 is now unlocked!';
+  document.body.appendChild(toast);
+  setTimeout(function() {
+    toast.style.transition = 'opacity .4s ease';
+    toast.style.opacity = '0';
+    setTimeout(function() { toast.remove(); }, 400);
+  }, 3500);
+}
 
 /* ============ PRACTICE CENTER MODES ============ */
 function switchPracticeMode(mode) {
