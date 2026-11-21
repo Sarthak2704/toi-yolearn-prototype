@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Times of India — GrowFast AI Learning Platform powered by YoLearn.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* TOI primary brand red — now drives all nav, buttons, tabs */
+  --yl:#D2232A; --yl-600:#C01E24; --yl-700:#A01820; --yl-50:#FFF0F0; --yl-100:#FFD5D6;
+  /* YoLearn AI purple — kept for tutor, chat, sketchpad, AI chips */
+  --ai:#6C4BF6; --ai-600:#5B3DF5; --ai-700:#4B2FD6; --ai-50:#F1EDFF; --ai-100:#E7E0FF;
+  --tg:#12B886; --tg-50:#E5F8F1;
+  --red:#D2232A; --red-50:#FFF0F0;
+  --amber:#F59E0B; --amber-50:#FEF4E3;
+  --blue:#2563EB; --blue-light:#1D4FD7;
+  --ink:#141522; --ink-2:#3B3D54; --muted:#6B6E86; --faint:#9A9DB4;
+  --line:#E9E9F2; --line-2:#EFEFF6;
+  --bg:#F6F5FB; --card:#FFFFFF;
+  --dark:#0E0F1C; --dark-2:#171a2e; --dark-3:#21243d; --dark-line:#2d314f; --dark-muted:#9aa0c7;
+  --r:16px; --r-sm:12px; --r-lg:22px;
+  --sh-sm:0 1px 2px rgba(20,21,34,.06),0 1px 3px rgba(20,21,34,.05);
+  --sh:0 6px 20px rgba(20,21,34,.07),0 2px 6px rgba(20,21,34,.04);
+  --sh-lg:0 18px 50px rgba(180,0,0,.16);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
+h1,h2,h3,h4,.disp{font-family:'Plus Jakarta Sans','Inter',sans-serif;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+img{max-width:100%;display:block}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:#d7d7e6;border-radius:8px;border:2px solid var(--bg)}
+.dark ::-webkit-scrollbar-thumb{background:#3a3f63;border-color:var(--dark-2)}
+
+/* ====== TOP BAR ====== */
+.topbar{position:sticky;top:0;z-index:60;height:66px;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:22px;padding:0 24px}
+.brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.logo{display:flex;align-items:center;gap:10px;font-size:14px}
+.logo .mark{width:36px;height:36px;border-radius:9px;background:#D2232A;display:grid;place-items:center;color:#fff;box-shadow:0 4px 12px rgba(210,35,42,.35);flex-shrink:0}
+.logo .mark svg{width:21px;height:21px}
+.logo .toi-name{line-height:1.15}
+.logo .toi-name .top-line{font-family:'Times New Roman','Georgia',serif;font-weight:700;font-size:16px;color:#D2232A;letter-spacing:-.01em}
+.logo .toi-name .sub-line{font-family:'Plus Jakarta Sans';font-size:8.5px;font-weight:700;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+.cobrand{display:flex;align-items:center;gap:10px;padding-left:14px;border-left:1px solid var(--line)}
+.cobrand .gf-block{line-height:1.2}
+.cobrand .gf{font-family:'Plus Jakarta Sans';font-weight:800;font-size:14px}
+.cobrand .gf .g{color:#1A73E8} .cobrand .gf .f{color:#D2232A}
+.cobrand .yl-pow{font-size:9px;letter-spacing:.04em;color:var(--muted);font-weight:600;display:flex;align-items:center;gap:4px}
+.cobrand .yl-pow .yl-dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#6C4BF6,#C44BF6);display:inline-block}
+.topnav{display:flex;align-items:center;gap:4px;margin-left:10px}
+.topnav a{padding:9px 14px;border-radius:10px;font-size:14px;font-weight:600;color:var(--muted);transition:.15s;white-space:nowrap}
+.topnav a:hover{background:var(--yl-50);color:var(--yl-700)}
+.topnav a.on{background:var(--yl-50);color:var(--yl-700)}
+.topright{margin-left:auto;display:flex;align-items:center;gap:10px}
+.pill{display:flex;align-items:center;gap:7px;padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px;border:1px solid var(--line);background:#fff}
+.pill.streak{color:#E8590C;border-color:#FFE0C2;background:#FFF7F0}
+.pill.tokens{color:var(--yl-700);border-color:var(--yl-100);background:var(--yl-50)}
+.iconbtn{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;border:1px solid var(--line);background:#fff;color:var(--ink-2);position:relative}
+.iconbtn:hover{background:var(--bg)}
+.iconbtn .dot{position:absolute;top:8px;right:9px;width:8px;height:8px;border-radius:50%;background:var(--red);border:2px solid #fff}
+.avatar{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#6C4BF6,#C44BF6);color:#fff;display:grid;place-items:center;font-weight:700;font-size:15px;cursor:pointer}
+.menutoggle{display:none}
+
+/* ====== LAYOUT ====== */
+.layout{display:flex;min-height:calc(100vh - 66px)}
+.rail{width:240px;flex-shrink:0;border-right:1px solid var(--line);background:#fff;padding:18px 14px;position:sticky;top:66px;height:calc(100vh - 66px);overflow-y:auto}
+.rail .grp{font-size:10.5px;font-weight:700;letter-spacing:.09em;color:var(--faint);text-transform:uppercase;padding:14px 12px 7px}
+.rail a{display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:11px;font-size:14px;font-weight:600;color:var(--ink-2);transition:.15s;margin-bottom:2px}
+.rail a svg{width:18px;height:18px;color:var(--faint);flex-shrink:0}
+.rail a:hover{background:var(--bg)}
+.rail a.on{background:var(--yl-600);color:#fff}
+.rail a.on svg{color:#fff}
+.rail a .tag{margin-left:auto;font-size:10px;font-weight:700;background:var(--red);color:#fff;padding:2px 6px;border-radius:6px}
+.rail a.on .tag{background:rgba(255,255,255,.25)}
+.main{flex:1;min-width:0;padding:26px 34px 90px}
+
+/* ====== SCREENS ====== */
+.screen{display:none;animation:fade .32s ease}
+.screen.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.crumb{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--muted);font-weight:500;margin-bottom:14px;flex-wrap:wrap}
+.crumb a{font-weight:600}.crumb a:hover{color:var(--yl-700)}
+.crumb span.sep{color:var(--faint)}
+.page-h{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.page-h h1{font-size:28px;font-weight:800}
+.page-h p{color:var(--muted);font-size:14.5px;margin-top:4px}
+
+/* ====== COMPONENTS ====== */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:12px;font-weight:700;font-size:14px;transition:.15s;white-space:nowrap}
+.btn svg{width:17px;height:17px}
+.btn-pri{background:var(--yl-600);color:#fff;box-shadow:0 6px 16px rgba(210,35,42,.3)}
+.btn-pri:hover{background:var(--yl-700)}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 6px 16px rgba(228,21,27,.25)}
+.btn-red:hover{filter:brightness(.95)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-ghost{background:#fff;border:1px solid var(--line);color:var(--ink-2)}
+.btn-ghost:hover{border-color:var(--yl);color:var(--yl-700)}
+.btn-soft{background:var(--yl-50);color:var(--yl-700)}
+.btn-soft:hover{background:var(--yl-100)}
+.btn-sm{padding:8px 13px;font-size:13px;border-radius:10px}
+.btn-lg{padding:14px 24px;font-size:15px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh-sm)}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;font-size:12px;font-weight:700}
+.chip-yl{background:var(--yl-50);color:var(--yl-700)} .chip-tg{background:var(--tg-50);color:#0C8F6A}
+.chip-red{background:var(--red-50);color:var(--red)} .chip-amber{background:var(--amber-50);color:#B45309}
+.chip-blue{background:#E8F0FE;color:var(--blue)} .chip-gray{background:#EEEEF4;color:var(--muted)}
+.chip-ai{background:linear-gradient(90deg,var(--ai-50),#FBEEFF);color:var(--ai-700);border:1px solid var(--ai-100)}
+.progress{height:8px;border-radius:99px;background:#ECECF4;overflow:hidden}
+.progress>i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--yl-700),var(--yl))}
+.progress.tg>i{background:linear-gradient(90deg,var(--tg),#3ddba0)}
+.grid{display:grid;gap:18px}
+.g-2{grid-template-columns:repeat(2,1fr)} .g-3{grid-template-columns:repeat(3,1fr)} .g-4{grid-template-columns:repeat(4,1fr)}
+.sec-h{display:flex;align-items:center;justify-content:space-between;margin:28px 0 14px;gap:12px}
+.sec-h h2{font-size:19px;font-weight:800}
+.sec-h .link{font-size:13px;font-weight:700;color:var(--yl-700);display:flex;align-items:center;gap:4px}
+.sec-h .link:hover{gap:7px}
+.muted{color:var(--muted)} .tiny{font-size:12px} .sm{font-size:13px}
+.thumb{aspect-ratio:16/9;border-radius:12px;background:linear-gradient(135deg,#1a0505,#8B1A1A);position:relative;overflow:hidden;color:#fff}
+.thumb .ov{position:absolute;inset:0;padding:14px;display:flex;flex-direction:column;justify-content:space-between}
+.thumb .play{position:absolute;inset:0;margin:auto;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;color:var(--yl-700)}
+
+/* hero */
+.hero{border-radius:var(--r-lg);padding:28px 30px;background:linear-gradient(120deg,#8B0000 0%,#D2232A 50%,#E84040 100%);color:#fff;position:relative;overflow:hidden;box-shadow:var(--sh-lg)}
+.hero::after{content:"";position:absolute;right:-60px;top:-60px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.18),transparent 70%)}
+.hero::before{content:"";position:absolute;right:120px;bottom:-80px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.1),transparent 70%)}
+.hero h1{font-size:25px;font-weight:800;position:relative}
+.hero p{opacity:.9;margin-top:6px;max-width:540px;position:relative;font-size:14.5px}
+
+/* AI hub tiles */
+.hub{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.hubtile{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px 16px;text-align:left;transition:.18s;position:relative;overflow:hidden}
+.hubtile:hover{transform:translateY(-3px);box-shadow:var(--sh);border-color:var(--yl-100)}
+.hubtile .ic{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;color:#fff;margin-bottom:12px}
+.hubtile h4{font-size:15px;font-weight:700}
+.hubtile p{font-size:12px;color:var(--muted);margin-top:3px}
+
+/* lists */
+.list-row{display:flex;align-items:center;gap:14px;padding:13px 16px;border-radius:12px;transition:.15s}
+.list-row:hover{background:var(--bg)}
+.list-row+.list-row{border-top:1px solid var(--line-2)}
+.ico-box{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;flex-shrink:0}
+
+/* tabs */
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:20px;overflow-x:auto}
+.tabs button{padding:11px 16px;font-weight:700;font-size:14px;color:var(--muted);border-bottom:2.5px solid transparent;white-space:nowrap}
+.tabs button.on{color:var(--yl-700);border-color:var(--yl-600)}
+.tabpane{display:none}.tabpane.on{display:block}
+
+/* ====== DARK AI WORKSPACE ====== */
+.ai-wrap{background:var(--dark);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-lg);color:#E7E9F7}
+.ai-top{display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid var(--dark-line);background:var(--dark-2)}
+.ai-top .t-ic{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--ai),#C44BF6);display:grid;place-items:center;color:#fff}
+.ai-top h3{font-size:15px;color:#fff;font-weight:700}
+.ai-top .sub{font-size:11.5px;color:var(--dark-muted)}
+.ai-body{display:grid;grid-template-columns:1.25fr 1fr;min-height:560px}
+.canvas-col{background:#fbfbff;position:relative;display:flex;flex-direction:column}
+.canvas-tools{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line);background:#fff}
+.ctool{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;color:var(--ink-2);border:1px solid var(--line)}
+.ctool.on{background:var(--ai-600);color:#fff;border-color:var(--ai-600)}
+.ctool:hover{background:var(--bg)}
+#sketch{flex:1;width:100%;cursor:crosshair;touch-action:none;background:
+  linear-gradient(90deg,#eef0fa 1px,transparent 1px) 0 0/26px 26px,
+  linear-gradient(#eef0fa 1px,transparent 1px) 0 0/26px 26px,#fbfbff}
+.chat-col{display:flex;flex-direction:column;background:var(--dark);border-left:1px solid var(--dark-line)}
+.chat-feed{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:14px}
+.msg{max-width:88%;padding:12px 15px;border-radius:15px;font-size:13.5px;line-height:1.55}
+.msg.ai{background:var(--dark-3);color:#E7E9F7;border-bottom-left-radius:5px;align-self:flex-start}
+.msg.me{background:var(--ai-600);color:#fff;border-bottom-right-radius:5px;align-self:flex-end}
+.msg.ai b{color:#fff}
+.msg .who{font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:5px;color:var(--dark-muted)}
+.chat-sugg{display:flex;gap:8px;flex-wrap:wrap;padding:0 18px 12px}
+.chat-sugg button{font-size:12px;font-weight:600;color:#cfd2f0;background:var(--dark-3);border:1px solid var(--dark-line);padding:7px 12px;border-radius:99px}
+.chat-sugg button:hover{border-color:var(--ai);color:#fff}
+.chat-in{display:flex;align-items:center;gap:8px;padding:14px 16px;border-top:1px solid var(--dark-line);background:var(--dark-2)}
+.chat-in input{flex:1;background:var(--dark-3);border:1px solid var(--dark-line);border-radius:12px;padding:12px 14px;color:#fff;font-size:14px;outline:none}
+.chat-in input::placeholder{color:#7b80a8}
+.mic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--dark-3);border:1px solid var(--dark-line);color:#cfd2f0}
+.mic.live{background:var(--red);color:#fff;border-color:var(--red);animation:pulse 1.2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(228,21,27,.5)}50%{box-shadow:0 0 0 7px rgba(228,21,27,0)}}
+.send{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--ai-600);color:#fff}
+.voice-toggle{display:flex;align-items:center;gap:9px;font-size:12.5px;color:var(--dark-muted);font-weight:600}
+.switch{width:40px;height:23px;border-radius:99px;background:#3a3f63;position:relative;transition:.2s;flex-shrink:0}
+.switch i{position:absolute;top:2.5px;left:2.5px;width:18px;height:18px;border-radius:50%;background:#fff;transition:.2s}
+.switch.on{background:var(--tg)} .switch.on i{left:19.5px}
+
+/* video */
+.video-stage{background:#000;aspect-ratio:16/9;border-radius:14px;position:relative;overflow:hidden;color:#fff;display:grid;place-items:center}
+.video-stage .vgrad{position:absolute;inset:0;background:linear-gradient(135deg,#1a0505,#4a1010 60%,#111)}
+.vbar{position:absolute;left:0;right:0;bottom:0;padding:14px 16px;background:linear-gradient(transparent,rgba(0,0,0,.75));display:flex;flex-direction:column;gap:9px}
+.vscrub{height:5px;border-radius:9px;background:rgba(255,255,255,.25);position:relative}
+.vscrub>i{position:absolute;left:0;top:0;bottom:0;width:38%;background:var(--red);border-radius:9px}
+.vscrub .marks span{position:absolute;top:-3px;width:11px;height:11px;border-radius:50%;background:#fff;border:2px solid var(--yl);transform:translateX(-50%)}
+.vctrl{display:flex;align-items:center;gap:14px;font-size:13px}
+.vctrl .sp{margin-left:auto}
+.assistant{display:flex;flex-direction:column;height:100%}
+.asst-tabs{display:flex;gap:4px;padding:4px;background:var(--bg);border-radius:12px;margin-bottom:12px}
+.asst-tabs button{flex:1;padding:8px;font-size:12.5px;font-weight:700;color:var(--muted);border-radius:9px}
+.asst-tabs button.on{background:#fff;color:var(--yl-700);box-shadow:var(--sh-sm)}
+
+/* study lab */
+.lab-modes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px}
+.lab-mode{border:2px solid var(--line);border-radius:var(--r);padding:20px;text-align:center;transition:.18s;background:#fff}
+.lab-mode:hover{border-color:var(--yl-100)}
+.lab-mode.on{border-color:var(--yl-600);background:var(--yl-50)}
+.lab-mode .ic{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;color:#fff;margin:0 auto 12px}
+.dropzone{border:2px dashed var(--yl-100);border-radius:var(--r);padding:40px;text-align:center;background:var(--yl-50)}
+
+/* doubt FAB + drawer */
+.fab{position:fixed;right:26px;bottom:26px;z-index:80;display:flex;align-items:center;gap:10px;padding:14px 20px;border-radius:99px;background:linear-gradient(135deg,var(--ai-600),#C44BF6);color:#fff;font-weight:700;font-size:15px;box-shadow:0 12px 34px rgba(108,75,246,.5)}
+.fab:hover{transform:translateY(-2px)}
+.fab svg{width:22px;height:22px}
+.scrim{position:fixed;inset:0;background:rgba(14,15,28,.5);backdrop-filter:blur(3px);z-index:90;opacity:0;pointer-events:none;transition:.25s}
+.scrim.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:440px;max-width:94vw;background:#fff;z-index:100;transform:translateX(100%);transition:.3s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;box-shadow:-20px 0 60px rgba(0,0,0,.2)}
+.drawer.open{transform:none}
+.drawer-h{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}
+.drawer-h .ic{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--ai),#C44BF6);display:grid;place-items:center;color:#fff}
+.ctx-chip{margin:14px 20px 0;padding:10px 13px;border-radius:11px;background:var(--ai-50);border:1px solid var(--ai-100);font-size:12.5px;color:var(--ai-700);font-weight:600;display:flex;align-items:center;gap:8px}
+.drawer-feed{flex:1;overflow-y:auto;padding:16px 20px;display:flex;flex-direction:column;gap:13px}
+.d-msg{max-width:90%;padding:12px 14px;border-radius:14px;font-size:13.5px;line-height:1.55}
+.d-msg.ai{background:var(--bg);border-bottom-left-radius:4px;align-self:flex-start}
+.d-msg.me{background:var(--ai-600);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+.drawer-in{padding:12px 16px;border-top:1px solid var(--line);display:flex;align-items:center;gap:8px}
+.drawer-in input{flex:1;border:1px solid var(--line);border-radius:12px;padding:11px 13px;font-size:14px;outline:none}
+.drawer-in input:focus{border-color:var(--ai)}
+.close-x{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;color:var(--muted);margin-left:auto}
+.close-x:hover{background:var(--bg)}
+
+/* practice */
+.practice-entry-card{background:#fff;border:1.5px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;justify-content:space-between;min-height:165px;transition:.2s;cursor:pointer}
+.practice-entry-card:hover{transform:translateY(-2px);box-shadow:var(--sh);border-color:var(--yl-100)}
+.practice-entry-card.active{border-color:var(--yl);box-shadow:0 6px 24px rgba(210,35,42,.12);background:#FFFDFD}
+.practice-entry-card .entry-icon{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;margin-bottom:14px}
+.practice-entry-card .entry-link{display:flex;align-items:center;gap:4px;font-size:13.5px;font-weight:700;color:var(--ink-2);margin-top:14px;align-self:flex-end}
+.practice-entry-card.active .entry-link, .practice-entry-card:hover .entry-link{color:var(--yl-700)}
+.subj-btn{transition:.15s;border-radius:12px;padding:14px 10px;text-align:center;cursor:pointer;border:1.5px solid var(--line);background:#fff}
+.subj-btn:hover{border-color:var(--yl);background:var(--yl-50)}
+.subj-btn.on{border:2px solid var(--yl)!important;background:var(--yl-50)!important}
+.subj-btn.on div:last-child{color:var(--yl-700)!important;font-weight:700}
+.q-card{border:1px solid var(--line);border-radius:var(--r);padding:26px;background:#fff;max-width:720px;margin:0 auto}
+.opt{display:flex;align-items:center;gap:13px;padding:14px 16px;border:1.5px solid var(--line);border-radius:13px;margin-bottom:11px;font-size:14.5px;font-weight:500;transition:.15s;cursor:pointer}
+.opt:hover{border-color:var(--yl)}
+.opt .k{width:28px;height:28px;border-radius:8px;background:var(--bg);display:grid;place-items:center;font-weight:700;font-size:13px;flex-shrink:0}
+.opt.correct{border-color:var(--tg);background:var(--tg-50)} .opt.correct .k{background:var(--tg);color:#fff}
+.opt.wrong{border-color:var(--red);background:var(--red-50)} .opt.wrong .k{background:var(--red);color:#fff}
+.feedback{display:none;margin-top:16px;padding:16px;border-radius:13px;background:var(--tg-50);border:1px solid #BEEAD9}
+.feedback.show{display:block;animation:fade .3s}
+
+/* tools hub */
+.tool-cat{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin:24px 0 12px}
+.tool-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;gap:13px;align-items:flex-start;transition:.16s}
+.tool-card:hover{box-shadow:var(--sh);transform:translateY(-2px);border-color:var(--yl-100)}
+.tool-card .ic{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;color:#fff;flex-shrink:0}
+.tool-card h4{font-size:14px;font-weight:700}.tool-card p{font-size:12px;color:var(--muted);margin-top:2px}
+
+/* assessment */
+.score-ring{width:130px;height:130px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--tg) 0 82%,#ECECF4 82% 100%);flex-shrink:0}
+.score-ring .in{width:102px;height:102px;border-radius:50%;background:#fff;display:grid;place-items:center;text-align:center}
+.q-eval{border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px}
+.q-eval .bar{height:6px;border-radius:9px;background:#ECECF4;overflow:hidden;margin-top:8px}
+.verif-banner{display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:14px;margin-bottom:20px;font-weight:600;font-size:14px}
+.verif-pending{background:var(--amber-50);color:#B45309;border:1px solid #FCE2B5}
+.verif-done{background:var(--tg-50);color:#0C8F6A;border:1px solid #BEEAD9}
+
+/* profile / cert / badge */
+.prof-head{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.prof-av{width:92px;height:92px;border-radius:24px;background:linear-gradient(135deg,#6C4BF6,#C44BF6);color:#fff;display:grid;place-items:center;font-size:34px;font-weight:800}
+.stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.stat .n{font-size:26px;font-weight:800;font-family:'Plus Jakarta Sans'}
+.stat .l{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:2px}
+.cert{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+.cert .top{aspect-ratio:1.5;background:linear-gradient(135deg,#2a0505,#D2232A);color:#fff;padding:22px;position:relative;display:flex;flex-direction:column;justify-content:space-between}
+.cert .seal{position:absolute;right:20px;top:20px;width:48px;height:48px;border-radius:50%;background:var(--amber);display:grid;place-items:center;color:#fff;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+.badge-tile{text-align:center;padding:22px 14px;border-radius:16px;border:1px solid var(--line);background:#fff;transition:.16s}
+.badge-tile:hover{transform:translateY(-3px);box-shadow:var(--sh)}
+.badge-tile.locked{opacity:.5;filter:grayscale(1)}
+.badge-med{width:72px;height:72px;border-radius:50%;margin:0 auto 12px;display:grid;place-items:center;font-size:32px;box-shadow:inset 0 -4px 10px rgba(0,0,0,.12)}
+
+/* resource rows on chapter */
+.res-row{display:flex;align-items:center;gap:14px;padding:16px;border:1px solid var(--line);border-radius:14px;background:#fff;transition:.15s}
+.res-row:hover{border-color:var(--yl-100);box-shadow:var(--sh-sm)}
+.learn-chips{display:flex;gap:8px;flex-wrap:wrap}
+.learn-chip{display:inline-flex;align-items:center;gap:7px;padding:9px 13px;border-radius:11px;background:var(--yl-50);color:var(--yl-700);font-weight:700;font-size:13px;border:1px solid var(--yl-100)}
+.learn-chip:hover{background:var(--yl-100)}
+
+/* module accordion */
+.mod{border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden;background:#fff}
+.mod-h{display:flex;align-items:center;gap:14px;padding:16px 18px;cursor:pointer}
+.mod-h .num{width:34px;height:34px;border-radius:10px;background:var(--yl-50);color:var(--yl-700);display:grid;place-items:center;font-weight:800;font-size:14px}
+.mod-body{display:none;border-top:1px solid var(--line-2);padding:6px 10px 10px}
+.mod.open .mod-body{display:block}
+.mod.open .chev{transform:rotate(180deg)}
+.chev{transition:.2s;color:var(--muted)}
+.topic-row{display:flex;align-items:center;gap:12px;padding:12px 10px;border-radius:10px}
+.topic-row:hover{background:var(--bg)}
+.topic-row .st{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;font-size:12px}
+.st.done{background:var(--tg);color:#fff}.st.now{background:var(--yl-600);color:#fff}.st.lock{background:#ECECF4;color:var(--faint)}
+
+.empty{text-align:center;padding:50px 20px;color:var(--muted)}
+.empty .ic{width:70px;height:70px;border-radius:20px;background:var(--yl-50);color:var(--yl-600);display:grid;place-items:center;margin:0 auto 16px}
+
+/* responsive */
+@media(max-width:1100px){.hub{grid-template-columns:repeat(3,1fr)}.g-4{grid-template-columns:repeat(2,1fr)}.ai-body{grid-template-columns:1fr}}
+@media(max-width:900px){
+  .topnav,.cobrand,.pill.tokens{display:none}
+  .rail{position:fixed;left:0;top:66px;z-index:70;transform:translateX(-100%);transition:.25s;box-shadow:var(--sh-lg)}
+  .rail.open{transform:none}
+  .menutoggle{display:grid}
+  .main{padding:20px 18px 90px}
+  .g-2,.g-3,.g-4{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .hub{grid-template-columns:repeat(2,1fr)}
+  .page-h h1{font-size:23px}
+  .fab span{display:none}.fab{padding:16px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<header class="topbar">
+  <button class="iconbtn menutoggle" onclick="document.querySelector('.rail').classList.toggle('open')" aria-label="menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <div class="brand">
+    <div class="logo">
+      <span class="mark">
+        <!-- TOI Newspaper mark -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="16" rx="2"/>
+          <path d="M7 8h10M7 11h7M7 14h5"/>
+          <path d="M17 11v6"/>
+        </svg>
+      </span>
+      <div class="toi-name">
+        <div class="top-line">The Times of India</div>
+        <div class="sub-line">AI Learning Platform</div>
+      </div>
+    </div>
+    <div class="cobrand">
+      <div class="yl-pow"><span class="yl-dot"></span> powered by YoLearn.ai</div>
+    </div>
+  </div>
+  <nav class="topnav" id="topnav">
+    <a data-go="dashboard" class="on">Home</a>
+    <a data-go="courses">My Courses</a>
+    <a data-go="tools">AI Hub</a>
+    <a data-go="studylab">Study Lab</a>
+    <a data-go="practice">Practice</a>
+    <a data-go="certificates">Achievements</a>
+  </nav>
+  <div class="topright">
+    <div class="pill streak" title="Learning streak">🔥 <span>12</span></div>
+    <div class="pill tokens" title="AI credits">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 10h6M9 14h6"/></svg>
+      <span>840</span>
+    </div>
+    <button class="iconbtn" title="Notifications"><span class="dot"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 01-3.4 0"/></svg></button>
+    <div class="avatar" onclick="go('profile')">RK</div>
+  </div>
+</header>
+
+<div class="layout">
+  <!-- ============ LEFT RAIL ============ -->
+  <aside class="rail">
+    <div class="grp">Learn</div>
+    <a data-go="dashboard" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>Home</a>
+    <a data-go="courses"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v14H4zM4 9h16"/></svg>My Courses</a>
+    <a data-go="practice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg>Practice with AI</a>
+    <div class="grp">AI Learning</div>
+    <a data-go="tutor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5zM9 17h6M10 21h4"/></svg>Learn with AI Tutor</a>
+    <a data-go="studylab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5a2 2 0 012-2h9l5 5v11a0 0 0 010 0H4zM14 3v6h6"/></svg>Study Lab</a>
+    <a data-go="tools"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>AI Tools<span class="tag">12</span></a>
+    <div class="grp">Account</div>
+    <a data-go="certificates"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="9" r="6"/><path d="M8 14l-1 7 5-3 5 3-1-7"/></svg>Certificates</a>
+    <a data-go="badges"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 7.7l5.4-.8z"/></svg>Badges</a>
+    <a data-go="profile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Profile</a>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main" id="main">
+<!-- ========== 1. DASHBOARD ========== -->
+<section class="screen active" id="s-dashboard">
+  <div class="hero">
+    <span class="chip" style="background:rgba(255,255,255,.18);color:#fff;backdrop-filter:blur(4px)">🔥 12-day streak · keep it up!</span>
+    <h1 style="margin-top:12px">Good evening, Ramesh 👋</h1>
+    <p>You're 62% through <b>AI BootCamp for Students</b>. Pick up where you left off, or ask your AI tutor anything.</p>
+    <div style="display:flex;gap:10px;margin-top:18px;position:relative;flex-wrap:wrap">
+      <button class="btn" style="background:#fff;color:var(--yl-700)" data-go="chapter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3l14 9-14 9V3z"/></svg> Continue learning</button>
+      <button class="btn" style="background:rgba(255,255,255,.16);color:#fff" onclick="openDoubt('general — using your learning profile')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.1 9a3 3 0 015.8 1c0 2-3 3-3 3M12 17h.01"/></svg> Ask a doubt</button>
+    </div>
+  </div>
+
+  <div class="sec-h"><h2>Continue Learning</h2><a class="link" data-go="courses">All courses →</a></div>
+  <div class="grid g-3">
+    <div class="card" style="overflow:hidden" role="button" data-go="course">
+      <div class="thumb" style="aspect-ratio:16/8;background:linear-gradient(135deg,#1a0505,#8B1A1A)">
+        <div class="ov"><div style="display:flex;justify-content:space-between"><span class="chip chip-tg" style="background:rgba(255,255,255,.9)">Lifetime</span><span class="chip" style="background:rgba(0,0,0,.35);color:#fff">Batch 7</span></div>
+        <div><div style="font-weight:800;font-size:17px">AI BootCamp for Students</div><div class="tiny" style="opacity:.85">Module 3 · AI Tools for Learning</div></div></div>
+      </div>
+      <div style="padding:16px">
+        <div style="display:flex;justify-content:space-between;font-size:12.5px;font-weight:700;margin-bottom:6px"><span class="muted">Progress</span><span class="muted">62%</span></div>
+        <div class="progress"><i style="width:62%"></i></div>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:14px">
+          <button class="btn btn-pri btn-sm" style="flex:1;justify-content:center" data-go="chapter">Continue</button>
+          <button class="btn btn-ghost btn-sm" data-go="course">Details</button>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="overflow:hidden" role="button" data-go="studylab">
+      <div class="thumb" style="aspect-ratio:16/8;background:linear-gradient(135deg,#0C8F6A,#12B886)">
+        <div class="ov"><span class="chip" style="background:rgba(0,0,0,.3);color:#fff;align-self:flex-start">Study Lab</span>
+        <div><div style="font-weight:800;font-size:16px">Chapter 6 — Life Processes</div><div class="tiny" style="opacity:.85">from your uploaded PDF</div></div></div>
+      </div>
+      <div style="padding:16px"><div class="sm muted">Resume your AI notes & flashcards generated from the NCERT PDF you uploaded.</div>
+        <button class="btn btn-soft btn-sm" style="margin-top:12px;width:100%;justify-content:center" data-go="studylab">Open in Study Lab</button></div>
+    </div>
+    <div class="card" style="overflow:hidden" role="button" data-go="practice">
+      <div class="thumb" style="aspect-ratio:16/8;background:linear-gradient(135deg,#B45309,#F59E0B)">
+        <div class="ov"><span class="chip" style="background:rgba(0,0,0,.3);color:#fff;align-self:flex-start">Practice</span>
+        <div><div style="font-weight:800;font-size:16px">Weak concept: Prompting</div><div class="tiny" style="opacity:.85">7 adaptive questions ready</div></div></div>
+      </div>
+      <div style="padding:16px"><div class="sm muted">AI noticed you struggled here. A quick personalised set will help it stick.</div>
+        <button class="btn btn-sm" style="margin-top:12px;width:100%;justify-content:center;background:var(--amber-50);color:#B45309" data-go="practice">Practice now</button></div>
+    </div>
+  </div>
+
+  <div class="sec-h"><h2>AI Learning Hub</h2><span class="chip chip-ai">⚡ Context-aware</span></div>
+  <div class="hub">
+    <button class="hubtile" onclick="openDoubt('general — using your learning profile')"><div class="ic" style="background:linear-gradient(135deg,#6C4BF6,#9A7BFF)"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.1 9a3 3 0 015.8 1c0 2-3 3-3 3M12 17h.01M4 20l1.5-3.5A8 8 0 1112 20z"/></svg></div><h4>Ask a Doubt</h4><p>Text · voice · photo</p></button>
+    <button class="hubtile" data-go="tutor"><div class="ic" style="background:linear-gradient(135deg,#E4151B,#ff6a4d)"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5zM9 17h6M10 21h4"/></svg></div><h4>Learn with AI Tutor</h4><p>Learn on the board</p></button>
+    <button class="hubtile" data-go="practice"><div class="ic" style="background:linear-gradient(135deg,#0C8F6A,#12B886)"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg></div><h4>Practice with AI</h4><p>Adaptive sets</p></button>
+    <button class="hubtile" data-go="studylab"><div class="ic" style="background:linear-gradient(135deg,#2563EB,#4f8bff)"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5a2 2 0 012-2h9l5 5v11H4zM14 3v6h6"/></svg></div><h4>Study Lab</h4><p>PDF · YouTube</p></button>
+    <button class="hubtile" data-go="tools"><div class="ic" style="background:linear-gradient(135deg,#B45309,#F59E0B)"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div><h4>AI Tools</h4><p>12 learning tools</p></button>
+  </div>
+
+  <div class="grid g-2" style="margin-top:28px;align-items:start">
+    <div>
+      <div class="sec-h"><h2>My Learning</h2></div>
+      <div class="card" style="padding:8px">
+        <div class="list-row"><div class="ico-box" style="background:var(--yl-50);color:var(--yl-700)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3l14 9-14 9V3z"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Prompting like a Pro</div><div class="tiny muted">Lesson 3.2 · last accessed 2h ago</div></div><button class="btn btn-ghost btn-sm" data-go="video">Resume</button></div>
+        <div class="list-row"><div class="ico-box" style="background:var(--amber-50);color:#B45309"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 2M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Assignment: Build a study prompt</div><div class="tiny" style="color:#B45309;font-weight:600">Due in 2 days</div></div><button class="btn btn-ghost btn-sm" data-go="assessment">View</button></div>
+        <div class="list-row"><div class="ico-box" style="background:var(--tg-50);color:#0C8F6A"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Quiz: How Machines Learn</div><div class="tiny muted">Completed · 8/10 · teacher-verified</div></div><button class="btn btn-ghost btn-sm" data-go="assessment">Result</button></div>
+      </div>
+    </div>
+    <div>
+      <div class="sec-h"><h2>Achievements</h2><a class="link" data-go="badges">View all →</a></div>
+      <div class="card" style="padding:20px">
+        <div class="grid g-3" style="gap:12px;text-align:center">
+          <div><div class="badge-med" style="background:linear-gradient(135deg,#FDE68A,#F59E0B)">🚀</div><div class="tiny" style="font-weight:700">Fast Starter</div></div>
+          <div><div class="badge-med" style="background:linear-gradient(135deg,#C4B5FD,#6C4BF6)">🔥</div><div class="tiny" style="font-weight:700">12-day Streak</div></div>
+          <div><div class="badge-med" style="background:linear-gradient(135deg,#A7F3D0,#12B886)">🎯</div><div class="tiny" style="font-weight:700">Quiz Ace</div></div>
+        </div>
+        <div style="border-top:1px solid var(--line-2);margin-top:16px;padding-top:16px;display:flex;align-items:center;gap:14px">
+          <div style="flex:1"><div style="font-weight:700;font-size:14px">1 Certificate in progress</div><div class="tiny muted">Complete the course to unlock your TOI × YoLearn certificate</div></div>
+          <button class="btn btn-ghost btn-sm" data-go="certificates">See</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 2. MY COURSES ========== -->
+<section class="screen" id="s-courses">
+  <div class="page-h"><div><h1>My Courses</h1><p>Your enrolled programs — now with an AI learning layer on every chapter.</p></div>
+    <input placeholder="Search courses…" style="padding:11px 14px;border:1px solid var(--line);border-radius:12px;font-size:14px;outline:none">
+  </div>
+  <div class="grid g-3">
+    <div class="card" style="overflow:hidden" role="button" data-go="coursepath">
+      <div class="thumb" style="aspect-ratio:16/9;background:linear-gradient(135deg,#1a0505,#8B1A1A)"><div class="ov">
+        <div style="display:flex;justify-content:space-between"><span class="chip chip-tg" style="background:rgba(255,255,255,.92)">Lifetime</span><span class="chip" style="background:rgba(0,0,0,.35);color:#fff">Batch 7</span></div>
+        <div><div style="font-weight:800;font-size:17px">AI BootCamp for Students</div><div class="tiny" style="opacity:.85">Class 6–12 · 5 modules · 24 lessons</div></div></div></div>
+      <div style="padding:16px">
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px"><span class="chip chip-ai">AI Tutor</span><span class="chip chip-gray">Video</span><span class="chip chip-gray">Assignment</span><span class="chip chip-tg">Certificate</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:12.5px;font-weight:700;margin-bottom:6px"><span class="muted">62% complete</span><span class="muted">15/24</span></div>
+        <div class="progress"><i style="width:62%"></i></div>
+        <button class="btn btn-pri btn-sm" style="margin-top:14px;width:100%;justify-content:center" data-go="coursepath">Continue course</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 2b. CHOOSE LEARNING PATH ========== -->
+<section class="screen" id="s-coursepath">
+  <div class="crumb"><a data-go="courses">My Courses</a><span class="sep">/</span><span>AI BootCamp for Students</span><span class="sep">/</span><span>Choose your path</span></div>
+  <div style="margin-bottom:28px">
+    <h1 style="font-size:26px;margin-bottom:6px">How do you want to learn?</h1>
+    <p class="muted">Pick the learning style that works best for you. You can switch anytime.</p>
+  </div>
+
+  <div class="grid g-2" style="gap:20px">
+    <!-- PATH A: Coursera-style structured course -->
+    <div class="card" style="overflow:hidden;border:2px solid var(--line);cursor:pointer;transition:border-color .2s,box-shadow .2s" onmouseover="this.style.borderColor='var(--yl)';this.style.boxShadow='0 4px 24px rgba(210,35,42,.12)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'" data-go="course">
+      <div style="background:linear-gradient(135deg,#1a0505,#8B1A1A);padding:24px 24px 20px;position:relative">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border-radius:30px;padding:5px 14px;margin-bottom:16px">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="white" stroke-width="2"><path d="M5 3l14 9-14 9V3z"/></svg>
+          <span style="color:#fff;font-size:12px;font-weight:700">Structured Course</span>
+        </div>
+        <h2 style="color:#fff;font-size:21px;font-weight:800;margin-bottom:6px">AI BootCamp for Students</h2>
+        <p style="color:rgba(255,255,255,.75);font-size:14px;line-height:1.5">Complete course with video classes, pre-read materials, assignments and certification — just like Coursera.</p>
+        <div style="position:absolute;top:20px;right:20px;background:rgba(255,255,255,.15);border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+      </div>
+      <div style="padding:22px">
+        <div style="display:flex;justify-content:space-between;font-size:12.5px;font-weight:700;margin-bottom:8px"><span>Your progress</span><span class="muted">62% · 15/24 lessons</span></div>
+        <div class="progress" style="margin-bottom:20px"><i style="width:62%"></i></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
+          <div style="background:var(--red-50);border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:10px">
+            <div style="background:var(--yl);border-radius:8px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="white" stroke-width="2.5"><path d="M5 3l14 9-14 9V3z"/></svg></div>
+            <div><div style="font-weight:700;font-size:13px">Video Classes</div><div class="tiny muted">8h · 24 lessons</div></div>
+          </div>
+          <div style="background:#EFF6FF;border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:10px">
+            <div style="background:#3B82F6;border-radius:8px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="white" stroke-width="2.5"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg></div>
+            <div><div style="font-weight:700;font-size:13px">Pre-read Material</div><div class="tiny muted">PDFs per module</div></div>
+          </div>
+          <div style="background:#FFF7ED;border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:10px">
+            <div style="background:#F59E0B;border-radius:8px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="white" stroke-width="2.5"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg></div>
+            <div><div style="font-weight:700;font-size:13px">Assignments</div><div class="tiny muted">AI-graded · 5 total</div></div>
+          </div>
+          <div style="background:#F0FDF4;border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:10px">
+            <div style="background:#22C55E;border-radius:8px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
+            <div><div style="font-weight:700;font-size:13px">Certificate</div><div class="tiny muted">TOI × YoLearn</div></div>
+          </div>
+        </div>
+        <button class="btn btn-pri" style="width:100%;justify-content:center" data-go="course">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3l14 9-14 9V3z"/></svg>
+          Continue — Module 3
+        </button>
+      </div>
+    </div>
+
+    <!-- PATH B: AI Tutor self-paced -->
+    <div class="card" style="overflow:hidden;border:2px solid var(--line);cursor:pointer;transition:border-color .2s,box-shadow .2s" onmouseover="this.style.borderColor='var(--ai)';this.style.boxShadow='0 4px 24px rgba(108,75,246,.14)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'" data-go="tutor">
+      <div style="background:linear-gradient(135deg,#1e1240,#4C3A9B);padding:24px 24px 20px;position:relative">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border-radius:30px;padding:5px 14px;margin-bottom:16px">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="white" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5zM9 17h6"/></svg>
+          <span style="color:#fff;font-size:12px;font-weight:700">AI-Powered · Self-paced</span>
+        </div>
+        <h2 style="color:#fff;font-size:21px;font-weight:800;margin-bottom:6px">Learn with AI Tutor</h2>
+        <p style="color:rgba(255,255,255,.75);font-size:14px;line-height:1.5">Pragya, your AI tutor, teaches each topic on a sketchpad. Complete the AI class, then unlock your assignment.</p>
+        <div style="position:absolute;top:20px;right:20px;background:rgba(255,255,255,.15);border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5zM9 17h6"/></svg>
+        </div>
+      </div>
+      <div style="padding:22px">
+        <div style="font-size:12.5px;font-weight:700;margin-bottom:14px;color:var(--muted)">How it works</div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px">
+          <div style="display:flex;align-items:flex-start;gap:12px">
+            <div style="background:var(--ai-50);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;font-size:13px;color:var(--ai-700)">1</div>
+            <div>
+              <div style="font-weight:700;font-size:14px">Pick a topic</div>
+              <div class="tiny muted">Choose any topic from Modules 1–5 of AI BootCamp</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:12px">
+            <div style="background:var(--ai-50);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;font-size:13px;color:var(--ai-700)">2</div>
+            <div>
+              <div style="font-weight:700;font-size:14px">Pragya teaches on the sketchpad</div>
+              <div class="tiny muted">AI draws diagrams, explains concepts, answers your doubts live</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:12px">
+            <div style="background:var(--ai-50);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;font-size:13px;color:var(--ai-700)">3</div>
+            <div>
+              <div style="font-weight:700;font-size:14px;display:flex;align-items:center;gap:6px">Assignment unlocks after class <span class="chip chip-ai" style="font-size:11px;padding:2px 8px">After class</span></div>
+              <div class="tiny muted">Complete the AI class to unlock and submit your topic assignment</div>
+            </div>
+          </div>
+        </div>
+        <div style="background:var(--ai-50);border-radius:12px;padding:12px 14px;margin-bottom:20px;display:flex;gap:10px;align-items:center">
+          <div style="font-size:22px">🎓</div>
+          <div><div style="font-weight:700;font-size:13px;color:var(--ai-700)">Currently learning: Prompting like a Pro</div><div class="tiny muted">Module 3 · AI BootCamp topic in progress</div></div>
+        </div>
+        <button class="btn" style="width:100%;justify-content:center;background:var(--ai);color:#fff;border:none" data-go="tutor">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5zM9 17h6"/></svg>
+          Open AI Tutor
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 3. COURSE DETAIL ========== -->
+<section class="screen" id="s-course">
+  <div class="crumb"><a data-go="courses">My Courses</a><span class="sep">/</span><span>AI BootCamp for Students</span></div>
+  <div class="card" style="overflow:hidden;margin-bottom:22px">
+    <div style="display:grid;grid-template-columns:1.6fr 1fr">
+      <div style="padding:26px">
+        <div style="display:flex;gap:6px;margin-bottom:12px"><span class="chip chip-tg">Lifetime access</span><span class="chip chip-red">Batch 7</span><span class="chip chip-blue">Class 6–12</span></div>
+        <h1 style="font-size:26px">AI BootCamp for Students</h1>
+        <p class="muted" style="margin-top:8px;max-width:520px">Give your learning a head start with AI. From how machines think to building your own AI project — taught with an AI tutor beside you on every topic.</p>
+        <div style="display:flex;gap:22px;margin:18px 0;flex-wrap:wrap">
+          <div><div style="font-weight:800;font-size:18px">5</div><div class="tiny muted">Modules</div></div>
+          <div><div style="font-weight:800;font-size:18px">24</div><div class="tiny muted">Lessons</div></div>
+          <div><div style="font-weight:800;font-size:18px">8h</div><div class="tiny muted">Video</div></div>
+          <div><div style="font-weight:800;font-size:18px">∞</div><div class="tiny muted">AI help</div></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:700;margin-bottom:6px"><span>Your progress</span><span class="muted">62%</span></div>
+        <div class="progress"><i style="width:62%"></i></div>
+        <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
+          <button class="btn btn-pri" data-go="chapter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3l14 9-14 9V3z"/></svg> Continue — Module 3</button>
+          <button class="btn btn-ghost" data-go="tutor">Learn with AI Tutor</button>
+        </div>
+      </div>
+      <div class="thumb" style="border-radius:0"><div class="ov" style="justify-content:flex-end"><div><span class="chip chip-ai" style="background:rgba(255,255,255,.9)">⚡ AI layer on every chapter</span></div></div><div class="play"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div></div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="on" onclick="tab('course','curr',this)">Curriculum</button>
+    <button onclick="tab('course','res',this)">Resources & PDFs</button>
+    <button onclick="tab('course','assign',this)">Assignments</button>
+    <button onclick="tab('course','cert',this)">Certificate</button>
+  </div>
+  <div data-tabgroup="course">
+    <div class="tabpane on" id="pane-course-curr">
+      <div class="mod open">
+        <div class="mod-h" onclick="toggleMod(this)"><div class="num">✓</div><div style="flex:1"><div style="font-weight:700">Module 1 · Foundations of AI</div><div class="tiny muted">3 lessons · completed</div></div><span class="chip chip-tg">100%</span><svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="mod-body">
+          <div class="topic-row"><div class="st done">✓</div><div style="flex:1"><div style="font-weight:600;font-size:14px">What is Artificial Intelligence?</div></div><span class="chip chip-gray">Video · 12m</span></div>
+          <div class="topic-row"><div class="st done">✓</div><div style="flex:1"><div style="font-weight:600;font-size:14px">How Machines Learn</div></div><span class="chip chip-gray">Video · Quiz</span></div>
+          <div class="topic-row"><div class="st done">✓</div><div style="flex:1"><div style="font-weight:600;font-size:14px">AI All Around Us</div></div><span class="chip chip-gray">Reading</span></div>
+        </div>
+      </div>
+      <div class="mod open">
+        <div class="mod-h" onclick="toggleMod(this)"><div class="num">2</div><div style="flex:1"><div style="font-weight:700">Module 3 · AI Tools for Learning</div><div class="tiny muted">5 lessons · in progress</div></div><span class="chip chip-yl">60%</span><svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="mod-body">
+          <div class="topic-row"><div class="st done">✓</div><div style="flex:1"><div style="font-weight:600;font-size:14px">AI for Notes & Summaries</div></div><span class="chip chip-gray">Done</span></div>
+          <div class="topic-row" role="button" data-go="chapter"><div class="st now">▶</div><div style="flex:1"><div style="font-weight:700;font-size:14px;color:var(--yl-700)">Prompting like a Pro</div><div class="tiny muted">Video · AI Tutor · Sketchpad</div></div><button class="btn btn-pri btn-sm" data-go="chapter">Open</button></div>
+          <div class="topic-row"><div class="st lock">🔒</div><div style="flex:1"><div style="font-weight:600;font-size:14px">Study Smarter with AI</div></div><span class="chip chip-gray">Locked</span></div>
+        </div>
+      </div>
+      <div class="mod">
+        <div class="mod-h" onclick="toggleMod(this)"><div class="num">3</div><div style="flex:1"><div style="font-weight:700">Module 4 · Build with AI</div><div class="tiny muted">4 lessons</div></div><span class="chip chip-gray">0%</span><svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="mod-body"><div class="topic-row"><div class="st lock">🔒</div><div style="flex:1"><div style="font-weight:600;font-size:14px">No-code AI Apps</div></div></div></div>
+      </div>
+    </div>
+    <div class="tabpane" id="pane-course-res">
+      <div class="grid g-2">
+        <div class="res-row"><div class="ico-box" style="background:var(--red-50);color:var(--red)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Module 3 — Prompting Handbook.pdf</div><div class="tiny muted">1.2 MB · pre-reading</div></div><button class="btn btn-soft btn-sm" data-go="prereading">Read with AI</button></div>
+        <div class="res-row"><div class="ico-box" style="background:var(--blue-light);color:#fff"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v14H4zM4 9h16"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Prompting cheat-sheet</div><div class="tiny muted">Slides · 8 pages</div></div><button class="btn btn-ghost btn-sm">Open</button></div>
+      </div>
+    </div>
+    <div class="tabpane" id="pane-course-assign">
+      <div class="res-row" style="margin-bottom:12px"><div class="ico-box" style="background:var(--amber-50);color:#B45309"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Assignment 3 · Build a study prompt</div><div class="tiny" style="color:#B45309;font-weight:600">Due in 2 days · AI-assisted evaluation</div></div><button class="btn btn-pri btn-sm" data-go="assessment">Submit</button></div>
+      <div class="res-row"><div class="ico-box" style="background:var(--tg-50);color:#0C8F6A"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Quiz 2 · How Machines Learn</div><div class="tiny muted">8/10 · teacher-verified</div></div><button class="btn btn-ghost btn-sm" data-go="assessment">View result</button></div>
+    </div>
+    <div class="tabpane" id="pane-course-cert">
+      <div class="card" style="padding:24px;display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+        <div class="cert" style="width:240px"><div class="top"><div><div class="tiny" style="opacity:.8">GrowFast × YoLearn.ai</div><div style="font-weight:800;margin-top:4px">Certificate of Completion</div></div><div class="seal">★</div><div class="tiny" style="opacity:.85">AI BootCamp for Students</div></div></div>
+        <div style="flex:1;min-width:220px"><h3 style="font-size:18px">Almost there!</h3><p class="muted" style="margin:8px 0 14px">Complete the remaining 9 lessons to unlock your co-branded certificate, signed by The Times of India GrowFast.</p><div class="progress"><i style="width:62%"></i></div><button class="btn btn-ghost btn-sm" style="margin-top:14px" data-go="certificates">View certificates</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 4. CHAPTER / TOPIC ========== -->
+<section class="screen" id="s-chapter">
+  <div class="crumb"><a data-go="courses">My Courses</a><span class="sep">/</span><a data-go="course">AI BootCamp</a><span class="sep">/</span><span>Module 3</span><span class="sep">/</span><span>Prompting like a Pro</span></div>
+  <div class="page-h"><div><span class="chip chip-yl">Chapter 3.2</span><h1 style="margin-top:8px">Prompting like a Pro</h1><p>Everything for this topic in one place. The AI below is grounded in this chapter's video, PDF & relevant NCERT content.</p></div><button class="btn btn-ghost" onclick="openDoubt('Prompting like a Pro (Module 3)')">Ask a doubt</button></div>
+
+  <div class="sec-h"><h2>Learn this topic</h2><span class="chip chip-ai">⚡ Course-aware</span></div>
+  <div class="grid g-3">
+    <div class="card" style="padding:18px" role="button" data-go="video"><div class="ico-box" style="background:var(--red-50);color:var(--red);width:46px;height:46px;margin-bottom:12px"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3l14 9-14 9V3z"/></svg></div><h4 style="font-weight:700">Video Lecture</h4><p class="sm muted">14 min · with AI assistant &amp; timestamps</p><button class="btn btn-soft btn-sm" style="margin-top:12px" data-go="video">Watch</button></div>
+    <div class="card" style="padding:18px" role="button" data-go="tutor"><div class="ico-box" style="background:var(--ai-50);color:var(--ai-700);width:46px;height:46px;margin-bottom:12px"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5zM9 17h6"/></svg></div><h4 style="font-weight:700">Learn with AI Tutor</h4><p class="sm muted">Pragya teaches on the board, step by step</p><button class="btn btn-soft btn-sm" style="margin-top:12px" data-go="tutor">Start learning</button></div>
+    <div class="card" style="padding:18px" role="button" data-go="prereading"><div class="ico-box" style="background:var(--blue-light);color:#fff;width:46px;height:46px;margin-bottom:12px"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg></div><h4 style="font-weight:700">Pre-reading + AI</h4><p class="sm muted">Read the PDF with a voice tutor</p><button class="btn btn-soft btn-sm" style="margin-top:12px" data-go="prereading">Read</button></div>
+  </div>
+
+  <div class="sec-h"><h2>Generate from this topic</h2><a class="link" data-go="tools">All AI tools →</a></div>
+  <div class="learn-chips">
+    <button class="learn-chip" data-go="tools">📝 AI Notes</button>
+    <button class="learn-chip" data-go="tools">🃏 Flashcards</button>
+    <button class="learn-chip" data-go="practice">❓ Quiz</button>
+    <button class="learn-chip" data-go="tools">📄 Summary</button>
+    <button class="learn-chip" data-go="tools">🔑 Key Points</button>
+    <button class="learn-chip" data-go="tools">🧠 Mindmap</button>
+    <button class="learn-chip" data-go="practice">⚡ Rapid Fire</button>
+    <button class="learn-chip" data-go="tools">📖 Vocabulary</button>
+  </div>
+
+  <div class="sec-h"><h2>Assignment</h2></div>
+  <div class="res-row" role="button" data-go="assessment" style="max-width:600px"><div class="ico-box" style="background:var(--amber-50);color:#B45309"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 2M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Assignment 3 · Build a study prompt</div><div class="tiny" style="color:#B45309;font-weight:600">Due in 2 days</div></div><button class="btn btn-ghost btn-sm" data-go="assessment">Open</button></div>
+</section>
+
+<!-- ========== 5. AI TUTOR + SKETCHPAD ========== -->
+<section class="screen" id="s-tutor">
+  <div class="crumb"><a data-go="course">AI BootCamp</a><span class="sep">/</span><span>Learn with AI Tutor</span></div>
+
+  <!-- Course + topic selector bar -->
+  <div class="card" style="padding:14px 18px;margin-bottom:16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+    <div class="ico-box" style="background:linear-gradient(135deg,var(--ai),#C44BF6);color:#fff;width:44px;height:44px;flex-shrink:0">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v14H4zM4 9h16M8 5v4"/></svg>
+    </div>
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.10em;color:var(--muted);margin-bottom:3px">AI BootCamp for Students — Batch 7</div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+        <span style="font-weight:700;font-size:13.5px;color:var(--ink-2)">Select topic to learn:</span>
+        <select id="topicSelect" onchange="switchTopic(this.value)" style="font-weight:700;font-size:13.5px;border:1.5px solid var(--line);padding:5px 12px;border-radius:9px;background:var(--bg);color:var(--ink);cursor:pointer">
+          <optgroup label="Module 1 · Foundations of AI">
+            <option value="ai-what">M1 · What is Artificial Intelligence?</option>
+            <option value="ml-basics">M1 · How Machines Learn</option>
+            <option value="ai-around">M1 · AI All Around Us</option>
+          </optgroup>
+          <optgroup label="Module 2 · How AI Works">
+            <option value="llm">M2 · How LLMs Work</option>
+            <option value="data">M2 · Data and Training</option>
+            <option value="bias">M2 · AI Bias &amp; Ethics</option>
+          </optgroup>
+          <optgroup label="Module 3 · Prompting like a Pro">
+            <option value="prompting" selected>M3 · Prompting like a Pro</option>
+            <option value="4part">M3 · The 4-Part Formula</option>
+            <option value="mistakes">M3 · Common Prompting Mistakes</option>
+          </optgroup>
+          <optgroup label="Module 4 · AI Tools for Students">
+            <option value="chatgpt">M4 · Using ChatGPT Safely</option>
+            <option value="ai-tools">M4 · AI for Study &amp; Notes</option>
+          </optgroup>
+          <optgroup label="Module 5 · AI Projects">
+            <option value="project">M5 · AI for My School Project</option>
+            <option value="present">M5 · Presenting AI Work</option>
+          </optgroup>
+        </select>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <span class="chip chip-ai" id="topicChip">⚡ M3 · Prompting</span>
+      <button class="btn btn-ghost btn-sm" onclick="clearSketch()">Clear board</button>
+    </div>
+  </div>
+
+  <!-- AI Tutor workspace: sketchpad + chat -->
+  <div class="ai-wrap">
+    <div class="ai-top">
+      <div class="t-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5zM9 17h6"/></svg></div>
+      <div><h3>Pragya — AI Tutor</h3><div class="sub">NCERT-mapped · teaches step-by-step on the sketchpad</div></div>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:14px">
+        <div class="voice-toggle">Voice replies <div class="switch on" onclick="toggleVoice(this)"><i></i></div></div>
+      </div>
+    </div>
+    <div class="ai-body">
+      <div class="canvas-col">
+        <div class="canvas-tools">
+          <button class="ctool on" title="Pen"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7-4-4-7 7v4zM16 6l2 2"/></svg></button>
+          <button class="ctool" title="Shapes"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="4"/><rect x="12" y="12" width="8" height="8"/></svg></button>
+          <button class="ctool" title="Text"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5h14M12 5v14"/></svg></button>
+          <button class="ctool" title="Eraser" onclick="clearSketch()"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16l6 6h10M8 20l12-12-6-6L4 12z"/></svg></button>
+          <span class="tiny" style="margin-left:auto;color:var(--muted)">✏️ Draw here — Pragya can see your work</span>
+        </div>
+        <canvas id="sketch"></canvas>
+      </div>
+      <div class="chat-col">
+        <div class="chat-feed" id="chatFeed">
+          <div class="msg ai"><div class="who">AI Tutor · Pragya</div>Hi Ramesh! 👋 Today we're learning <b>Prompting like a Pro</b> from Module 3.<br><br>I've written the 4-part prompt formula on the board →<br><b>Role · Task · Context · Format</b><br><br>Let me explain each part step by step. Ready? 🙂</div>
+          <div class="msg me">What does Role mean exactly?</div>
+          <div class="msg ai"><div class="who">AI Tutor · Pragya</div>Great question! <b>Role</b> tells the AI <i>who to be</i>. For example: <i>"Act as a Class 9 science teacher"</i>. This shapes the AI's tone, depth, and language. I've underlined it on the board — see the red circle? That's always step 1 of a good prompt. Try writing your own role for a maths doubt! ✏️</div>
+        </div>
+        <div class="chat-sugg">
+          <button onclick="tutorQuick('Explain more simply')">Simpler please</button>
+          <button onclick="tutorQuick('Show step by step')">Step by step</button>
+          <button onclick="tutorQuick('Give me an example')">Example</button>
+          <button onclick="tutorQuick('I am ready for assignment')">I'm ready ✓</button>
+        </div>
+        <div class="chat-in">
+          <input id="chatInput" placeholder="Ask Pragya anything about this topic…" onkeydown="if(event.key==='Enter')sendChat()">
+          <button class="mic" title="Voice" onclick="this.classList.toggle('live')"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></button>
+          <button class="send" onclick="sendChat()"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Assignment section — appears after lesson -->
+  <div style="margin-top:22px">
+    <div class="sec-h"><h2>Class Assignment</h2><span class="chip" style="background:var(--amber-50);color:#B45309;border:1px solid #FDE68A;font-weight:700">Due in 2 days</span></div>
+    <div class="card" style="padding:20px;border:2px solid #FDE68A">
+      <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:16px">
+        <div class="ico-box" style="background:var(--amber-50);color:#B45309;width:44px;height:44px;flex-shrink:0">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6M9 13h6M9 17h4"/></svg>
+        </div>
+        <div style="flex:1">
+          <div style="font-weight:800;font-size:16px;margin-bottom:2px">Assignment 3 — Build a Study Prompt</div>
+          <div class="tiny muted" style="margin-bottom:12px">Set by Pragya after today's session on Prompting like a Pro</div>
+          <p style="font-size:13.5px;line-height:1.75;color:var(--ink-2)">Write a prompt that asks an AI to explain the <b>water cycle</b> to a Class 9 student. Your prompt must include all 4 parts: <b>Role, Task, Context</b> and <b>Format</b>. Then compare your prompt with the example on the board and note what you would change.</p>
+          <div style="margin-top:12px;display:flex;gap:6px;flex-wrap:wrap">
+            <span class="chip chip-gray">🎯 Application</span>
+            <span class="chip chip-gray">📝 Written response</span>
+            <span class="chip chip-ai">⚡ AI-evaluated · teacher-verified</span>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn btn-pri" data-go="assessment">Start Assignment →</button>
+        <button class="btn btn-ghost btn-sm" onclick="tutorQuick('Help me understand the assignment')">Ask Pragya for a hint</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 6. AI-ENHANCED VIDEO ========== -->
+<section class="screen" id="s-video">
+  <div class="crumb"><a data-go="course">AI BootCamp</a><span class="sep">/</span><a data-go="chapter">Prompting like a Pro</a><span class="sep">/</span><span>Video</span></div>
+  <div class="grid" style="grid-template-columns:1.7fr 1fr;align-items:start;gap:20px">
+    <div>
+      <div class="video-stage">
+        <div class="vgrad"></div>
+        <div style="position:relative;text-align:center;z-index:2"><div class="play" style="position:static;margin:0 auto;width:66px;height:66px"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><div style="margin-top:12px;font-weight:700">Prompting like a Pro · Lesson 3.2</div></div>
+        <div class="vbar">
+          <div class="vscrub"><i></i><div class="marks"><span style="left:22%"></span><span style="left:48%"></span><span style="left:71%"></span></div></div>
+          <div class="vctrl"><span>▶</span><span>⏮</span><span>⏭</span><span class="tiny">5:24 / 14:02</span><span class="sp"></span><span class="tiny">AI markers</span><span>⚙</span><span>⛶</span></div>
+        </div>
+      </div>
+      <div class="card" style="padding:16px;margin-top:16px">
+        <div style="font-weight:700;font-size:14px;margin-bottom:10px">Jump to key moments <span class="chip chip-ai" style="margin-left:6px">AI-generated</span></div>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <div class="list-row" style="padding:10px"><span class="chip chip-gray">0:22</span><div style="flex:1;font-size:13.5px;font-weight:600">What makes a good prompt</div><button class="btn btn-ghost btn-sm">Go</button></div>
+          <div class="list-row" style="padding:10px"><span class="chip chip-yl">5:24</span><div style="flex:1;font-size:13.5px;font-weight:600">The 4-part prompt formula</div><button class="btn btn-ghost btn-sm">Go</button></div>
+          <div class="list-row" style="padding:10px"><span class="chip chip-gray">10:10</span><div style="flex:1;font-size:13.5px;font-weight:600">Common prompting mistakes</div><button class="btn btn-ghost btn-sm">Go</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="padding:16px;position:sticky;top:84px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><div class="ico-box" style="background:linear-gradient(135deg,var(--ai),#C44BF6);color:#fff;width:38px;height:38px"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5z"/></svg></div><div><div style="font-weight:800;font-size:15px">AI Video Assistant</div><div class="tiny muted">Understands this lecture</div></div></div>
+      <div class="asst-tabs">
+        <button class="on" onclick="asst('chat',this)">Chat</button>
+        <button onclick="asst('notes',this)">Notes</button>
+        <button onclick="asst('quiz',this)">Quiz</button>
+      </div>
+      <div data-asst="chat">
+        <div class="chat-feed" style="background:var(--bg);border-radius:12px;max-height:280px;padding:14px;min-height:200px">
+          <div class="msg ai" style="background:#fff;color:var(--ink);max-width:95%"><div class="who" style="color:var(--yl-700)">At 5:24</div>The teacher is explaining the <b>4-part prompt formula</b>: role, task, context, format. Want an example using your Science notes?</div>
+          <div class="msg me" style="max-width:85%">yes please</div>
+        </div>
+        <div class="chat-sugg" style="padding:12px 0 8px">
+          <button style="background:var(--bg);color:var(--ink-2);border-color:var(--line)" onclick="asst('notes',document.querySelector('.asst-tabs button:nth-child(2)'))">Generate notes</button>
+          <button style="background:var(--bg);color:var(--ink-2);border-color:var(--line)">Summarise so far</button>
+          <button style="background:var(--bg);color:var(--ink-2);border-color:var(--line)">Explain this part</button>
+        </div>
+        <div class="drawer-in" style="padding:0;border:none"><input placeholder="Ask about this video…"><button class="mic" onclick="this.classList.toggle('live')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></button><button class="send"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></button></div>
+      </div>
+      <div data-asst="notes" style="display:none">
+        <div style="font-weight:700;font-size:13.5px;margin-bottom:8px">Auto notes · up to 5:24</div>
+        <ul style="font-size:13px;color:var(--ink-2);padding-left:18px;line-height:1.9">
+          <li>A prompt = instruction you give an AI</li>
+          <li><b>4 parts:</b> Role · Task · Context · Format</li>
+          <li>Be specific — vague prompts → vague answers</li>
+          <li>Give examples to guide the output</li>
+        </ul>
+        <div style="display:flex;gap:8px;margin-top:14px"><button class="btn btn-soft btn-sm" style="flex:1;justify-content:center">Save to notes</button><button class="btn btn-ghost btn-sm">Flashcards</button></div>
+      </div>
+      <div data-asst="quiz" style="display:none">
+        <div style="font-weight:700;font-size:13.5px;margin-bottom:10px">Quick check from this video</div>
+        <div class="sm" style="font-weight:600;margin-bottom:10px">Which is NOT part of the prompt formula?</div>
+        <div class="opt" style="padding:11px 13px"><div class="k">A</div>Role</div>
+        <div class="opt" style="padding:11px 13px"><div class="k">B</div>Price</div>
+        <div class="opt" style="padding:11px 13px"><div class="k">C</div>Context</div>
+        <button class="btn btn-pri btn-sm" style="margin-top:6px;width:100%;justify-content:center" data-go="practice">Full quiz in Practice →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 7. PRE-READING AI TUTOR (VOICE) ========== -->
+<section class="screen" id="s-prereading">
+  <div class="crumb"><a data-go="chapter">Prompting like a Pro</a><span class="sep">/</span><span>Pre-reading</span></div>
+  <div class="grid" style="grid-template-columns:1.3fr 1fr;align-items:start;gap:20px">
+    <div class="card" style="padding:0;overflow:hidden">
+      <div style="display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line)"><div class="ico-box" style="background:var(--red-50);color:var(--red);width:36px;height:36px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Prompting Handbook.pdf</div><div class="tiny muted">Page 3 of 8</div></div><button class="btn btn-ghost btn-sm">Download</button></div>
+      <div style="padding:28px 30px;font-size:14.5px;line-height:1.85;color:var(--ink-2);min-height:420px">
+        <h3 style="font-size:17px;color:var(--ink);margin-bottom:12px">3 · The Anatomy of a Great Prompt</h3>
+        <p>A prompt is simply the instruction you give to an AI. The clearer your instruction, the better the answer. Strong prompts usually have four parts…</p>
+        <p style="margin-top:14px;background:var(--yl-50);padding:12px 14px;border-radius:10px;border-left:3px solid var(--yl)"><b style="color:var(--yl-700)">Highlighted by AI:</b> “Role, Task, Context and Format together make an AI understand exactly what you want.”</p>
+        <p style="margin-top:14px">For example, instead of <i>“write about water”</i>, a pro prompt says: <i>“Act as a Class 9 science teacher (role). Explain the water cycle (task) for a student revising for exams (context) in 5 bullet points (format).”</i></p>
+      </div>
+    </div>
+    <div class="card" style="padding:18px;position:sticky;top:84px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><div class="ico-box" style="background:linear-gradient(135deg,var(--ai),#C44BF6);color:#fff;width:38px;height:38px"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5z"/></svg></div><div style="flex:1"><div style="font-weight:800;font-size:15px">Read-along AI Tutor</div><div class="tiny muted">Explains the page you're on</div></div></div>
+      <div class="card" style="padding:12px 14px;background:var(--bg);border:none;display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+        <div style="display:flex;align-items:center;gap:10px"><div class="ico-box" style="width:36px;height:36px;background:var(--tg-50);color:#0C8F6A"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5zM15 9a4 4 0 010 6"/></svg></div><div><div style="font-weight:700;font-size:13.5px">Read aloud</div><div class="tiny muted">Text-to-speech</div></div></div>
+        <div class="switch on" onclick="toggleVoice(this)" style="background:var(--tg)"><i></i></div>
+      </div>
+      <div class="chat-feed" style="background:var(--bg);border-radius:12px;max-height:230px;padding:14px;min-height:170px">
+        <div class="msg ai" style="background:#fff;color:var(--ink);max-width:95%"><div class="who" style="color:var(--yl-700)">On this page</div>This page is about the <b>4 parts of a prompt</b>. Think of it like giving directions — the more detail, the better you arrive. 🔊</div>
+        <div class="msg me" style="max-width:85%">read the example aloud</div>
+      </div>
+      <div class="chat-sugg" style="padding:12px 0 6px">
+        <button style="background:var(--bg);color:var(--ink-2);border-color:var(--line)">Explain this page</button>
+        <button style="background:var(--bg);color:var(--ink-2);border-color:var(--line)">Simplify</button>
+        <button style="background:var(--bg);color:var(--ink-2);border-color:var(--line)" data-go="tools">Make notes</button>
+      </div>
+      <div class="drawer-in" style="padding:0;border:none"><input placeholder="Ask about this reading…"><button class="mic" onclick="this.classList.toggle('live')"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></button><button class="send"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 8. AI-ASSISTED ASSESSMENT RESULT ========== -->
+<section class="screen" id="s-assessment">
+  <div class="crumb"><a data-go="course">AI BootCamp</a><span class="sep">/</span><span>Assessment result</span></div>
+  <div class="page-h"><div><h1>Quiz 2 — How Machines Learn</h1><p>Evaluated by AI from the answer key, marking scheme &amp; rubric — then reviewed by your teacher.</p></div></div>
+
+  <div class="verif-banner verif-pending">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4M12 16h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>
+    <div style="flex:1"><b>AI-evaluated · pending teacher verification.</b> These marks are provisional. Your teacher is reviewing them — final results will be confirmed shortly.</div>
+  </div>
+
+  <div class="card" style="padding:24px;margin-bottom:22px;display:flex;gap:28px;align-items:center;flex-wrap:wrap">
+    <div class="score-ring"><div class="in"><div><div style="font-size:28px;font-weight:800;font-family:'Plus Jakarta Sans';color:#0C8F6A">8<span style="font-size:16px;color:var(--muted)">/10</span></div><div class="tiny muted">provisional</div></div></div></div>
+    <div style="flex:1;min-width:220px">
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px"><span class="chip chip-tg">82% accuracy</span><span class="chip chip-amber">AI-evaluated</span><span class="chip chip-gray">Rubric-based</span></div>
+      <div class="sm" style="font-weight:700;margin-bottom:6px">AI feedback summary</div>
+      <p class="sm muted">Strong grasp of supervised vs unsupervised learning. Lost marks on Q4 (training data) — your definition was partly correct but missed the role of labels. Review Module 1.2 and try the practice set.</p>
+      <button class="btn btn-soft btn-sm" style="margin-top:14px" data-go="practice">Practice weak areas</button>
+    </div>
+  </div>
+
+  <div class="sec-h"><h2>Question-wise evaluation</h2></div>
+  <div class="q-eval">
+    <div style="display:flex;align-items:center;gap:10px"><span class="chip chip-tg">Q3 · 2/2</span><div style="flex:1;font-weight:700;font-size:14px">Give one real-world example of machine learning.</div><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#0C8F6A" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></div>
+    <div class="sm muted" style="margin-top:8px"><b>Your answer:</b> “YouTube recommending videos.” <br><b style="color:#0C8F6A">AI note:</b> Correct & well-chosen example. Full marks.</div>
+    <div class="bar"><i style="width:100%;background:var(--tg);height:100%;display:block;border-radius:9px"></i></div>
+  </div>
+  <div class="q-eval" style="border-color:#FCE2B5">
+    <div style="display:flex;align-items:center;gap:10px"><span class="chip chip-amber">Q4 · 1/2</span><div style="flex:1;font-weight:700;font-size:14px">What is training data?</div><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#B45309" stroke-width="2.5"><path d="M12 8v4M12 16h.01"/></svg></div>
+    <div class="sm muted" style="margin-top:8px"><b>Your answer:</b> “Data we give to the model.” <br><b style="color:#B45309">AI note:</b> Partly right — mention that it is <i>labelled</i> data used to <i>teach</i> the model. <span class="chip chip-blue" style="margin-left:4px">Improvement tip</span></div>
+    <div class="bar"><i style="width:50%;background:var(--amber);height:100%;display:block;border-radius:9px"></i></div>
+    <button class="btn btn-ghost btn-sm" style="margin-top:12px" onclick="openDoubt('Q4 — What is training data?')">Ask AI to explain</button>
+  </div>
+
+  <div class="card" style="padding:18px;margin-top:8px;display:flex;align-items:center;gap:14px;background:var(--tg-50);border-color:#BEEAD9">
+    <div class="ico-box" style="background:#fff;color:#0C8F6A"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+    <div style="flex:1"><div style="font-weight:700;font-size:14px;color:#0C8F6A">How teacher verification works</div><div class="sm" style="color:#0C8F6A;opacity:.85">AI drafts marks &amp; feedback → your teacher verifies or edits → you see the final, verified result. You'll be notified when Quiz 2 is finalised.</div></div>
+  </div>
+</section>
+
+<!-- ========== 9. STUDY LAB ========== -->
+<section class="screen" id="s-studylab">
+  <div class="page-h"><div><h1>Study Lab</h1><p>Turn any resource into learning. Paste a YouTube link, upload a PDF, or just ask a doubt — AI does the rest.</p></div></div>
+  <div class="lab-modes">
+    <button class="lab-mode on" onclick="setLabMode(this,'yt')"><div class="ic" style="background:linear-gradient(135deg,#E4151B,#ff5a4d)"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg></div><div style="font-weight:700">YouTube</div><div class="tiny muted">Learn from any video</div></button>
+    <button class="lab-mode" onclick="setLabMode(this,'pdf')"><div class="ic" style="background:linear-gradient(135deg,#2563EB,#4f8bff)"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg></div><div style="font-weight:700">PDF</div><div class="tiny muted">Upload & learn</div></button>
+    <button class="lab-mode" onclick="setLabMode(this,'doubt')"><div class="ic" style="background:linear-gradient(135deg,#6C4BF6,#C44BF6)"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.1 9a3 3 0 015.8 1c0 2-3 3-3 3M12 17h.01M4 20l1.5-3.5A8 8 0 1112 20z"/></svg></div><div style="font-weight:700">Doubt</div><div class="tiny muted">Ask · snap a photo</div></button>
+  </div>
+
+  <div data-labpane="yt">
+    <div class="card" style="padding:20px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+      <div style="flex:1;min-width:260px;display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:12px;padding:4px 4px 4px 14px">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--red)" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="var(--red)"/></svg>
+        <input value="https://youtu.be/ncert-photosynthesis" style="flex:1;border:none;outline:none;font-size:14px;padding:9px 0">
+        <button class="btn btn-pri btn-sm">Process</button>
+      </div>
+    </div>
+    <div class="card" style="padding:18px;margin-top:16px;display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+      <div class="thumb" style="width:170px;aspect-ratio:16/9;flex-shrink:0;background:linear-gradient(135deg,#0C8F6A,#12B886)"><div class="play" style="width:40px;height:40px"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <div style="flex:1;min-width:200px"><div style="font-weight:700">Photosynthesis — Class 10 Biology</div><div class="tiny muted">14:20 · processed ✓ · NCERT-aligned</div>
+        <div class="learn-chips" style="margin-top:12px">
+          <button class="learn-chip" data-go="tools">📝 Notes</button><button class="learn-chip" data-go="tools">🃏 Flashcards</button><button class="learn-chip" data-go="practice">❓ Quiz</button><button class="learn-chip" data-go="tools">📄 Summary</button><button class="learn-chip" onclick="openDoubt('YouTube: Photosynthesis')">💬 Ask doubt</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div data-labpane="pdf" style="display:none">
+    <div class="dropzone">
+      <div class="empty ic" style="margin:0 auto 14px"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></svg></div>
+      <div style="font-weight:700;color:var(--ink)">Drop a PDF here or click to upload</div>
+      <div class="tiny muted" style="margin:6px 0 16px">NCERT chapters, notes, question papers — up to 50 MB</div>
+      <button class="btn btn-pri btn-sm">Choose file</button>
+    </div>
+    <div class="card" style="padding:16px;margin-top:16px;display:flex;align-items:center;gap:12px"><div class="ico-box" style="background:var(--tg-50);color:#0C8F6A"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Life Processes — NCERT Ch.6.pdf</div><div class="tiny muted">Processed · 22 pages · ready to learn</div></div><button class="btn btn-soft btn-sm" data-go="tools">Open outputs</button></div>
+  </div>
+  <div data-labpane="doubt" style="display:none">
+    <div class="card" style="padding:28px;text-align:center">
+      <div class="empty ic" style="margin:0 auto 14px;background:var(--yl-50);color:var(--yl-600)"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.1 9a3 3 0 015.8 1c0 2-3 3-3 3M12 17h.01"/></svg></div>
+      <div style="font-weight:700">Stuck on a question? Ask away.</div>
+      <div class="tiny muted" style="margin:6px 0 16px">Type it, speak it, or snap a photo of the problem.</div>
+      <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap"><button class="btn btn-pri btn-sm" onclick="openDoubt('Study Lab')">Type a doubt</button><button class="btn btn-ghost btn-sm" onclick="openDoubt('Study Lab')">📷 Upload photo</button><button class="btn btn-ghost btn-sm" onclick="openDoubt('Study Lab')">🎤 Voice</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 10. PRACTICE CENTER ========== -->
+<section class="screen" id="s-practice">
+  <div class="page-h">
+    <div>
+      <h1>Practice Center</h1>
+      <p>Choose your test format — adapts questions to your weak areas</p>
+    </div>
+    <span class="chip chip-ai">⚡ Adaptive difficulty</span>
+  </div>
+
+  <!-- Entry Points Grid (Reference Design) -->
+  <div class="grid g-3" style="gap:18px;margin-bottom:24px">
+    <!-- ENTRY 1: AI BootCamp Practice -->
+    <div class="practice-entry-card active" id="entry-bootcamp" onclick="switchPracticeMode('bootcamp')">
+      <div>
+        <div class="entry-icon" style="background:#E6F9F0;color:#0C8F6A">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v14H4zM4 9h16M8 5v4"/></svg>
+        </div>
+        <h3 style="font-size:16.5px;font-weight:800;margin-bottom:6px">AI BootCamp Practice</h3>
+        <p class="muted" style="font-size:13px;line-height:1.45">Interactive practice questions tailored to your AI BootCamp modules</p>
+      </div>
+      <div class="entry-link">Start <span style="font-size:16px">→</span></div>
+    </div>
+
+    <!-- ENTRY 2: Infinite NCERT Mock Tests -->
+    <div class="practice-entry-card" id="entry-ncert" onclick="switchPracticeMode('ncert')">
+      <div>
+        <div class="entry-icon" style="background:#EFF6FF;color:#2563EB">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+        </div>
+        <h3 style="font-size:16.5px;font-weight:800;margin-bottom:6px">Infinite Subject Mock Tests</h3>
+        <p class="muted" style="font-size:13px;line-height:1.45">Endless mock tests tailored to your CBSE Class 9 subjects &amp; chapters</p>
+      </div>
+      <div class="entry-link">Start <span style="font-size:16px">→</span></div>
+    </div>
+
+    <!-- ENTRY 3: Weak Areas Drill -->
+    <div class="practice-entry-card" id="entry-weak" onclick="switchPracticeMode('weak')">
+      <div>
+        <div class="entry-icon" style="background:#F5F3FF;color:#7C3AED">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg>
+        </div>
+        <h3 style="font-size:16.5px;font-weight:800;margin-bottom:6px">Target Weak Areas Drill</h3>
+        <p class="muted" style="font-size:13px;line-height:1.45">Adaptive revision drills targeting concepts you found challenging</p>
+      </div>
+      <div class="entry-link">Start <span style="font-size:16px">→</span></div>
+    </div>
+  </div>
+
+  <!-- CONFIGURATION PANELS (opened per active entry) -->
+  <div id="practice-panels-container">
+    <!-- PANEL 1: AI BootCamp Practice -->
+    <div class="card" id="panel-bootcamp" style="padding:26px 28px;border:1.5px solid var(--line);border-radius:var(--r);background:#fff">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:40px;height:40px;border-radius:11px;background:var(--ai-50);color:var(--ai-700);display:grid;place-items:center;font-size:18px">⚡</div>
+          <div>
+            <h3 style="font-size:17.5px;font-weight:800">Create AI BootCamp Practice</h3>
+            <p class="muted tiny">Select your topic from Modules 1–5 to generate adaptive questions</p>
+          </div>
+        </div>
+        <span class="chip" style="background:var(--ai-50);color:var(--ai-700);font-weight:700">Batch 7 · Class 6–12</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr;gap:18px">
+        <!-- Topic dropdown -->
+        <div>
+          <label style="display:block;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-bottom:8px">Select Course Topic</label>
+          <select id="bootcampTopicSelect" style="width:100%;border:1.5px solid var(--line);padding:12px 14px;border-radius:12px;background:var(--bg);font-weight:600;font-size:14px;cursor:pointer;outline:none">
+            <optgroup label="Module 1 · Foundations of AI">
+              <option value="ai-what">Module 1 · What is Artificial Intelligence?</option>
+              <option value="ml-basics">Module 1 · How Machines Learn</option>
+              <option value="ai-around">Module 1 · AI All Around Us</option>
+            </optgroup>
+            <optgroup label="Module 2 · How AI Works">
+              <option value="llm">Module 2 · How LLMs Work</option>
+              <option value="data">Module 2 · Data and Training</option>
+              <option value="bias">Module 2 · AI Bias &amp; Ethics</option>
+            </optgroup>
+            <optgroup label="Module 3 · Prompting like a Pro">
+              <option value="prompting" selected>Module 3 · Prompting like a Pro (Current Topic)</option>
+              <option value="4part">Module 3 · The 4-Part Formula</option>
+              <option value="mistakes">Module 3 · Common Prompting Mistakes</option>
+            </optgroup>
+            <optgroup label="Module 4 · AI Tools for Students">
+              <option value="chatgpt">Module 4 · Using ChatGPT Safely</option>
+              <option value="ai-tools">Module 4 · AI Tools for Study &amp; Notes</option>
+            </optgroup>
+            <optgroup label="Module 5 · AI Projects">
+              <option value="project">Module 5 · AI for My School Project</option>
+              <option value="present">Module 5 · Presenting AI Work</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <!-- Question count, Difficulty, Question type -->
+        <div class="grid g-3" style="gap:14px">
+          <div>
+            <label style="display:block;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-bottom:8px">Question Count</label>
+            <select id="bootcampQCount" style="width:100%;border:1.5px solid var(--line);padding:11px 12px;border-radius:11px;background:var(--bg);font-weight:600;font-size:13.5px;cursor:pointer">
+              <option value="5">5 questions · Quick</option>
+              <option value="10" selected>10 questions · Standard</option>
+              <option value="20">20 questions · Deep practice</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="display:block;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-bottom:8px">Question Type</label>
+            <select id="bootcampQType" style="width:100%;border:1.5px solid var(--line);padding:11px 12px;border-radius:11px;background:var(--bg);font-weight:600;font-size:13.5px;cursor:pointer">
+              <option selected>MCQ + Short answer</option>
+              <option>MCQ only</option>
+              <option>Subjective only</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="display:block;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-bottom:8px">Difficulty</label>
+            <select id="bootcampDiff" style="width:100%;border:1.5px solid var(--line);padding:11px 12px;border-radius:11px;background:var(--bg);font-weight:600;font-size:13.5px;cursor:pointer">
+              <option>Easy — revision</option>
+              <option selected>Adaptive — Medium</option>
+              <option>Hard — exam challenge</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="margin-top:6px">
+          <button class="btn btn-pri" style="width:100%;justify-content:center;font-size:15px;padding:13px" onclick="createBootcampTest()">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg>
+            Create AI BootCamp Practice Test
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 2: NCERT Subject Practice -->
+    <div class="card" id="panel-ncert" style="display:none;padding:26px 28px;border:1.5px solid var(--line);border-radius:var(--r);background:#fff">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:40px;height:40px;border-radius:11px;background:var(--yl-50);color:var(--yl);display:grid;place-items:center;font-size:18px">📚</div>
+          <div>
+            <h3 style="font-size:17.5px;font-weight:800">Create NCERT Subject Practice Test</h3>
+            <p class="muted tiny">Select your subject and chapter from the CBSE Class 9 syllabus</p>
+          </div>
+        </div>
+        <span class="chip chip-tg" style="font-weight:700">CBSE Class 9</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr;gap:18px">
+        <!-- Subject Selection -->
+        <div>
+          <label style="display:block;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-bottom:8px">1. Select Subject</label>
+          <div class="grid g-4" style="gap:10px" id="subjectGrid">
+            <button class="card subj-btn on" onclick="selectSubject(this,'maths')">
+              <div style="font-size:24px;margin-bottom:4px">📐</div>
+              <div style="font-weight:700;font-size:13px;color:var(--yl-700)">Mathematics</div>
+            </button>
+            <button class="card subj-btn" onclick="selectSubject(this,'science')">
+              <div style="font-size:24px;margin-bottom:4px">🔬</div>
+              <div style="font-weight:700;font-size:13px;color:var(--ink-2)">Science</div>
+            </button>
+            <button class="card subj-btn" onclick="selectSubject(this,'sst')">
+              <div style="font-size:24px;margin-bottom:4px">🌍</div>
+              <div style="font-weight:700;font-size:13px;color:var(--ink-2)">Social Science</div>
+            </button>
+            <button class="card subj-btn" onclick="selectSubject(this,'english')">
+              <div style="font-size:24px;margin-bottom:4px">📖</div>
+              <div style="font-weight:700;font-size:13px;color:var(--ink-2)">English</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Chapter Selection -->
+        <div>
+          <label style="display:block;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-bottom:8px">2. Select Chapter</label>
+          <select id="ncertChapter" style="width:100%;border:1.5px solid var(--line);padding:12px 14px;border-radius:12px;background:var(--bg);font-weight:600;font-size:14px;cursor:pointer;outline:none">
+            <option selected>Chapter 1 · Number Systems</option>
+            <option>Chapter 2 · Polynomials</option>
+            <option>Chapter 3 · Coordinate Geometry</option>
+            <option>Chapter 4 · Linear Equations in Two Variables</option>
+            <option>Chapter 5 · Introduction to Euclid's Geometry</option>
+            <option>Chapter 6 · Lines and Angles</option>
+            <option>Chapter 7 · Triangles</option>
+            <option>Chapter 8 · Quadrilaterals</option>
+            <option>Chapter 9 · Circles</option>
+            <option>Chapter 10 · Heron's Formula</option>
+            <option>Chapter 11 · Surface Areas and Volumes</option>
+            <option>Chapter 12 · Statistics</option>
+          </select>
+        </div>
+
+        <!-- Difficulty & Question Count -->
+        <div class="grid g-2" style="gap:14px">
+          <div>
+            <label style="display:block;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-bottom:8px">Difficulty</label>
+            <select id="ncertDiff" style="width:100%;border:1.5px solid var(--line);padding:11px 12px;border-radius:11px;background:var(--bg);font-weight:600;font-size:13.5px;cursor:pointer">
+              <option>Easy — revision</option>
+              <option selected>Medium — standard</option>
+              <option>Hard — exam prep</option>
+            </select>
+          </div>
+          <div>
+            <label style="display:block;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-bottom:8px">Questions</label>
+            <select id="ncertQCount" style="width:100%;border:1.5px solid var(--line);padding:11px 12px;border-radius:11px;background:var(--bg);font-weight:600;font-size:13.5px;cursor:pointer">
+              <option>5 · Quick</option>
+              <option selected>10 · Standard</option>
+              <option>20 · Full test</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="margin-top:6px">
+          <button class="btn btn-pri" style="width:100%;justify-content:center;font-size:15px;padding:13px" onclick="createNcertTest()">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg>
+            Create NCERT Practice Test
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 3: Weak Areas Drill -->
+    <div class="card" id="panel-weak" style="display:none;padding:26px 28px;border:1.5px solid var(--line);border-radius:var(--r);background:#fff">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:10px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:40px;height:40px;border-radius:11px;background:#F5F3FF;color:#7C3AED;display:grid;place-items:center;font-size:18px">🎯</div>
+          <div>
+            <h3 style="font-size:17.5px;font-weight:800">Target Weak Areas Drill</h3>
+            <p class="muted tiny">AI detected 1 weak concept from your recent quizzes</p>
+          </div>
+        </div>
+        <span class="chip" style="background:#FEF3C7;color:#B45309;font-weight:700">7 Adaptive Questions</span>
+      </div>
+
+      <div style="background:var(--bg);border-radius:12px;padding:18px;margin-bottom:20px;border:1px solid var(--line)">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <span class="chip chip-yl" style="font-size:11px">Focus Topic</span>
+          <h4 style="font-size:15px;font-weight:700">Module 3 · Prompting like a Pro (Role &amp; Task formula)</h4>
+        </div>
+        <p class="muted sm">In your last assignment, you had minor difficulty identifying the "Role" component of a 4-part prompt. This 7-question adaptive set targets that exact gap.</p>
+      </div>
+
+      <button class="btn btn-pri" style="width:100%;justify-content:center;font-size:15px;padding:13px" onclick="createWeakTest()">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg>
+        Start Weak Area Drill (7 Questions)
+      </button>
+    </div>
+  </div>
+
+  <!-- Active question card (hidden until a test is created) -->
+  <div class="q-card" style="display:none;margin-top:24px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px"><span class="chip chip-yl">Question <span id="qCount">1</span> / 10</span><div style="display:flex;gap:6px"><span class="chip chip-gray">MCQ</span><span class="chip chip-tg">Adaptive · Medium</span></div></div>
+    <h3 style="font-size:18px;margin-bottom:6px">Which part of a prompt tells the AI <i>who to be</i>?</h3>
+    <p class="tiny muted" style="margin-bottom:18px">From: Module 3 · Prompting like a Pro</p>
+    <div class="opt" onclick="answer(this,false)"><div class="k">A</div>Task</div>
+    <div class="opt" data-ok onclick="answer(this,true)"><div class="k">B</div>Role</div>
+    <div class="opt" onclick="answer(this,false)"><div class="k">C</div>Format</div>
+    <div class="opt" onclick="answer(this,false)"><div class="k">D</div>Context</div>
+    <div class="feedback" id="qFeedback">
+      <div style="display:flex;align-items:center;gap:8px;font-weight:700;color:#0C8F6A;margin-bottom:6px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Correct — it's the <b style="margin:0 3px">Role</b></div>
+      <p class="sm muted">The <b>Role</b> tells the AI what persona to adopt, e.g. "act as a Class 9 science teacher". This shapes the tone and depth of the answer.</p>
+      <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap"><button class="btn btn-ghost btn-sm" onclick="openDoubt('Practice — Prompting')">Explain more</button><button class="btn btn-ghost btn-sm">Harder question</button><button class="btn btn-pri btn-sm" onclick="nextQ()">Next question →</button></div>
+    </div>
+  </div>
+
+  <!-- WEAK AREAS SECTION (Reference Image 2) -->
+  <div style="margin-top:34px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:12px">
+      <div>
+        <div style="font-size:11px;font-weight:800;letter-spacing:.09em;color:var(--muted);text-transform:uppercase">Improve</div>
+        <div style="display:flex;align-items:center;gap:6px;margin-top:2px">
+          <h3 style="font-size:18px;font-weight:800">Weak Areas</h3>
+          <span style="display:inline-grid;place-items:center;width:17px;height:17px;border-radius:50%;background:var(--line);color:var(--muted);font-size:11px;font-weight:700;cursor:help" title="Questions automatically adapted based on your past quiz answers">i</span>
+        </div>
+      </div>
+      <a class="link" style="font-size:13px;font-weight:700;cursor:pointer" onclick="switchPracticeMode('weak')">Go to Improve →</a>
+    </div>
+
+    <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">
+      <button class="pill" onclick="switchPracticeMode('weak')" style="border:1.5px solid var(--yl);color:var(--yl);background:var(--yl-50);font-size:13px;padding:7px 16px;cursor:pointer">Prompting</button>
+      <button class="pill" onclick="switchPracticeMode('ncert')" style="border:1px solid var(--line);color:var(--muted);background:#fff;font-size:13px;padding:7px 16px;cursor:pointer">Mathematics</button>
+    </div>
+
+    <div class="card" style="padding:36px 20px;text-align:center;background:#fff;border:1px solid var(--line);border-radius:16px">
+      <div style="font-size:46px;margin-bottom:10px">🏆</div>
+      <div style="font-weight:800;font-size:17.5px;margin-bottom:5px">You're all caught up</div>
+      <p class="muted" style="font-size:13.5px;max-width:440px;margin:0 auto 16px">Great job! We couldn't find any urgent weak topics right now. Keep practicing to maintain your progress.</p>
+      <button class="btn btn-soft btn-sm" onclick="switchPracticeMode('bootcamp')">Practice AI BootCamp Topics</button>
+    </div>
+  </div>
+</section>
+<!-- ========== 11. AI TOOLS HUB ========== -->
+<section class="screen" id="s-tools">
+  <div class="page-h"><div><h1>AI Tools</h1><p>Launch any tool with your learning context — current course, chapter, grade &amp; NCERT — pre-loaded.</p></div><span class="chip chip-ai">⚡ Context: Module 3 · Prompting</span></div>
+
+  <div class="tool-cat">Text &amp; Mnemonic</div>
+  <div class="grid g-4">
+    <button class="tool-card" data-go="studylab"><div class="ic" style="background:linear-gradient(135deg,#6C4BF6,#9A7BFF)">📝</div><div><h4>AI Notes</h4><p>Clean notes from any topic</p></div></button>
+    <button class="tool-card"><div class="ic" style="background:linear-gradient(135deg,#0C8F6A,#12B886)">📄</div><div><h4>Summarization</h4><p>TL;DR of any content</p></div></button>
+    <button class="tool-card"><div class="ic" style="background:linear-gradient(135deg,#B45309,#F59E0B)">🔑</div><div><h4>Key Points</h4><p>Bullet the essentials</p></div></button>
+    <button class="tool-card"><div class="ic" style="background:linear-gradient(135deg,#2563EB,#4f8bff)">🧮</div><div><h4>Formula Sheet</h4><p>All formulas, one page</p></div></button>
+  </div>
+
+  <div class="tool-cat">Visual &amp; Infographic</div>
+  <div class="grid g-4">
+    <button class="tool-card"><div class="ic" style="background:linear-gradient(135deg,#C44BF6,#E4151B)">🧠</div><div><h4>Mindmaps</h4><p>See how ideas connect</p></div></button>
+    <button class="tool-card" data-go="tutor"><div class="ic" style="background:linear-gradient(135deg,#6C4BF6,#C44BF6)">🎨</div><div><h4>Explain with AI</h4><p>Visual, on the sketchpad</p></div></button>
+    <button class="tool-card"><div class="ic" style="background:linear-gradient(135deg,#0C8F6A,#2563EB)">📊</div><div><h4>Infographic</h4><p>Topic as a visual</p></div></button>
+  </div>
+
+  <div class="tool-cat">Interactive &amp; Multimedia</div>
+  <div class="grid g-4">
+    <button class="tool-card" data-go="studylab"><div class="ic" style="background:linear-gradient(135deg,#F59E0B,#E4151B)">🃏</div><div><h4>Flashcards</h4><p>Active recall</p></div></button>
+    <button class="tool-card" data-go="practice"><div class="ic" style="background:linear-gradient(135deg,#6C4BF6,#9A7BFF)">❓</div><div><h4>Quiz Generator</h4><p>Test yourself</p></div></button>
+    <button class="tool-card" data-go="practice"><div class="ic" style="background:linear-gradient(135deg,#E4151B,#ff6a4d)">⚡</div><div><h4>Rapid Fire</h4><p>Beat the clock</p></div></button>
+  </div>
+
+  <div class="tool-cat">Audio-Based &amp; Language</div>
+  <div class="grid g-4">
+    <button class="tool-card"><div class="ic" style="background:linear-gradient(135deg,#2563EB,#6C4BF6)">📖</div><div><h4>Vocabulary</h4><p>Build word power</p></div></button>
+    <button class="tool-card"><div class="ic" style="background:linear-gradient(135deg,#0C8F6A,#12B886)">🔊</div><div><h4>Pronunciation</h4><p>Say it right</p></div></button>
+    <button class="tool-card"><div class="ic" style="background:linear-gradient(135deg,#B45309,#F59E0B)">🎙️</div><div><h4>Podcast Maker</h4><p>Listen to your notes</p></div></button>
+  </div>
+</section>
+
+<!-- ========== 12. PROFILE ========== -->
+<section class="screen" id="s-profile">
+  <div class="page-h"><div><h1>Profile</h1></div></div>
+  <div class="card" style="padding:26px;margin-bottom:22px">
+    <div class="prof-head">
+      <div class="prof-av">RK</div>
+      <div style="flex:1;min-width:200px"><h2 style="font-size:22px">Ramesh Kumar</h2><div class="muted sm" style="margin-top:2px">Student · Class 9 · CBSE</div>
+        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap"><span class="chip chip-ai">🔥 12-day streak</span><span class="chip chip-tg">Level 4 Learner</span><span class="chip chip-gray">Batch 7</span></div>
+      </div>
+      <button class="btn btn-red">Edit profile</button>
+    </div>
+    <div class="grid g-4" style="margin-top:22px">
+      <div class="stat"><div class="n">62%</div><div class="l">Course progress</div></div>
+      <div class="stat"><div class="n">840</div><div class="l">AI credits left</div></div>
+      <div class="stat"><div class="n">7</div><div class="l">Badges earned</div></div>
+      <div class="stat"><div class="n">48h</div><div class="l">Time learning</div></div>
+    </div>
+  </div>
+
+  <div class="grid g-2" style="align-items:start">
+    <div class="card" style="padding:8px">
+      <div style="padding:14px 14px 6px;font-weight:800;font-size:15px">Account</div>
+      <a class="list-row" data-go="courses"><div class="ico-box" style="background:var(--yl-50);color:var(--yl-700)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v14H4zM4 9h16"/></svg></div><div style="flex:1;font-weight:600;font-size:14px">My Courses</div><span class="muted">›</span></a>
+      <a class="list-row" data-go="certificates"><div class="ico-box" style="background:var(--amber-50);color:#B45309"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="9" r="6"/><path d="M8 14l-1 7 5-3 5 3-1-7"/></svg></div><div style="flex:1;font-weight:600;font-size:14px">Certificates</div><span class="muted">›</span></a>
+      <a class="list-row" data-go="badges"><div class="ico-box" style="background:var(--yl-50);color:var(--yl-700)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 7.7l5.4-.8z"/></svg></div><div style="flex:1;font-weight:600;font-size:14px">Badges</div><span class="muted">›</span></a>
+      <a class="list-row"><div class="ico-box" style="background:#EEEEF4;color:var(--muted)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h12v20l-6-4-6 4z"/></svg></div><div style="flex:1;font-weight:600;font-size:14px">Order History</div><span class="muted">›</span></a>
+      <a class="list-row"><div class="ico-box" style="background:#EEEEF4;color:var(--muted)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14"/></svg></div><div style="flex:1;font-weight:600;font-size:14px">Organization Orders</div><span class="muted">›</span></a>
+    </div>
+    <div class="card" style="padding:8px">
+      <div style="padding:14px 14px 6px;font-weight:800;font-size:15px">Preferences</div>
+      <a class="list-row"><div class="ico-box" style="background:var(--yl-50);color:var(--yl-700)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 00-.1-1l2-1.5-2-3.5-2.4 1a7 7 0 00-1.7-1l-.3-2.5h-4l-.3 2.5a7 7 0 00-1.7 1l-2.4-1-2 3.5 2 1.5a7 7 0 000 2l-2 1.5 2 3.5 2.4-1a7 7 0 001.7 1l.3 2.5h4l.3-2.5a7 7 0 001.7-1l2.4 1 2-3.5-2-1.5a7 7 0 00.1-1z"/></svg></div><div style="flex:1;font-weight:600;font-size:14px">Settings</div><span class="muted">›</span></a>
+      <a class="list-row"><div class="ico-box" style="background:var(--tg-50);color:#0C8F6A"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div><div style="flex:1;font-weight:600;font-size:14px">Billing</div><span class="muted">›</span></a>
+      <div class="list-row"><div class="ico-box" style="background:var(--yl-50);color:var(--yl-700)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5zM15 9a4 4 0 010 6"/></svg></div><div style="flex:1;font-weight:600;font-size:14px">AI voice replies</div><div class="switch on" onclick="toggleVoice(this)"><i></i></div></div>
+      <a class="list-row"><div class="ico-box" style="background:#E8F0FE;color:var(--blue)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5zM6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg></div><div style="flex:1;font-weight:600;font-size:14px">Coaching Programs</div><span class="muted">›</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 13. CERTIFICATES ========== -->
+<section class="screen" id="s-certificates">
+  <div class="page-h"><div><h1>Certificates</h1><p>Co-branded certificates by GrowFast — The Times of India, powered by YoLearn.ai.</p></div></div>
+  <div class="grid g-3">
+    <div class="cert">
+      <div class="top">
+        <div><div class="tiny" style="opacity:.8;font-weight:600">GrowFast × YoLearn.ai</div><div style="font-weight:800;margin-top:6px;font-size:16px">Certificate of Completion</div></div>
+        <div class="seal">★</div>
+        <div><div class="tiny" style="opacity:.75">Awarded to</div><div style="font-weight:800">Ramesh Kumar</div><div class="tiny" style="opacity:.9;margin-top:4px">AI BootCamp for Students — in progress (62%)</div></div>
+      </div>
+      <div style="padding:16px"><span class="chip chip-amber">🔒 Locked · 9 lessons left</span><div class="progress" style="margin-top:12px"><i style="width:62%"></i></div><button class="btn btn-ghost btn-sm" style="margin-top:14px;width:100%;justify-content:center" data-go="course">Continue course</button></div>
+    </div>
+    <div class="cert">
+      <div class="top" style="background:linear-gradient(135deg,#0C4A3E,#12B886)">
+        <div><div class="tiny" style="opacity:.8;font-weight:600">GrowFast × YoLearn.ai</div><div style="font-weight:800;margin-top:6px;font-size:16px">Module Achiever</div></div>
+        <div class="seal" style="background:#12B886">✓</div>
+        <div><div class="tiny" style="opacity:.75">Awarded to</div><div style="font-weight:800">Ramesh Kumar</div><div class="tiny" style="opacity:.9;margin-top:4px">Module 1 — Foundations of AI</div></div>
+      </div>
+      <div style="padding:16px"><span class="chip chip-tg">✓ Earned · 14 Nov 2026</span><div style="display:flex;gap:8px;margin-top:14px"><button class="btn btn-pri btn-sm" style="flex:1;justify-content:center">Download</button><button class="btn btn-ghost btn-sm">Share</button></div></div>
+    </div>
+    <div class="cert" style="border-style:dashed;display:grid;place-items:center;text-align:center;color:var(--muted)">
+      <div style="padding:30px"><div class="empty ic" style="margin:0 auto 12px"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="9" r="6"/><path d="M8 14l-1 7 5-3 5 3-1-7"/></svg></div><div class="tiny">Finish more courses to earn additional certificates.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 14. BADGES ========== -->
+<section class="screen" id="s-badges">
+  <div class="page-h"><div><h1>Badges</h1><p>Milestones you've unlocked on your AI learning journey.</p></div><span class="chip chip-ai">7 of 12 unlocked</span></div>
+  <div class="card" style="padding:20px;margin-bottom:22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+    <div style="flex:1;min-width:200px"><div style="font-weight:700;font-size:15px">Next badge: <span style="color:var(--yl-700)">Module Master</span></div><div class="tiny muted">Complete Module 3 to unlock · 3 lessons to go</div><div class="progress" style="margin-top:10px"><i style="width:60%"></i></div></div>
+    <button class="btn btn-pri btn-sm" data-go="chapter">Keep going</button>
+  </div>
+  <div class="sec-h"><h2>Earned</h2></div>
+  <div class="grid g-4">
+    <div class="badge-tile"><div class="badge-med" style="background:linear-gradient(135deg,#FDE68A,#F59E0B)">🚀</div><div style="font-weight:700;font-size:14px">Fast Starter</div><div class="tiny muted">First lesson done</div></div>
+    <div class="badge-tile"><div class="badge-med" style="background:linear-gradient(135deg,#C4B5FD,#6C4BF6)">🔥</div><div style="font-weight:700;font-size:14px">Streak x12</div><div class="tiny muted">12 days in a row</div></div>
+    <div class="badge-tile"><div class="badge-med" style="background:linear-gradient(135deg,#A7F3D0,#12B886)">🎯</div><div style="font-weight:700;font-size:14px">Quiz Ace</div><div class="tiny muted">90%+ on a quiz</div></div>
+    <div class="badge-tile"><div class="badge-med" style="background:linear-gradient(135deg,#BFDBFE,#2563EB)">🤖</div><div style="font-weight:700;font-size:14px">AI Explorer</div><div class="tiny muted">Used 5 AI tools</div></div>
+    <div class="badge-tile"><div class="badge-med" style="background:linear-gradient(135deg,#FBCFE8,#C44BF6)">🧠</div><div style="font-weight:700;font-size:14px">Curious Mind</div><div class="tiny muted">50 doubts asked</div></div>
+    <div class="badge-tile"><div class="badge-med" style="background:linear-gradient(135deg,#FECACA,#E4151B)">📚</div><div style="font-weight:700;font-size:14px">Bookworm</div><div class="tiny muted">Read 10 PDFs</div></div>
+    <div class="badge-tile"><div class="badge-med" style="background:linear-gradient(135deg,#FDE68A,#F59E0B)">🎓</div><div style="font-weight:700;font-size:14px">Module 1 Done</div><div class="tiny muted">Foundations of AI</div></div>
+    <div class="badge-tile locked"><div class="badge-med" style="background:#ECECF4">🏆</div><div style="font-weight:700;font-size:14px">Module Master</div><div class="tiny muted">Locked</div></div>
+  </div>
+  <div class="sec-h"><h2>Locked</h2></div>
+  <div class="grid g-4">
+    <div class="badge-tile locked"><div class="badge-med" style="background:#ECECF4">⭐</div><div style="font-weight:700;font-size:14px">Course Champion</div><div class="tiny muted">Finish the course</div></div>
+    <div class="badge-tile locked"><div class="badge-med" style="background:#ECECF4">🌙</div><div style="font-weight:700;font-size:14px">Night Owl</div><div class="tiny muted">Study after 10pm</div></div>
+    <div class="badge-tile locked"><div class="badge-med" style="background:#ECECF4">💯</div><div style="font-weight:700;font-size:14px">Perfectionist</div><div class="tiny muted">100% on a quiz</div></div>
+    <div class="badge-tile locked"><div class="badge-med" style="background:#ECECF4">🛠️</div><div style="font-weight:700;font-size:14px">AI Builder</div><div class="tiny muted">Finish Module 4</div></div>
+  </div>
+</section>
+  </main>
+</div>
+
+<!-- ============ DOUBT FAB + DRAWER ============ -->
+<button class="fab" onclick="openDoubt()">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><path d="M9.1 9a3 3 0 015.8 1c0 2-3 3-3 3M12 17h.01"/></svg>
+  <span>Ask a Doubt</span>
+</button>
+<div class="scrim" id="scrim" onclick="closeDoubt()"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-h">
+    <div class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.1 9a3 3 0 015.8 1c0 2-3 3-3 3M12 17h.01M4 20l1.5-3.5A8 8 0 1112 20z"/></svg></div>
+    <div>
+      <div style="font-weight:800;font-size:15px">Doubt Assistant</div>
+      <div class="tiny muted">Instant help · voice · image · follow-ups</div>
+    </div>
+    <button class="close-x" onclick="closeDoubt()"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="ctx-chip" id="doubtCtx">
+    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+    <span>Context: general — using your grade & learning profile</span>
+  </div>
+  <div class="drawer-feed" id="doubtFeed">
+    <div class="d-msg ai">Hi Ramesh 👋 Ask me anything from your courses or syllabus. You can type, use <b>voice</b>, or upload a photo of a question.</div>
+  </div>
+  <div class="chat-sugg" style="padding:0 20px 10px">
+    <button onclick="doubtQuick('Explain the last concept again')">Explain again</button>
+    <button onclick="doubtQuick('Give me a solved example')">Solved example</button>
+    <button onclick="doubtQuick('Make a quick quiz')">Quick quiz</button>
+  </div>
+  <div class="drawer-in">
+    <button class="iconbtn" title="Upload image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5L5 20"/></svg></button>
+    <input id="doubtInput" placeholder="Type your doubt…" onkeydown="if(event.key==='Enter')sendDoubt()">
+    <button class="mic" id="doubtMic" title="Voice" onclick="this.classList.toggle('live')"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></button>
+    <button class="send" onclick="sendDoubt()"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></button>
+  </div>
+</aside>
+
+<script>
+/* ============ ROUTER ============ */
+function go(id, push){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  var el=document.getElementById('s-'+id);
+  if(el)el.classList.add('active');
+  document.querySelectorAll('#topnav a,.rail a').forEach(a=>a.classList.remove('on'));
+  var map={dashboard:'dashboard',courses:'courses',tutor:'tutor',studylab:'studylab',tools:'tools',practice:'practice',certificates:'certificates',badges:'badges',profile:'profile'};
+  var navId=map[id]||( ['course','coursepath','chapter','video','prereading','assessment'].includes(id)?'courses':null);
+  document.querySelectorAll('[data-go="'+navId+'"]').forEach(a=>a.classList.add('on'));
+  window.scrollTo({top:0,behavior:'instant'});
+  document.querySelector('.rail').classList.remove('open');
+  document.querySelector('.fab').style.display=(id==='tutor')?'none':'flex';
+  if(id==='tutor') setTimeout(initSketch,60);
+}
+document.addEventListener('click',function(e){
+  var t=e.target.closest('[data-go]');
+  if(t){e.preventDefault();go(t.getAttribute('data-go'));}
+});
+
+/* ============ DOUBT DRAWER ============ */
+function openDoubt(ctx){
+  document.getElementById('scrim').classList.add('open');
+  document.getElementById('drawer').classList.add('open');
+  if(ctx)document.getElementById('doubtCtx').querySelector('span').textContent='Context: '+ctx;
+}
+function closeDoubt(){document.getElementById('scrim').classList.remove('open');document.getElementById('drawer').classList.remove('open');}
+function addDoubt(txt,who){var f=document.getElementById('doubtFeed');var d=document.createElement('div');d.className='d-msg '+who;d.innerHTML=txt;f.appendChild(d);f.scrollTop=f.scrollHeight;}
+function sendDoubt(){var i=document.getElementById('doubtInput');if(!i.value.trim())return;addDoubt(i.value,'me');var q=i.value;i.value='';setTimeout(function(){addDoubt("Great question! Here's a simple way to see it… I'll break it into steps and check your grade-level ("+'Class 9, CBSE'+"). Want me to open the Sketchpad to draw it out?",'ai');},550);}
+function doubtQuick(q){addDoubt(q,'me');setTimeout(function(){addDoubt("Sure — here you go. (Grounded in your course content + NCERT.) Ask a follow-up any time.",'ai');},500);}
+
+/* ============ TABS ============ */
+function tab(group,name,btn){
+  document.querySelectorAll('[data-tabgroup="'+group+'"] .tabpane').forEach(p=>p.classList.remove('on'));
+  var pane=document.getElementById('pane-'+group+'-'+name); if(pane)pane.classList.add('on');
+  btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('on')); btn.classList.add('on');
+}
+function asst(name,btn){
+  document.querySelectorAll('[data-asst]').forEach(p=>p.style.display='none');
+  document.querySelector('[data-asst="'+name+'"]').style.display='block';
+  btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('on'));btn.classList.add('on');
+}
+function toggleMod(el){el.closest('.mod').classList.toggle('open');}
+function pickPracticeTopic(el,topic){
+  document.querySelectorAll('#s-practice .topic-row').forEach(function(r){r.style.background='';r.style.color='';r.style.borderColor='transparent';r.style.fontWeight='600';});
+  el.style.background='var(--ai-50)';el.style.color='var(--ai-700)';el.style.borderColor='var(--ai-100)';el.style.fontWeight='700';
+  window._selectedBootcampTopic=topic;
+}
+function setLabMode(el,mode){el.parentElement.querySelectorAll('.lab-mode').forEach(m=>m.classList.remove('on'));el.classList.add('on');
+  document.querySelectorAll('[data-labpane]').forEach(p=>p.style.display='none');document.querySelector('[data-labpane="'+mode+'"]').style.display='block';}
+
+/* ============ TUTOR CHAT + SKETCH ============ */
+function addMsg(txt,who){var f=document.getElementById('chatFeed');var d=document.createElement('div');d.className='msg '+who;
+  d.innerHTML=(who==='ai'?'<div class="who">AI Tutor · Pragya</div>':'')+txt;f.appendChild(d);f.scrollTop=f.scrollHeight;}
+function sendChat(){var i=document.getElementById('chatInput');if(!i.value.trim())return;addMsg(i.value,'me');var q=i.value;i.value='';
+  setTimeout(function(){addMsg("Let's solve it on the board together. I'll write <b>step 1</b> on the sketchpad — watch the left panel. Tell me if any step feels unclear and I'll slow down. ✏️",'ai');},600);}
+function tutorQuick(q){addMsg(q,'me');setTimeout(function(){addMsg("Good one — here's a simpler way to picture it, with an example from your NCERT chapter. I've sketched it on the board.",'ai');},550);}
+function toggleVoice(el){el.classList.toggle('on');}
+var sketchInit=false;
+function initSketch(){
+  var c=document.getElementById('sketch');if(!c||sketchInit)return;sketchInit=true;
+  function size(){var r=c.getBoundingClientRect();c.width=r.width*2;c.height=r.height*2;var x=c.getContext('2d');x.scale(2,2);x.lineCap='round';x.lineJoin='round';x.strokeStyle='#4B2FD6';x.lineWidth=2.5;seed(x,r.width);}
+  var ctx=c.getContext('2d'),draw=false,px,py;
+  function pos(e){var r=c.getBoundingClientRect();var t=e.touches?e.touches[0]:e;return[t.clientX-r.left,t.clientY-r.top];}
+  c.addEventListener('pointerdown',function(e){draw=true;[px,py]=pos(e);});
+  c.addEventListener('pointermove',function(e){if(!draw)return;var[x,y]=pos(e);ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(x,y);ctx.stroke();[px,py]=[x,y];});
+  window.addEventListener('pointerup',function(){draw=false;});
+  function seed(x,w){x.save();
+    // Header: topic title
+    x.fillStyle='#4B2FD6';x.font='bold 15px Inter,sans-serif';
+    x.fillText('Prompting like a Pro — 4-Part Formula',16,36);
+    x.strokeStyle='#C44BF6';x.lineWidth=1.5;x.beginPath();x.moveTo(16,44);x.lineTo(300,44);x.stroke();
+    // The 4 parts as a visual formula
+    var parts=[['Role','Who to be','#D2232A'],['Task','What to do','#6C4BF6'],['Context','Why / for whom','#0C8F6A'],['Format','How to present','#B45309']];
+    var xOff=16;
+    parts.forEach(function(p,i){
+      x.fillStyle=p[2];x.font='bold 13px Inter,sans-serif';x.fillText(p[0],xOff,74);
+      x.fillStyle='#6B6E86';x.font='11px Inter,sans-serif';x.fillText(p[1],xOff,90);
+      if(i<3){x.fillStyle='#999';x.font='bold 18px Inter,sans-serif';x.fillText('+',xOff+58,78);}
+      xOff+=76;
+    });
+    // Example prompt
+    x.strokeStyle='#EDE9FF';x.fillStyle='#F8F7FF';x.lineWidth=1;x.beginPath();x.roundRect(16,106,300,52,8);x.fill();x.stroke();
+    x.fillStyle='#4B2FD6';x.font='bold 11px Inter,sans-serif';x.fillText('Example prompt:',24,122);
+    x.fillStyle='#333';x.font='11px Inter,sans-serif';
+    x.fillText('"Act as a Class 9 maths teacher. Explain',24,138);
+    x.fillText('the water cycle in 5 bullet points."',24,152);
+    // Arrow pointing to example
+    x.strokeStyle='#12B886';x.lineWidth=2;x.beginPath();x.moveTo(16,172);x.lineTo(16,190);x.stroke();
+    x.fillStyle='#0C8F6A';x.font='bold 12px Inter,sans-serif';x.fillText('✓ Your turn — write your own prompt below!',24,190);
+    x.restore();}
+  size();window.addEventListener('resize',function(){if(document.getElementById('s-tutor').classList.contains('active'))size();});
+}
+function clearSketch(){sketchInit=false;var c=document.getElementById('sketch');if(c)c.getContext('2d').clearRect(0,0,c.width,c.height);initSketch();}
+
+/* ============ PRACTICE ============ */
+
+/* ============ PRACTICE CENTER MODES ============ */
+function switchPracticeMode(mode) {
+  document.querySelectorAll('.practice-entry-card').forEach(function(c) { c.classList.remove('active'); });
+  var targetCard = document.getElementById('entry-' + mode);
+  if (targetCard) targetCard.classList.add('active');
+
+  var pBoot = document.getElementById('panel-bootcamp');
+  var pNcert = document.getElementById('panel-ncert');
+  var pWeak = document.getElementById('panel-weak');
+  if (pBoot) pBoot.style.display = 'none';
+  if (pNcert) pNcert.style.display = 'none';
+  if (pWeak) pWeak.style.display = 'none';
+
+  var activePanel = document.getElementById('panel-' + mode);
+  if (activePanel) {
+    activePanel.style.display = 'block';
+  }
+}
+
+function createBootcampTest() {
+  var sel = document.getElementById('bootcampTopicSelect');
+  var topicName = sel ? sel.options[sel.selectedIndex].text : 'Module 3 · Prompting like a Pro';
+  var qCard = document.querySelector('#s-practice .q-card');
+  if (qCard) {
+    qCard.style.display = 'block';
+    var topicP = qCard.querySelector('p.tiny.muted');
+    if (topicP) topicP.textContent = 'From: ' + topicName;
+    var qHeading = qCard.querySelector('h3');
+    if (qHeading) qHeading.innerHTML = 'Which part of a prompt tells the AI <i>who to be</i>?';
+    qCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function createNcertTest() {
+  var subjSel = document.querySelector('#subjectGrid .subj-btn.on div:last-child');
+  var subjName = subjSel ? subjSel.textContent : 'Mathematics';
+  var chSel = document.getElementById('ncertChapter');
+  var chName = chSel ? chSel.value : 'Chapter 1 · Number Systems';
+  var qCard = document.querySelector('#s-practice .q-card');
+  if (qCard) {
+    qCard.style.display = 'block';
+    var topicP = qCard.querySelector('p.tiny.muted');
+    if (topicP) topicP.textContent = 'From NCERT: ' + subjName + ' · ' + chName;
+    var qHeading = qCard.querySelector('h3');
+    if (qHeading) qHeading.innerHTML = 'Practice Test on <i>' + chName + '</i>';
+    qCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function createWeakTest() {
+  var qCard = document.querySelector('#s-practice .q-card');
+  if (qCard) {
+    qCard.style.display = 'block';
+    var topicP = qCard.querySelector('p.tiny.muted');
+    if (topicP) topicP.textContent = 'From: Weak Areas Drill · Prompting like a Pro';
+    qCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function answer(el,ok){
+  if(el.parentElement.dataset.done)return;el.parentElement.dataset.done=1;
+  el.classList.add(ok?'correct':'wrong');
+  if(!ok){document.querySelector('.opt[data-ok]').classList.add('correct');}
+  document.getElementById('qFeedback').classList.add('show');
+}
+function nextQ(){document.getElementById('qFeedback').classList.remove('show');
+  document.querySelectorAll('.opt').forEach(o=>{o.classList.remove('correct','wrong');o.parentElement.dataset.done='';});
+  var b=document.getElementById('qCount');b.textContent=Math.min(parseInt(b.textContent)+1,10);}
+
+/* ============ TOPIC SWITCHER (AI Tutor screen) ============ */
+var topicLabels={'ai-what':'M1 · What is AI?','ml-basics':'M1 · How Machines Learn','ai-around':'M1 · AI Around Us',
+  'llm':'M2 · How LLMs Work','data':'M2 · Data & Training','bias':'M2 · AI Ethics',
+  'prompting':'M3 · Prompting','4part':'M3 · 4-Part Formula','mistakes':'M3 · Mistakes',
+  'chatgpt':'M4 · ChatGPT Safely','ai-tools':'M4 · AI Tools','project':'M5 · AI Project','present':'M5 · Presenting'};
+var topicMessages={'prompting':'Hi Ramesh! 👋 Today we\'re learning <b>Prompting like a Pro</b> from Module 3.<br><br>I\'ve written the 4-part formula on the board →<br><b>Role · Task · Context · Format</b><br><br>Let me walk you through each part. Ready? 🙂',
+  'ml-basics':'Great choice! Let\'s explore <b>How Machines Learn</b>. I\'ve drawn a simple diagram on the board — data goes in on the left, the model learns patterns, and predictions come out on the right. Want me to explain it step by step?',
+  'llm':'Today we\'re diving into <b>How LLMs Work</b>. Think of it like a very smart autocomplete — trained on billions of sentences. I\'ve sketched the basic flow on the board. Ask me anything!',
+  'default':'Starting lesson on <b id="topicTitle">this topic</b>. I\'ve prepared some key points on the board. Ready to begin? 🙂'};
+function switchTopic(val){
+  var chip=document.getElementById('topicChip');
+  if(chip)chip.textContent='⚡ '+(topicLabels[val]||val);
+  sketchInit=false;clearSketch();
+  var feed=document.getElementById('chatFeed');
+  feed.innerHTML='';
+  var msg=topicMessages[val]||topicMessages['default'];
+  setTimeout(function(){addMsg(msg,'ai');},200);
+}
+
+/* ============ NCERT SUBJECT SWITCHER ============ */
+var ncertChapters={
+  'maths':['Chapter 1 · Number Systems','Chapter 2 · Polynomials','Chapter 3 · Coordinate Geometry','Chapter 4 · Linear Equations in Two Variables','Chapter 5 · Euclid\'s Geometry','Chapter 6 · Lines and Angles','Chapter 7 · Triangles','Chapter 8 · Quadrilaterals','Chapter 9 · Circles','Chapter 10 · Heron\'s Formula','Chapter 11 · Surface Areas and Volumes','Chapter 12 · Statistics'],
+  'science':['Chapter 1 · Matter in Our Surroundings','Chapter 2 · Is Matter Around Us Pure?','Chapter 3 · Atoms and Molecules','Chapter 4 · Structure of the Atom','Chapter 5 · The Fundamental Unit of Life','Chapter 6 · Tissues','Chapter 7 · Motion','Chapter 8 · Force and Laws of Motion','Chapter 9 · Gravitation','Chapter 10 · Work and Energy','Chapter 11 · Sound'],
+  'sst':['History Ch 1 · French Revolution','History Ch 2 · Socialism in Europe','History Ch 3 · Nazism and the Rise of Hitler','Geography Ch 1 · India — Size and Location','Geography Ch 2 · Physical Features','Geography Ch 3 · Drainage','Civics Ch 1 · What is Democracy?','Civics Ch 2 · Constitutional Design','Economics Ch 1 · The Story of Village Palampur'],
+  'english':['Ch 1 · The Fun They Had','Ch 2 · The Sound of Music','Ch 3 · The Little Girl','Ch 4 · A Truly Beautiful Mind','Ch 5 · The Snake and the Mirror','Ch 6 · My Childhood','Ch 7 · Packing','Poem · The Road Not Taken','Poem · Wind','Poem · Rain on the Roof']
+};
+function selectSubject(btn,subj){
+  document.querySelectorAll('#subjectGrid button').forEach(function(b){
+    b.classList.remove('on');
+    b.style.border='1.5px solid var(--line)';b.style.background='#fff';b.querySelector('div:last-child').style.color='var(--ink-2)';
+  });
+  btn.classList.add('on');
+  btn.style.border='2px solid var(--yl)';btn.style.background='var(--yl-50)';
+  btn.querySelector('div:last-child').style.color='var(--yl-700)';
+  var sel=document.getElementById('ncertChapter');sel.innerHTML='';
+  (ncertChapters[subj]||[]).forEach(function(ch){var o=document.createElement('option');o.textContent=ch;sel.appendChild(o);});
+}
+</script>
+</body>
+</html>

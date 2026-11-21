@@ -1,0 +1,9 @@
+{
+  "name": "toi-yolearn-ai-bootcamp",
+  "version": "1.0.0",
+  "description": "Times of India × YoLearn.ai — AI BootCamp for Students Interactive Prototype",
+  "scripts": {
+    "start": "npx serve .",
+    "build": "echo 'Static site — no build needed'"
+  }
+}
