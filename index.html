@@ -670,6 +670,7 @@ img{max-width:100%;display:block}
     <div class="grp">Account</div>
     <a data-go="certificates"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="9" r="6"/><path d="M8 14l-1 7 5-3 5 3-1-7"/></svg>Certificates</a>
     <a data-go="badges"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 7.7l5.4-.8z"/></svg>Badges</a>
+    <a data-go="billing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>Billing</a>
     <a data-go="profile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Profile</a>
   </aside>
 
@@ -2763,7 +2764,7 @@ img{max-width:100%;display:block}
     <div class="card" style="padding:8px">
       <div style="padding:14px 14px 6px;font-weight:800;font-size:15px">Preferences</div>
       <a class="list-row"><div class="ico-box" style="background:var(--yl-50);color:var(--yl-700)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 00-.1-1l2-1.5-2-3.5-2.4 1a7 7 0 00-1.7-1l-.3-2.5h-4l-.3 2.5a7 7 0 00-1.7 1l-2.4-1-2 3.5 2 1.5a7 7 0 000 2l-2 1.5 2 3.5 2.4-1a7 7 0 001.7 1l.3 2.5h4l.3-2.5a7 7 0 001.7-1l2.4 1 2-3.5-2-1.5a7 7 0 00.1-1z"/></svg></div><div style="flex:1;font-weight:600;font-size:14px">Settings</div><span class="muted">›</span></a>
-      <a class="list-row"><div class="ico-box" style="background:var(--tg-50);color:#0C8F6A"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div><div style="flex:1;font-weight:600;font-size:14px">Billing</div><span class="muted">›</span></a>
+      <a class="list-row" data-go="billing"><div class="ico-box" style="background:var(--tg-50);color:#0C8F6A"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div><div style="flex:1;font-weight:600;font-size:14px">Billing</div><span class="muted">›</span></a>
       <div class="list-row"><div class="ico-box" style="background:var(--yl-50);color:var(--yl-700)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5zM15 9a4 4 0 010 6"/></svg></div><div style="flex:1;font-weight:600;font-size:14px">AI voice replies</div><div class="switch on" onclick="toggleVoice(this)"><i></i></div></div>
       <a class="list-row"><div class="ico-box" style="background:#E8F0FE;color:var(--blue)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5zM6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg></div><div style="flex:1;font-weight:600;font-size:14px">Coaching Programs</div><span class="muted">›</span></a>
     </div>
@@ -2792,6 +2793,119 @@ img{max-width:100%;display:block}
     </div>
     <div class="cert" style="border-style:dashed;display:grid;place-items:center;text-align:center;color:var(--muted)">
       <div style="padding:30px"><div class="empty ic" style="margin:0 auto 12px"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="9" r="6"/><path d="M8 14l-1 7 5-3 5 3-1-7"/></svg></div><div class="tiny">Finish more courses to earn additional certificates.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 15. BILLING & SUBSCRIPTION ========== -->
+<section class="screen" id="s-billing">
+  <div class="page-h">
+    <div>
+      <h1>Billing &amp; Plans</h1>
+      <p>Manage your student subscription, AI tokens quota, payment methods, and invoices.</p>
+    </div>
+    <span class="chip chip-tg">✓ Active Subscription</span>
+  </div>
+
+  <div class="grid g-2" style="gap:20px;margin-bottom:22px;align-items:stretch">
+    <!-- Active Plan Card -->
+    <div class="card" style="padding:24px;border:1.5px solid var(--line);border-radius:18px;display:flex;flex-direction:column;justify-content:space-between">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <span class="chip chip-red" style="font-weight:700">Student Pro Plan</span>
+          <span style="font-size:12px;color:var(--muted)">Renews Dec 15, 2026</span>
+        </div>
+        <div style="font-size:26px;font-weight:800;color:#111827">₹799 <span style="font-size:14px;font-weight:500;color:var(--muted)">/ month</span></div>
+        <p class="muted" style="font-size:13px;margin:8px 0 16px">Complete access to TOI GrowFast AI Learning &amp; YoLearn platform.</p>
+        <div style="display:flex;flex-direction:column;gap:8px;font-size:13px">
+          <div style="display:flex;align-items:center;gap:8px;color:#166534"><span>✓</span> Unlimited AI BootCamp &amp; Video Modules</div>
+          <div style="display:flex;align-items:center;gap:8px;color:#166534"><span>✓</span> 24/7 Pragya AI Tutor on Sketchpad</div>
+          <div style="display:flex;align-items:center;gap:8px;color:#166534"><span>✓</span> 16 AI Study Tools &amp; Study Lab</div>
+          <div style="display:flex;align-items:center;gap:8px;color:#166534"><span>✓</span> Infinite NCERT Adaptive Practice Sets</div>
+          <div style="display:flex;align-items:center;gap:8px;color:#166534"><span>✓</span> Official TOI × YoLearn Certificate</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:20px">
+        <button class="btn btn-pri btn-sm" onclick="alert('Your subscription is active and in good standing.')">Manage Plan</button>
+        <button class="btn btn-ghost btn-sm" onclick="alert('Annual plan: ₹6,999/year (Save 30%). Upgrading...')">Upgrade to Annual (Save 30%)</button>
+      </div>
+    </div>
+
+    <!-- AI Credits & Payment Method Card -->
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <!-- AI Credits Quota -->
+      <div class="card" style="padding:22px;border:1.5px solid var(--line);border-radius:18px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+          <div style="font-weight:800;font-size:15px">AI Credits Quota</div>
+          <span class="chip chip-ai">840 Tokens Left</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--muted);margin-bottom:10px">Monthly allowance resets on Dec 15, 2026.</div>
+        <div class="progress" style="margin-bottom:14px"><i style="width:84%"></i></div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span class="tiny muted">840 / 1,000 monthly credits</span>
+          <button class="btn btn-soft btn-sm" onclick="alert('Top-up 500 AI tokens for ₹199')">+ Top-up Tokens</button>
+        </div>
+      </div>
+
+      <!-- Payment Method -->
+      <div class="card" style="padding:22px;border:1.5px solid var(--line);border-radius:18px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div style="font-weight:800;font-size:15px">Payment Method</div>
+          <button class="btn btn-ghost btn-sm" onclick="alert('Manage payment methods')">Change</button>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;background:var(--bg);border-radius:10px;padding:12px 14px">
+          <div style="width:38px;height:26px;background:#1E3A8A;color:#fff;border-radius:4px;display:grid;place-items:center;font-weight:900;font-size:11px;letter-spacing:1px">VISA</div>
+          <div style="flex:1">
+            <div style="font-weight:700;font-size:13.5px">Visa ending in 4242</div>
+            <div class="tiny muted">Expires 08/2028 · Primary payment method</div>
+          </div>
+          <span class="chip chip-tg" style="font-size:11px">Default</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Invoices & Transaction History -->
+  <div class="sec-h" style="margin-top:28px"><h2>Invoices &amp; Payment History</h2><span class="chip chip-gray">3 Invoices</span></div>
+  <div class="card" style="padding:8px;border-radius:16px;overflow:hidden">
+    <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;padding:12px 16px;font-size:12px;font-weight:700;color:var(--muted);border-bottom:1px solid var(--line)">
+      <span>DESCRIPTION</span>
+      <span>DATE</span>
+      <span>AMOUNT</span>
+      <span style="text-align:right">ACTION</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;padding:14px 16px;align-items:center;border-bottom:1px solid var(--line-2)">
+      <div>
+        <div style="font-weight:700;font-size:14px">AI BootCamp for Students — Batch 7</div>
+        <div class="tiny muted">Order #TOI-2026-8841</div>
+      </div>
+      <div style="font-size:13px;color:var(--muted)">15 Nov 2026</div>
+      <div style="font-weight:700;font-size:14px;color:#111827">₹799 <span class="chip chip-tg" style="margin-left:6px;font-size:11px">Paid</span></div>
+      <div style="text-align:right">
+        <button class="btn btn-ghost btn-sm" onclick="alert('Downloading invoice #TOI-2026-8841 (PDF)...')">📄 PDF Invoice</button>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;padding:14px 16px;align-items:center;border-bottom:1px solid var(--line-2)">
+      <div>
+        <div style="font-weight:700;font-size:14px">GrowFast Student Pro Monthly Renewal</div>
+        <div class="tiny muted">Order #TOI-2026-7210</div>
+      </div>
+      <div style="font-size:13px;color:var(--muted)">15 Oct 2026</div>
+      <div style="font-weight:700;font-size:14px;color:#111827">₹799 <span class="chip chip-tg" style="margin-left:6px;font-size:11px">Paid</span></div>
+      <div style="text-align:right">
+        <button class="btn btn-ghost btn-sm" onclick="alert('Downloading invoice #TOI-2026-7210 (PDF)...')">📄 PDF Invoice</button>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;padding:14px 16px;align-items:center">
+      <div>
+        <div style="font-weight:700;font-size:14px">Foundation Starter &amp; Enrolment Kit</div>
+        <div class="tiny muted">Order #TOI-2026-5592</div>
+      </div>
+      <div style="font-size:13px;color:var(--muted)">15 Sep 2026</div>
+      <div style="font-weight:700;font-size:14px;color:#111827">₹499 <span class="chip chip-tg" style="margin-left:6px;font-size:11px">Paid</span></div>
+      <div style="text-align:right">
+        <button class="btn btn-ghost btn-sm" onclick="alert('Downloading invoice #TOI-2026-5592 (PDF)...')">📄 PDF Invoice</button>
+      </div>
     </div>
   </div>
 </section>
@@ -2867,7 +2981,7 @@ function go(id, push){
   var el=document.getElementById('s-'+id);
   if(el)el.classList.add('active');
   document.querySelectorAll('#topnav a,.rail a').forEach(a=>a.classList.remove('on'));
-  var map={dashboard:'dashboard',courses:'courses',tutor:'tutor',studylab:'studylab',tools:'tools',practice:'practice',certificates:'certificates',badges:'badges',profile:'profile'};
+  var map={dashboard:'dashboard',courses:'courses',tutor:'tutor',studylab:'studylab',tools:'tools',practice:'practice',certificates:'certificates',badges:'badges',billing:'billing',profile:'profile'};
   var navId=map[id]||( ['course','chapter','video','prereading','assessment'].includes(id)?'courses':null);
   document.querySelectorAll('[data-go="'+navId+'"]').forEach(a=>a.classList.add('on'));
   window.scrollTo({top:0,behavior:'instant'});
