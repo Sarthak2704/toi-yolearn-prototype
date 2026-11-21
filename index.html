@@ -237,6 +237,21 @@ img{max-width:100%;display:block}
 .schedule-class-row{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:12px;background:#fff;border:1px solid var(--line);margin-bottom:8px;transition:.15s}
 .schedule-class-row:hover{border-color:var(--ai-100);box-shadow:var(--sh-sm)}
 
+
+.learn-sticker{display:inline-flex;align-items:center;justify-content:center;background:#fff;color:#D2232A;border:2px solid #141522;border-radius:14px;padding:2px 22px;margin:0 8px;transform:rotate(-2.5deg);box-shadow:0 4px 14px rgba(0,0,0,.06);font-family:'Plus Jakarta Sans',sans-serif;font-weight:800}
+.sl-pill{background:#fff;border:1.5px solid #E2E8F0;color:#64748B;font-weight:600;border-radius:999px;padding:7px 16px;font-size:13px;display:inline-flex;align-items:center;gap:6px;cursor:pointer;transition:.15s}
+.sl-pill:hover{border-color:#CBD5E1;color:#1E293B}
+.sl-pill.on{background:#FFF1F2;border-color:#FDA4AF;color:#E11D48;font-weight:700}
+.btn-sl-submit{background:linear-gradient(135deg,#E11D48,#D2232A);color:#fff;font-weight:700;border-radius:999px;padding:11px 22px;font-size:14px;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;box-shadow:0 4px 14px rgba(225,29,72,.35);transition:.15s;white-space:nowrap}
+.btn-sl-submit:hover{transform:translateY(-1px);filter:brightness(1.05)}
+.sl-recent-card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;cursor:pointer;transition:.2s;display:flex;flex-direction:column}
+.sl-recent-card:hover{transform:translateY(-3px);box-shadow:var(--sh);border-color:var(--yl-100)}
+.sl-thumb-area{height:130px;width:100%;overflow:hidden;border-bottom:1px solid var(--line)}
+.sl-doc-preview{padding:14px 12px;font-family:system-ui,sans-serif}
+.sl-recent-meta{padding:12px 14px}
+.sl-recent-title{font-size:13px;font-weight:700;color:#1E293B;display:flex;align-items:center;gap:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sl-recent-time{font-size:11.5px;color:#94A3B8;margin-top:3px}
+
 /* practice */
 .practice-entry-card{background:#fff;border:1.5px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;justify-content:space-between;min-height:165px;transition:.2s;cursor:pointer}
 .practice-entry-card:hover{transform:translateY(-2px);box-shadow:var(--sh);border-color:var(--yl-100)}
@@ -1196,49 +1211,163 @@ img{max-width:100%;display:block}
 
 <!-- ========== 9. STUDY LAB ========== -->
 <section class="screen" id="s-studylab">
-  <div class="page-h"><div><h1>Study Lab</h1><p>Turn any resource into learning. Paste a YouTube link, upload a PDF, or just ask a doubt — AI does the rest.</p></div></div>
-  <div class="lab-modes">
-    <button class="lab-mode on" onclick="setLabMode(this,'yt')"><div class="ic" style="background:linear-gradient(135deg,#E4151B,#ff5a4d)"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg></div><div style="font-weight:700">YouTube</div><div class="tiny muted">Learn from any video</div></button>
-    <button class="lab-mode" onclick="setLabMode(this,'pdf')"><div class="ic" style="background:linear-gradient(135deg,#2563EB,#4f8bff)"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg></div><div style="font-weight:700">PDF</div><div class="tiny muted">Upload & learn</div></button>
-    <button class="lab-mode" onclick="setLabMode(this,'doubt')"><div class="ic" style="background:linear-gradient(135deg,#6C4BF6,#C44BF6)"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.1 9a3 3 0 015.8 1c0 2-3 3-3 3M12 17h.01M4 20l1.5-3.5A8 8 0 1112 20z"/></svg></div><div style="font-weight:700">Doubt</div><div class="tiny muted">Ask · snap a photo</div></button>
-  </div>
+  <!-- Hero Section with YoLearn signature peach gradient & grid -->
+  <div style="background:linear-gradient(to right, rgba(244,63,94,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(244,63,94,0.04) 1px, transparent 1px), radial-gradient(ellipse at 50% 0%, #FFEBEB 0%, #FFF5F5 45%, #F6F5FB 85%);background-size:28px 28px, 28px 28px, 100% 100%;padding:46px 20px 48px;border-radius:24px;margin-bottom:34px;text-align:center;position:relative">
+    <h1 style="font-size:48px;font-weight:800;letter-spacing:-.03em;color:#141522;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:2px;margin-bottom:14px;line-height:1.2">
+      <span>What will you</span>
+      <span class="learn-sticker">learn</span>
+      <span>today?</span>
+    </h1>
+    <p style="font-size:15.5px;color:#555870;max-width:580px;margin:0 auto;line-height:1.65">
+      Bring a video, a PDF or any study material, and we'll turn it into notes, quizzes and flashcards you can actually practise with.
+    </p>
 
-  <div data-labpane="yt">
-    <div class="card" style="padding:20px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
-      <div style="flex:1;min-width:260px;display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:12px;padding:4px 4px 4px 14px">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--red)" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="var(--red)"/></svg>
-        <input value="https://youtu.be/ncert-photosynthesis" style="flex:1;border:none;outline:none;font-size:14px;padding:9px 0">
-        <button class="btn btn-pri btn-sm">Process</button>
+    <!-- Centerpiece: Rainbow gradient border input card -->
+    <div style="max-width:760px;margin:32px auto 0;background:linear-gradient(135deg,#FF3366 0%,#FF5E3A 40%,#FFB800 100%);padding:2.5px;border-radius:28px;box-shadow:0 14px 40px rgba(255,51,102,.12);text-align:left">
+      <div style="background:#fff;border-radius:26px;padding:20px 24px">
+        <!-- Tab pills row -->
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px" id="studylab-tabs">
+          <button class="sl-pill on" id="sl-tab-yt" onclick="switchStudyMode('yt')">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M10 9l5 3-5 3V9z"/><rect x="2" y="5" width="20" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            YouTube
+          </button>
+          <button class="sl-pill" id="sl-tab-pdf" onclick="switchStudyMode('pdf')">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg>
+            PDF
+          </button>
+          <button class="sl-pill" id="sl-tab-doubt" onclick="switchStudyMode('doubt')">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.1 9a3 3 0 015.8 1c0 2-3 3-3 3M12 17h.01M4 20l1.5-3.5A8 8 0 1112 20z"/></svg>
+            Doubt
+          </button>
+        </div>
+
+        <!-- Input bar row -->
+        <div style="display:flex;align-items:center;gap:12px;padding:4px 0">
+          <span id="sl-input-icon" style="color:#94A3B8;display:grid;place-items:center">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+          </span>
+          <input id="sl-input-field" placeholder="Paste a lecture link..." value="https://youtu.be/ncert-photosynthesis" style="flex:1;border:none;outline:none;font-size:15px;color:#1E293B;font-family:inherit;font-weight:500;padding:6px 0;background:transparent">
+          <button class="btn-sl-submit" onclick="processStudyResource()">
+            Get Started
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
       </div>
     </div>
-    <div class="card" style="padding:18px;margin-top:16px;display:flex;gap:16px;align-items:center;flex-wrap:wrap">
-      <div class="thumb" style="width:170px;aspect-ratio:16/9;flex-shrink:0;background:linear-gradient(135deg,#0C8F6A,#12B886)"><div class="play" style="width:40px;height:40px"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div></div>
-      <div style="flex:1;min-width:200px"><div style="font-weight:700">Photosynthesis — Class 10 Biology</div><div class="tiny muted">14:20 · processed ✓ · NCERT-aligned</div>
+
+    <!-- Active Processed Result (shows after Get Started or clicking a recent) -->
+    <div id="sl-processed-result" class="card" style="max-width:760px;margin:22px auto 0;padding:20px 24px;border:1.5px solid var(--tg);background:#FAFFFD;border-radius:20px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;text-align:left">
+      <div class="thumb" style="width:160px;aspect-ratio:16/9;border-radius:12px;background:linear-gradient(135deg,#0C8F6A,#12B886);position:relative;display:grid;place-items:center;color:#fff">
+        <div class="play" style="width:38px;height:38px"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+      <div style="flex:1;min-width:240px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+          <span class="chip chip-tg" style="font-size:10.5px">✓ Processed</span>
+          <span class="tiny muted">14:20 · 22 Concepts extracted</span>
+        </div>
+        <div style="font-weight:800;font-size:16px;color:#141522" id="sl-result-title">Photosynthesis — Class 10 Biology</div>
         <div class="learn-chips" style="margin-top:12px">
-          <button class="learn-chip" data-go="tools">📝 Notes</button><button class="learn-chip" data-go="tools">🃏 Flashcards</button><button class="learn-chip" data-go="practice">❓ Quiz</button><button class="learn-chip" data-go="tools">📄 Summary</button><button class="learn-chip" onclick="openDoubt('YouTube: Photosynthesis')">💬 Ask doubt</button>
+          <button class="learn-chip" data-go="tools">📝 AI Notes</button>
+          <button class="learn-chip" data-go="tools">🃏 Flashcards</button>
+          <button class="learn-chip" data-go="practice">❓ Quiz</button>
+          <button class="learn-chip" data-go="tools">📄 Summary</button>
+          <button class="learn-chip" onclick="openDoubt('Photosynthesis — Class 10')">💬 Ask a doubt</button>
         </div>
       </div>
     </div>
   </div>
-  <div data-labpane="pdf" style="display:none">
-    <div class="dropzone">
-      <div class="empty ic" style="margin:0 auto 14px"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></svg></div>
-      <div style="font-weight:700;color:var(--ink)">Drop a PDF here or click to upload</div>
-      <div class="tiny muted" style="margin:6px 0 16px">NCERT chapters, notes, question papers — up to 50 MB</div>
-      <button class="btn btn-pri btn-sm">Choose file</button>
+
+  <!-- Recents Section (Exact match with reference image) -->
+  <div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px">
+      <div style="font-size:17px;font-weight:800;color:#141522;display:flex;align-items:center;gap:8px">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#64748B" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Recents
+      </div>
+      <a class="link" style="font-size:13px;font-weight:700;color:#64748B;cursor:pointer">View all</a>
     </div>
-    <div class="card" style="padding:16px;margin-top:16px;display:flex;align-items:center;gap:12px"><div class="ico-box" style="background:var(--tg-50);color:#0C8F6A"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Life Processes — NCERT Ch.6.pdf</div><div class="tiny muted">Processed · 22 pages · ready to learn</div></div><button class="btn btn-soft btn-sm" data-go="tools">Open outputs</button></div>
-  </div>
-  <div data-labpane="doubt" style="display:none">
-    <div class="card" style="padding:28px;text-align:center">
-      <div class="empty ic" style="margin:0 auto 14px;background:var(--yl-50);color:var(--yl-600)"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.1 9a3 3 0 015.8 1c0 2-3 3-3 3M12 17h.01"/></svg></div>
-      <div style="font-weight:700">Stuck on a question? Ask away.</div>
-      <div class="tiny muted" style="margin:6px 0 16px">Type it, speak it, or snap a photo of the problem.</div>
-      <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap"><button class="btn btn-pri btn-sm" onclick="openDoubt('Study Lab')">Type a doubt</button><button class="btn btn-ghost btn-sm" onclick="openDoubt('Study Lab')">📷 Upload photo</button><button class="btn btn-ghost btn-sm" onclick="openDoubt('Study Lab')">🎤 Voice</button></div>
+
+    <div class="grid g-4" style="gap:16px">
+      <!-- Card 1: Chapter 5 Magnetism -->
+      <div class="sl-recent-card" onclick="loadRecent('chapter 5 magnetism','pdf')">
+        <div class="sl-thumb-area" style="background:#FFF9F2">
+          <div class="sl-doc-preview">
+            <div style="font-size:9px;font-weight:700;color:#B45309;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">NCERT Class 10</div>
+            <div style="font-weight:800;font-size:14px;color:#141522;line-height:1.2">Chapter 5<br>Magnetism</div>
+            <div style="width:40px;height:3px;background:#F59E0B;border-radius:2px;margin:8px 0"></div>
+            <div style="font-size:8.5px;color:#94A3B8;line-height:1.4">Magnetic field lines, solenoids, Fleming's left hand rule...</div>
+          </div>
+        </div>
+        <div class="sl-recent-meta">
+          <div class="sl-recent-title">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg>
+            <span>chapter 5 magnetism</span>
+          </div>
+          <div class="sl-recent-time">18 days ago</div>
+        </div>
+      </div>
+
+      <!-- Card 2: Inorganic Chemistry OneShot -->
+      <div class="sl-recent-card" onclick="loadRecent('Complete INORGANIC CHEMISTRY ONESHOT','yt')">
+        <div class="sl-thumb-area" style="background:#0F172A;color:#fff;position:relative;overflow:hidden">
+          <div style="padding:14px 12px;display:flex;flex-direction:column;justify-content:space-between;height:100%;box-sizing:border-box">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span class="chip" style="background:rgba(239,68,68,.9);color:#fff;font-size:9px;font-weight:800;padding:2px 6px">JEE 2026</span>
+              <span class="tiny" style="color:#94A3B8">2:45:10</span>
+            </div>
+            <div>
+              <div style="font-size:8px;font-weight:800;color:#FBBF24;letter-spacing:.06em">CLASS 11 · COMPLETE</div>
+              <div style="font-weight:800;font-size:12.5px;line-height:1.25">INORGANIC CHEMISTRY<br><span style="color:#F87171">ONESHOT</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="sl-recent-meta">
+          <div class="sl-recent-title">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="#EF4444"><path d="M10 9l5 3-5 3V9z"/><rect x="2" y="5" width="20" height="14" rx="4" fill="none" stroke="#EF4444" stroke-width="2"/></svg>
+            <span>Complete INORGAN...</span>
+          </div>
+          <div class="sl-recent-time">18 days ago</div>
+        </div>
+      </div>
+
+      <!-- Card 3: Why auto forwarding not work -->
+      <div class="sl-recent-card" onclick="loadRecent('Why auto forwarding not work','pdf')">
+        <div class="sl-thumb-area" style="background:#F8FAFC">
+          <div class="sl-doc-preview">
+            <div style="font-weight:700;font-size:11px;color:#1E293B;margin-bottom:6px;line-height:1.3">Why auto forwarding not work, reason for promotions</div>
+            <div style="font-size:8px;color:#64748B;line-height:1.4">Context: The user wanted to configure Gmail filters and forwarding rules for critical alerts...</div>
+          </div>
+        </div>
+        <div class="sl-recent-meta">
+          <div class="sl-recent-title">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg>
+            <span>Why auto forwardin...</span>
+          </div>
+          <div class="sl-recent-time">18 days ago</div>
+        </div>
+      </div>
+
+      <!-- Card 4: Electromagnetic Waves -->
+      <div class="sl-recent-card" onclick="loadRecent('Electromagnetic Waves Ch.8','pdf')">
+        <div class="sl-thumb-area" style="background:#F1F5F9;display:grid;place-items:center">
+          <div style="text-align:center">
+            <div style="width:42px;height:42px;border-radius:10px;background:#FEE2E2;color:#EF4444;display:grid;place-items:center;margin:0 auto 8px">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6M10 12h4M10 16h4"/></svg>
+            </div>
+            <span class="chip" style="background:#fff;color:#EF4444;font-size:9.5px;font-weight:800;border:1px solid #FECACA">PDF</span>
+          </div>
+        </div>
+        <div class="sl-recent-meta">
+          <div class="sl-recent-title">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#64748B" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg>
+            <span>Electromagnetic Wa...</span>
+          </div>
+          <div class="sl-recent-time">22 days ago</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-
 <!-- ========== 10. PRACTICE CENTER ========== -->
 <section class="screen" id="s-practice">
   <div class="page-h">
@@ -1789,6 +1918,57 @@ function clearSketch(){sketchInit=false;var c=document.getElementById('sketch');
 
 /* ============ PRACTICE ============ */
 
+
+
+/* ============ STUDY LAB INTERACTION ============ */
+function switchStudyMode(mode) {
+  document.querySelectorAll('.sl-pill').forEach(function(p) { p.classList.remove('on'); });
+  var targetPill = document.getElementById('sl-tab-' + mode);
+  if (targetPill) targetPill.classList.add('on');
+
+  var input = document.getElementById('sl-input-field');
+  var icon = document.getElementById('sl-input-icon');
+
+  if (mode === 'yt') {
+    input.placeholder = 'Paste a lecture link...';
+    input.value = 'https://youtu.be/ncert-photosynthesis';
+    icon.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>';
+  } else if (mode === 'pdf') {
+    input.placeholder = 'Drop PDF file or paste document link (e.g. Chapter 6 Life Processes)...';
+    input.value = 'NCERT_Class10_Ch6_LifeProcesses.pdf';
+    icon.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg>';
+  } else if (mode === 'doubt') {
+    input.placeholder = 'Type any doubt or question (e.g. explain Krebs cycle in simple words)...';
+    input.value = 'Explain the Calvin cycle in photosynthesis step by step';
+    icon.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.1 9a3 3 0 015.8 1c0 2-3 3-3 3M12 17h.01M4 20l1.5-3.5A8 8 0 1112 20z"/></svg>';
+  }
+}
+
+function processStudyResource() {
+  var input = document.getElementById('sl-input-field');
+  var resTitle = input && input.value ? input.value : 'Study Resource';
+  if (resTitle.includes('youtu')) resTitle = 'Photosynthesis — Class 10 Biology';
+  if (resTitle.includes('.pdf') || resTitle.includes('magnetism') || resTitle.includes('Waves')) {
+    if (resTitle.includes('magnetism')) resTitle = 'Chapter 5 Magnetism (NCERT Class 10)';
+    else if (resTitle.includes('Waves')) resTitle = 'Electromagnetic Waves (NCERT Ch.8)';
+    else resTitle = 'Life Processes — NCERT Class 10.pdf';
+  }
+
+  var resultCard = document.getElementById('sl-processed-result');
+  if (resultCard) {
+    resultCard.style.display = 'flex';
+    var titleEl = document.getElementById('sl-result-title');
+    if (titleEl) titleEl.textContent = resTitle;
+    resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+
+function loadRecent(title, type) {
+  switchStudyMode(type);
+  var input = document.getElementById('sl-input-field');
+  if (input) input.value = title;
+  processStudyResource();
+}
 
 /* ============ AI TUTOR SCHEDULE & CLASSROOM FLOW ============ */
 window._classWatched = false;
