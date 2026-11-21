@@ -903,13 +903,19 @@ img{max-width:100%;display:block}
   </div>
 
   <div class="tabs">
-    <button class="on" onclick="tab('course','curr',this)">Curriculum</button>
-    <button onclick="tab('course','res',this)">Resources & PDFs</button>
-    <button onclick="tab('course','assign',this)">Assignments</button>
+    <button class="on" onclick="tab('course','all',this)">All</button>
+    <button onclick="tab('course','class',this)">Class</button>
+    <button onclick="tab('course','res',this)">Resources &amp; PDFs</button>
+    <button onclick="tab('course','assign',this)">Assignment</button>
     <button onclick="tab('course','cert',this)">Certificate</button>
   </div>
   <div data-tabgroup="course">
-    <div class="tabpane on" id="pane-course-curr">
+    <!-- TAB 1: ALL (Shows Everything) -->
+    <div class="tabpane on" id="pane-course-all">
+      <div class="sec-h" style="margin:8px 0 14px">
+        <h2>Classes &amp; Modules</h2>
+        <span class="chip chip-ai">5 Modules · 24 Lessons</span>
+      </div>
       <div class="mod open">
         <div class="mod-h" onclick="toggleMod(this)"><div class="num">✓</div><div style="flex:1"><div style="font-weight:700">Module 1 · Foundations of AI</div><div class="tiny muted">3 lessons · completed</div></div><span class="chip chip-tg">100%</span><svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
         <div class="mod-body">
@@ -921,7 +927,56 @@ img{max-width:100%;display:block}
       <div class="mod open">
         <div class="mod-h" onclick="toggleMod(this)"><div class="num">2</div><div style="flex:1"><div style="font-weight:700">Module 3 · AI Tools for Learning</div><div class="tiny muted">5 lessons · in progress</div></div><span class="chip chip-yl">60%</span><svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
         <div class="mod-body">
-          <div class="topic-row"><div class="st done">✓</div><div style="flex:1"><div style="font-weight:600;font-size:14px">AI for Notes & Summaries</div></div><span class="chip chip-gray">Done</span></div>
+          <div class="topic-row"><div class="st done">✓</div><div style="flex:1"><div style="font-weight:600;font-size:14px">AI for Notes &amp; Summaries</div></div><span class="chip chip-gray">Done</span></div>
+          <div class="topic-row" role="button" data-go="chapter"><div class="st now">▶</div><div style="flex:1"><div style="font-weight:700;font-size:14px;color:var(--yl-700)">Prompting like a Pro</div><div class="tiny muted">Video Lecture · Pre-reading · Practice</div></div><button class="btn btn-pri btn-sm" data-go="chapter">Open</button></div>
+          <div class="topic-row"><div class="st lock">🔒</div><div style="flex:1"><div style="font-weight:600;font-size:14px">Study Smarter with AI</div></div><span class="chip chip-gray">Locked</span></div>
+        </div>
+      </div>
+      <div class="mod">
+        <div class="mod-h" onclick="toggleMod(this)"><div class="num">3</div><div style="flex:1"><div style="font-weight:700">Module 4 · Build with AI</div><div class="tiny muted">4 lessons</div></div><span class="chip chip-gray">0%</span><svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="mod-body"><div class="topic-row"><div class="st lock">🔒</div><div style="flex:1"><div style="font-weight:600;font-size:14px">No-code AI Apps</div></div></div></div>
+      </div>
+
+      <div class="sec-h" style="margin:26px 0 14px">
+        <h2>Resources &amp; PDFs</h2>
+        <span class="chip chip-gray">Study Materials</span>
+      </div>
+      <div class="grid g-2">
+        <div class="res-row"><div class="ico-box" style="background:var(--red-50);color:var(--red)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Module 3 — Prompting Handbook.pdf</div><div class="tiny muted">1.2 MB · pre-reading</div></div><button class="btn btn-soft btn-sm" data-go="prereading">Read with AI</button></div>
+        <div class="res-row"><div class="ico-box" style="background:var(--blue-light);color:#fff"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v14H4zM4 9h16"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Prompting cheat-sheet</div><div class="tiny muted">Slides · 8 pages</div></div><button class="btn btn-ghost btn-sm">Open</button></div>
+      </div>
+
+      <div class="sec-h" style="margin:26px 0 14px">
+        <h2>Assignments &amp; Quizzes</h2>
+        <span class="chip chip-amber">1 pending submission</span>
+      </div>
+      <div class="res-row" style="margin-bottom:12px"><div class="ico-box" style="background:var(--amber-50);color:#B45309"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Assignment 3 · Build a study prompt</div><div class="tiny" style="color:#B45309;font-weight:600">Due in 2 days · AI-assisted evaluation</div></div><button class="btn btn-pri btn-sm" data-go="assessment">Submit</button></div>
+      <div class="res-row"><div class="ico-box" style="background:var(--tg-50);color:#0C8F6A"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Quiz 2 · How Machines Learn</div><div class="tiny muted">8/10 · teacher-verified</div></div><button class="btn btn-ghost btn-sm" data-go="assessment">View result</button></div>
+
+      <div class="sec-h" style="margin:26px 0 14px">
+        <h2>Certificate of Completion</h2>
+        <span class="chip chip-tg">62% Completed</span>
+      </div>
+      <div class="card" style="padding:24px;display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+        <div class="cert" style="width:240px"><div class="top"><div><div class="tiny" style="opacity:.8">GrowFast × YoLearn.ai</div><div style="font-weight:800;margin-top:4px">Certificate of Completion</div></div><div class="seal">★</div><div class="tiny" style="opacity:.85">AI BootCamp for Students</div></div></div>
+        <div style="flex:1;min-width:220px"><h3 style="font-size:18px">Almost there!</h3><p class="muted" style="margin:8px 0 14px">Complete the remaining 9 lessons to unlock your co-branded certificate, signed by The Times of India GrowFast.</p><div class="progress"><i style="width:62%"></i></div><button class="btn btn-ghost btn-sm" style="margin-top:14px" data-go="certificates">View certificates</button></div>
+      </div>
+    </div>
+
+    <!-- TAB 2: CLASS (Curriculum / Classes) -->
+    <div class="tabpane" id="pane-course-class">
+      <div class="mod open">
+        <div class="mod-h" onclick="toggleMod(this)"><div class="num">✓</div><div style="flex:1"><div style="font-weight:700">Module 1 · Foundations of AI</div><div class="tiny muted">3 lessons · completed</div></div><span class="chip chip-tg">100%</span><svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="mod-body">
+          <div class="topic-row"><div class="st done">✓</div><div style="flex:1"><div style="font-weight:600;font-size:14px">What is Artificial Intelligence?</div></div><span class="chip chip-gray">Video · 12m</span></div>
+          <div class="topic-row"><div class="st done">✓</div><div style="flex:1"><div style="font-weight:600;font-size:14px">How Machines Learn</div></div><span class="chip chip-gray">Video · Quiz</span></div>
+          <div class="topic-row"><div class="st done">✓</div><div style="flex:1"><div style="font-weight:600;font-size:14px">AI All Around Us</div></div><span class="chip chip-gray">Reading</span></div>
+        </div>
+      </div>
+      <div class="mod open">
+        <div class="mod-h" onclick="toggleMod(this)"><div class="num">2</div><div style="flex:1"><div style="font-weight:700">Module 3 · AI Tools for Learning</div><div class="tiny muted">5 lessons · in progress</div></div><span class="chip chip-yl">60%</span><svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="mod-body">
+          <div class="topic-row"><div class="st done">✓</div><div style="flex:1"><div style="font-weight:600;font-size:14px">AI for Notes &amp; Summaries</div></div><span class="chip chip-gray">Done</span></div>
           <div class="topic-row" role="button" data-go="chapter"><div class="st now">▶</div><div style="flex:1"><div style="font-weight:700;font-size:14px;color:var(--yl-700)">Prompting like a Pro</div><div class="tiny muted">Video Lecture · Pre-reading · Practice</div></div><button class="btn btn-pri btn-sm" data-go="chapter">Open</button></div>
           <div class="topic-row"><div class="st lock">🔒</div><div style="flex:1"><div style="font-weight:600;font-size:14px">Study Smarter with AI</div></div><span class="chip chip-gray">Locked</span></div>
         </div>
@@ -931,16 +986,22 @@ img{max-width:100%;display:block}
         <div class="mod-body"><div class="topic-row"><div class="st lock">🔒</div><div style="flex:1"><div style="font-weight:600;font-size:14px">No-code AI Apps</div></div></div></div>
       </div>
     </div>
+
+    <!-- TAB 3: RESOURCES & PDFS -->
     <div class="tabpane" id="pane-course-res">
       <div class="grid g-2">
         <div class="res-row"><div class="ico-box" style="background:var(--red-50);color:var(--red)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Module 3 — Prompting Handbook.pdf</div><div class="tiny muted">1.2 MB · pre-reading</div></div><button class="btn btn-soft btn-sm" data-go="prereading">Read with AI</button></div>
         <div class="res-row"><div class="ico-box" style="background:var(--blue-light);color:#fff"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v14H4zM4 9h16"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Prompting cheat-sheet</div><div class="tiny muted">Slides · 8 pages</div></div><button class="btn btn-ghost btn-sm">Open</button></div>
       </div>
     </div>
+
+    <!-- TAB 4: ASSIGNMENT -->
     <div class="tabpane" id="pane-course-assign">
       <div class="res-row" style="margin-bottom:12px"><div class="ico-box" style="background:var(--amber-50);color:#B45309"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Assignment 3 · Build a study prompt</div><div class="tiny" style="color:#B45309;font-weight:600">Due in 2 days · AI-assisted evaluation</div></div><button class="btn btn-pri btn-sm" data-go="assessment">Submit</button></div>
       <div class="res-row"><div class="ico-box" style="background:var(--tg-50);color:#0C8F6A"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div><div style="flex:1"><div style="font-weight:700;font-size:14px">Quiz 2 · How Machines Learn</div><div class="tiny muted">8/10 · teacher-verified</div></div><button class="btn btn-ghost btn-sm" data-go="assessment">View result</button></div>
     </div>
+
+    <!-- TAB 5: CERTIFICATE -->
     <div class="tabpane" id="pane-course-cert">
       <div class="card" style="padding:24px;display:flex;gap:20px;align-items:center;flex-wrap:wrap">
         <div class="cert" style="width:240px"><div class="top"><div><div class="tiny" style="opacity:.8">GrowFast × YoLearn.ai</div><div style="font-weight:800;margin-top:4px">Certificate of Completion</div></div><div class="seal">★</div><div class="tiny" style="opacity:.85">AI BootCamp for Students</div></div></div>
