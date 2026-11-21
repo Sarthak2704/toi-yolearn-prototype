@@ -1922,7 +1922,7 @@ img{max-width:100%;display:block}
   </div>
 
   <!-- Entry Points Grid (Reference Design) -->
-  <div class="grid g-3" style="gap:18px;margin-bottom:24px">
+  <div class="grid g-2" style="gap:18px;margin-bottom:24px">
     <!-- ENTRY 1: AI BootCamp Practice -->
     <div class="practice-entry-card active" id="entry-bootcamp" onclick="switchPracticeMode('bootcamp')">
       <div>
@@ -1943,18 +1943,6 @@ img{max-width:100%;display:block}
         </div>
         <h3 style="font-size:16.5px;font-weight:800;margin-bottom:6px">Infinite Subject Mock Tests</h3>
         <p class="muted" style="font-size:13px;line-height:1.45">Endless mock tests tailored to your CBSE Class 9 subjects &amp; chapters</p>
-      </div>
-      <div class="entry-link">Start <span style="font-size:16px">→</span></div>
-    </div>
-
-    <!-- ENTRY 3: Weak Areas Drill -->
-    <div class="practice-entry-card" id="entry-weak" onclick="switchPracticeMode('weak')">
-      <div>
-        <div class="entry-icon" style="background:#F5F3FF;color:#7C3AED">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg>
-        </div>
-        <h3 style="font-size:16.5px;font-weight:800;margin-bottom:6px">Target Weak Areas Drill</h3>
-        <p class="muted" style="font-size:13px;line-height:1.45">Adaptive revision drills targeting concepts you found challenging</p>
       </div>
       <div class="entry-link">Start <span style="font-size:16px">→</span></div>
     </div>
@@ -2129,33 +2117,6 @@ img{max-width:100%;display:block}
         </div>
       </div>
     </div>
-
-    <!-- PANEL 3: Weak Areas Drill -->
-    <div class="card" id="panel-weak" style="display:none;padding:26px 28px;border:1.5px solid var(--line);border-radius:var(--r);background:#fff">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:10px">
-        <div style="display:flex;align-items:center;gap:12px">
-          <div style="width:40px;height:40px;border-radius:11px;background:#F5F3FF;color:#7C3AED;display:grid;place-items:center;font-size:18px">🎯</div>
-          <div>
-            <h3 style="font-size:17.5px;font-weight:800">Target Weak Areas Drill</h3>
-            <p class="muted tiny">AI detected 1 weak concept from your recent quizzes</p>
-          </div>
-        </div>
-        <span class="chip" style="background:#FEF3C7;color:#B45309;font-weight:700">7 Adaptive Questions</span>
-      </div>
-
-      <div style="background:var(--bg);border-radius:12px;padding:18px;margin-bottom:20px;border:1px solid var(--line)">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
-          <span class="chip chip-yl" style="font-size:11px">Focus Topic</span>
-          <h4 style="font-size:15px;font-weight:700">Module 3 · Prompting like a Pro (Role &amp; Task formula)</h4>
-        </div>
-        <p class="muted sm">In your last assignment, you had minor difficulty identifying the "Role" component of a 4-part prompt. This 7-question adaptive set targets that exact gap.</p>
-      </div>
-
-      <button class="btn btn-pri" style="width:100%;justify-content:center;font-size:15px;padding:13px" onclick="createWeakTest()">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg>
-        Start Weak Area Drill (7 Questions)
-      </button>
-    </div>
   </div>
 
   <!-- Active question card (hidden until a test is created) -->
@@ -2184,11 +2145,11 @@ img{max-width:100%;display:block}
           <span style="display:inline-grid;place-items:center;width:17px;height:17px;border-radius:50%;background:var(--line);color:var(--muted);font-size:11px;font-weight:700;cursor:help" title="Questions automatically adapted based on your past quiz answers">i</span>
         </div>
       </div>
-      <a class="link" style="font-size:13px;font-weight:700;cursor:pointer" onclick="switchPracticeMode('weak')">Go to Improve →</a>
+      <a class="link" style="font-size:13px;font-weight:700;cursor:pointer" onclick="switchPracticeMode('bootcamp')">Go to Practice →</a>
     </div>
 
     <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">
-      <button class="pill" onclick="switchPracticeMode('weak')" style="border:1.5px solid var(--yl);color:var(--yl);background:var(--yl-50);font-size:13px;padding:7px 16px;cursor:pointer">Prompting</button>
+      <button class="pill" onclick="switchPracticeMode('bootcamp')" style="border:1.5px solid var(--yl);color:var(--yl);background:var(--yl-50);font-size:13px;padding:7px 16px;cursor:pointer">AI BootCamp</button>
       <button class="pill" onclick="switchPracticeMode('ncert')" style="border:1px solid var(--line);color:var(--muted);background:#fff;font-size:13px;padding:7px 16px;cursor:pointer">Mathematics</button>
     </div>
 
