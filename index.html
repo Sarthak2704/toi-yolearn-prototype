@@ -762,7 +762,7 @@ img{max-width:100%;display:block}
     <input placeholder="Search courses…" style="padding:11px 14px;border:1px solid var(--line);border-radius:12px;font-size:14px;outline:none">
   </div>
   <div class="grid g-3">
-    <div class="card" style="overflow:hidden" role="button" data-go="coursepath">
+    <div class="card" style="overflow:hidden" role="button" data-go="course">
       <div class="thumb" style="aspect-ratio:16/9;background:linear-gradient(135deg,#1a0505,#8B1A1A)"><div class="ov">
         <div style="display:flex;justify-content:space-between"><span class="chip chip-tg" style="background:rgba(255,255,255,.92)">Lifetime</span><span class="chip" style="background:rgba(0,0,0,.35);color:#fff">Batch 7</span></div>
         <div><div style="font-weight:800;font-size:17px">AI BootCamp for Students</div><div class="tiny" style="opacity:.85">Class 6–12 · 5 modules · 24 lessons</div></div></div></div>
@@ -770,108 +770,7 @@ img{max-width:100%;display:block}
         <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px"><span class="chip chip-ai">AI Tutor</span><span class="chip chip-gray">Video</span><span class="chip chip-gray">Assignment</span><span class="chip chip-tg">Certificate</span></div>
         <div style="display:flex;justify-content:space-between;font-size:12.5px;font-weight:700;margin-bottom:6px"><span class="muted">62% complete</span><span class="muted">15/24</span></div>
         <div class="progress"><i style="width:62%"></i></div>
-        <button class="btn btn-pri btn-sm" style="margin-top:14px;width:100%;justify-content:center" data-go="coursepath">Continue course</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== 2b. CHOOSE LEARNING PATH ========== -->
-<section class="screen" id="s-coursepath">
-  <div class="crumb"><a data-go="courses">My Courses</a><span class="sep">/</span><span>AI BootCamp for Students</span><span class="sep">/</span><span>Choose your path</span></div>
-  <div style="margin-bottom:28px">
-    <h1 style="font-size:26px;margin-bottom:6px">How do you want to learn?</h1>
-    <p class="muted">Pick the learning style that works best for you. You can switch anytime.</p>
-  </div>
-
-  <div class="grid g-2" style="gap:20px">
-    <!-- PATH A: Coursera-style structured course -->
-    <div class="card" style="overflow:hidden;border:2px solid var(--line);cursor:pointer;transition:border-color .2s,box-shadow .2s" onmouseover="this.style.borderColor='var(--yl)';this.style.boxShadow='0 4px 24px rgba(210,35,42,.12)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'" data-go="course">
-      <div style="background:linear-gradient(135deg,#1a0505,#8B1A1A);padding:24px 24px 20px;position:relative">
-        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border-radius:30px;padding:5px 14px;margin-bottom:16px">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="white" stroke-width="2"><path d="M5 3l14 9-14 9V3z"/></svg>
-          <span style="color:#fff;font-size:12px;font-weight:700">Structured Course</span>
-        </div>
-        <h2 style="color:#fff;font-size:21px;font-weight:800;margin-bottom:6px">AI BootCamp for Students</h2>
-        <p style="color:rgba(255,255,255,.75);font-size:14px;line-height:1.5">Complete course with video classes, pre-read materials, assignments and certification — just like Coursera.</p>
-        <div style="position:absolute;top:20px;right:20px;background:rgba(255,255,255,.15);border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        </div>
-      </div>
-      <div style="padding:22px">
-        <div style="display:flex;justify-content:space-between;font-size:12.5px;font-weight:700;margin-bottom:8px"><span>Your progress</span><span class="muted">62% · 15/24 lessons</span></div>
-        <div class="progress" style="margin-bottom:20px"><i style="width:62%"></i></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
-          <div style="background:var(--red-50);border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:10px">
-            <div style="background:var(--yl);border-radius:8px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="white" stroke-width="2.5"><path d="M5 3l14 9-14 9V3z"/></svg></div>
-            <div><div style="font-weight:700;font-size:13px">Video Classes</div><div class="tiny muted">8h · 24 lessons</div></div>
-          </div>
-          <div style="background:#EFF6FF;border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:10px">
-            <div style="background:#3B82F6;border-radius:8px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="white" stroke-width="2.5"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg></div>
-            <div><div style="font-weight:700;font-size:13px">Pre-read Material</div><div class="tiny muted">PDFs per module</div></div>
-          </div>
-          <div style="background:#FFF7ED;border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:10px">
-            <div style="background:#F59E0B;border-radius:8px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="white" stroke-width="2.5"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg></div>
-            <div><div style="font-weight:700;font-size:13px">Assignments</div><div class="tiny muted">AI-graded · 5 total</div></div>
-          </div>
-          <div style="background:#F0FDF4;border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:10px">
-            <div style="background:#22C55E;border-radius:8px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="white" stroke-width="2.5"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
-            <div><div style="font-weight:700;font-size:13px">Certificate</div><div class="tiny muted">TOI × YoLearn</div></div>
-          </div>
-        </div>
-        <button class="btn btn-pri" style="width:100%;justify-content:center" data-go="course">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3l14 9-14 9V3z"/></svg>
-          Continue — Module 3
-        </button>
-      </div>
-    </div>
-
-    <!-- PATH B: AI Tutor self-paced -->
-    <div class="card" style="overflow:hidden;border:2px solid var(--line);cursor:pointer;transition:border-color .2s,box-shadow .2s" onmouseover="this.style.borderColor='var(--ai)';this.style.boxShadow='0 4px 24px rgba(108,75,246,.14)'" onmouseout="this.style.borderColor='var(--line)';this.style.boxShadow='none'" data-go="tutor">
-      <div style="background:linear-gradient(135deg,#1e1240,#4C3A9B);padding:24px 24px 20px;position:relative">
-        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border-radius:30px;padding:5px 14px;margin-bottom:16px">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="white" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5zM9 17h6"/></svg>
-          <span style="color:#fff;font-size:12px;font-weight:700">AI-Powered · Self-paced</span>
-        </div>
-        <h2 style="color:#fff;font-size:21px;font-weight:800;margin-bottom:6px">Learn with AI Tutor</h2>
-        <p style="color:rgba(255,255,255,.75);font-size:14px;line-height:1.5">Pragya, your AI tutor, teaches each topic on a sketchpad. Complete the AI class, then unlock your assignment.</p>
-        <div style="position:absolute;top:20px;right:20px;background:rgba(255,255,255,.15);border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5zM9 17h6"/></svg>
-        </div>
-      </div>
-      <div style="padding:22px">
-        <div style="font-size:12.5px;font-weight:700;margin-bottom:14px;color:var(--muted)">How it works</div>
-        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px">
-          <div style="display:flex;align-items:flex-start;gap:12px">
-            <div style="background:var(--ai-50);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;font-size:13px;color:var(--ai-700)">1</div>
-            <div>
-              <div style="font-weight:700;font-size:14px">Pick a topic</div>
-              <div class="tiny muted">Choose any topic from Modules 1–5 of AI BootCamp</div>
-            </div>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:12px">
-            <div style="background:var(--ai-50);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;font-size:13px;color:var(--ai-700)">2</div>
-            <div>
-              <div style="font-weight:700;font-size:14px">Pragya teaches on the sketchpad</div>
-              <div class="tiny muted">AI draws diagrams, explains concepts, answers your doubts live</div>
-            </div>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:12px">
-            <div style="background:var(--ai-50);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;font-size:13px;color:var(--ai-700)">3</div>
-            <div>
-              <div style="font-weight:700;font-size:14px;display:flex;align-items:center;gap:6px">Assignment unlocks after class <span class="chip chip-ai" style="font-size:11px;padding:2px 8px">After class</span></div>
-              <div class="tiny muted">Complete the AI class to unlock and submit your topic assignment</div>
-            </div>
-          </div>
-        </div>
-        <div style="background:var(--ai-50);border-radius:12px;padding:12px 14px;margin-bottom:20px;display:flex;gap:10px;align-items:center">
-          <div style="font-size:22px">🎓</div>
-          <div><div style="font-weight:700;font-size:13px;color:var(--ai-700)">Currently learning: Prompting like a Pro</div><div class="tiny muted">Module 3 · AI BootCamp topic in progress</div></div>
-        </div>
-        <button class="btn" style="width:100%;justify-content:center;background:var(--ai);color:#fff;border:none" data-go="tutor">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5zM9 17h6"/></svg>
-          Open AI Tutor
-        </button>
+        <button class="btn btn-pri btn-sm" style="margin-top:14px;width:100%;justify-content:center" data-go="course">Continue course</button>
       </div>
     </div>
   </div>
@@ -2693,7 +2592,7 @@ function go(id, push){
   if(el)el.classList.add('active');
   document.querySelectorAll('#topnav a,.rail a').forEach(a=>a.classList.remove('on'));
   var map={dashboard:'dashboard',courses:'courses',tutor:'tutor',studylab:'studylab',tools:'tools',practice:'practice',certificates:'certificates',badges:'badges',profile:'profile'};
-  var navId=map[id]||( ['course','coursepath','chapter','video','prereading','assessment'].includes(id)?'courses':null);
+  var navId=map[id]||( ['course','chapter','video','prereading','assessment'].includes(id)?'courses':null);
   document.querySelectorAll('[data-go="'+navId+'"]').forEach(a=>a.classList.add('on'));
   window.scrollTo({top:0,behavior:'instant'});
   document.querySelector('.rail').classList.remove('open');
