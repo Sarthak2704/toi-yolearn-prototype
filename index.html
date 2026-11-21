@@ -647,10 +647,13 @@ img{max-width:100%;display:block}
   </nav>
   <div class="topright">
     <div class="pill streak" title="Learning streak">🔥 <span>12</span></div>
-    <div class="pill tokens" title="AI credits">
+    <div class="pill tokens" id="topTokenPill" title="AI credits — Click to view plan or buy course" onclick="handleTokenPillClick()" style="cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:.2s">
       <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 10h6M9 14h6"/></svg>
-      <span>840</span>
+      <span id="headerTokenCount" style="font-weight:700">20 tokens</span>
     </div>
+    <button id="stateToggleBtn" onclick="toggleUserState()" style="background:#FFF1F2;color:#E4151B;border:1.5px solid #FECDD3;padding:5px 12px;border-radius:99px;font-size:12px;font-weight:700;display:inline-flex;align-items:center;gap:6px;cursor:pointer;transition:.2s" title="Switch between Free Trial (20 tokens) and Enrolled (Starts Dec 5) modes">
+      <span id="stateToggleText">⚡ Mode: Free Trial (20 tokens)</span>
+    </button>
     <button class="iconbtn" title="Notifications"><span class="dot"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 01-3.4 0"/></svg></button>
     <div class="avatar" onclick="go('profile')">RK</div>
   </div>
@@ -3244,6 +3247,202 @@ img{max-width:100%;display:block}
 </aside>
 
 <script>
+
+/* ============ USER TOKEN & COURSE PURCHASE STATE ============ */
+window.userTokens = 20;
+window.hasPurchased = false;
+window.courseStartDate = 'December 5, 2026';
+
+function updateTokenUI() {
+  var countEl = document.getElementById('headerTokenCount');
+  var pill = document.getElementById('topTokenPill');
+  var stateText = document.getElementById('stateToggleText');
+  var stateBtn = document.getElementById('stateToggleBtn');
+
+  if (window.hasPurchased) {
+    if (countEl) countEl.innerHTML = '<span style="color:#0C8F6A">●</span> Pro · Unlimited';
+    if (pill) {
+      pill.style.background = '#ECFDF5';
+      pill.style.borderColor = '#A7F3D0';
+      pill.style.color = '#065F46';
+    }
+    if (stateText) stateText.textContent = '✓ Enrolled (Starts Dec 5)';
+    if (stateBtn) {
+      stateBtn.style.background = '#ECFDF5';
+      stateBtn.style.borderColor = '#A7F3D0';
+      stateBtn.style.color = '#065F46';
+    }
+  } else {
+    if (countEl) countEl.textContent = window.userTokens + ' tokens';
+    if (pill) {
+      if (window.userTokens <= 5) {
+        pill.style.background = '#FEF2F2';
+        pill.style.borderColor = '#FECACA';
+        pill.style.color = '#DC2626';
+      } else {
+        pill.style.background = 'var(--yl-50)';
+        pill.style.borderColor = 'var(--yl-100)';
+        pill.style.color = 'var(--yl-700)';
+      }
+    }
+    if (stateText) stateText.textContent = '⚡ Free Trial (' + window.userTokens + ' tokens)';
+    if (stateBtn) {
+      stateBtn.style.background = '#FFF1F2';
+      stateBtn.style.borderColor = '#FECDD3';
+      stateBtn.style.color = '#E4151B';
+    }
+  }
+
+  // Update profile and billing counters if present
+  var pStat = document.getElementById('profile-token-count');
+  if (pStat) pStat.textContent = window.hasPurchased ? 'Unlimited (Pro)' : window.userTokens;
+  var bStat = document.getElementById('billing-token-count');
+  if (bStat) bStat.textContent = window.hasPurchased ? '5,000 / 5,000' : window.userTokens + ' / 100 free';
+
+  // Update course view launch banner if course screen is loaded
+  updateCourseLockUI();
+}
+
+function handleTokenPillClick() {
+  if (window.hasPurchased) {
+    alert('🎉 You have full Pro access to the AI Masterclass! Lectures unlock on ' + window.courseStartDate + '.');
+  } else {
+    showBuyCourseModal('Unlock Unlimited AI Tokens');
+  }
+}
+
+function useTokens(cost, actionName) {
+  if (window.hasPurchased) {
+    return true; // Unlimited access when enrolled!
+  }
+
+  if (window.userTokens >= cost) {
+    window.userTokens -= cost;
+    updateTokenUI();
+    showToast('🪙 Used ' + cost + ' tokens (' + window.userTokens + ' remaining)');
+    if (window.userTokens <= 0) {
+      setTimeout(function() {
+        showBuyCourseModal('You\'ve Used Your 20 Free Tokens!');
+      }, 700);
+    }
+    return true;
+  } else {
+    showBuyCourseModal('Out of AI Tokens (0 Remaining)');
+    return false;
+  }
+}
+
+function showToast(msg) {
+  var t = document.createElement('div');
+  t.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1E293B;color:#fff;padding:10px 18px;border-radius:99px;font-size:13px;font-weight:600;z-index:10001;box-shadow:0 10px 25px rgba(0,0,0,0.2);animation:popToast .3s ease';
+  t.innerHTML = msg;
+  document.body.appendChild(t);
+  setTimeout(function() {
+    t.style.opacity = '0';
+    t.style.transition = 'opacity .3s ease';
+    setTimeout(function() { t.remove(); }, 300);
+  }, 2200);
+}
+
+function showBuyCourseModal(customTitle) {
+  var m = document.getElementById('buyCourseModal');
+  if (m) {
+    if (customTitle && document.getElementById('buyModalTitle')) {
+      document.getElementById('buyModalTitle').textContent = customTitle;
+    }
+    m.style.display = 'flex';
+  }
+}
+
+function closeBuyCourseModal() {
+  var m = document.getElementById('buyCourseModal');
+  if (m) m.style.display = 'none';
+}
+
+function showStartDateModal(lessonTitle) {
+  var m = document.getElementById('courseStartDateModal');
+  if (m) {
+    var h = document.getElementById('startDateModalHeading');
+    var p = document.getElementById('startDateModalMsg');
+    if (h) h.textContent = lessonTitle ? 'Unlocks Dec 5: ' + lessonTitle : 'Opens on Course Start Date';
+    if (p) p.innerHTML = 'This video lecture and module assignment will officially unlock on <b>December 5, 2026</b> when Batch 7 begins.<br><br>As an enrolled student, your <b>Pre-Read Materials</b>, <b>AI Tutor</b>, and <b>Study Lab</b> are already 100% active!';
+    m.style.display = 'flex';
+  }
+}
+
+function closeStartDateModal() {
+  var m = document.getElementById('courseStartDateModal');
+  if (m) m.style.display = 'none';
+}
+
+function completeCoursePurchase() {
+  window.hasPurchased = true;
+  window.userTokens = 5000;
+  closeBuyCourseModal();
+  updateTokenUI();
+  showToast('🎉 Enrolled! Everything is unlocked. Video lectures open on ' + window.courseStartDate + '.');
+  screen('course');
+}
+
+function toggleUserState() {
+  if (window.hasPurchased) {
+    window.hasPurchased = false;
+    window.userTokens = 20;
+    showToast('Switched to Free Trial mode (20 tokens)');
+  } else {
+    window.hasPurchased = true;
+    window.userTokens = 5000;
+    showToast('Switched to Enrolled mode (Lectures open Dec 5, 2026)');
+  }
+  updateTokenUI();
+}
+
+function updateCourseLockUI() {
+  // Add or update the enrolled course launch banner in #s-course
+  var courseScreen = document.getElementById('s-course');
+  if (!courseScreen) return;
+
+  var existingBanner = document.getElementById('enrolledBatchLaunchBanner');
+  if (window.hasPurchased) {
+    if (!existingBanner) {
+      var hero = courseScreen.querySelector('.card');
+      if (hero) {
+        var banner = document.createElement('div');
+        banner.id = 'enrolledBatchLaunchBanner';
+        banner.style.cssText = 'background:linear-gradient(135deg,#EFF6FF,#F0FDF4);border:1.5px solid #BFDBFE;border-radius:14px;padding:16px 20px;margin-bottom:20px;display:flex;align-items:center;gap:16px;box-shadow:0 2px 10px rgba(37,99,235,0.06)';
+        banner.innerHTML = '<div style="font-size:32px">🗓️</div>' +
+          '<div style="flex:1">' +
+            '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">' +
+              '<span style="font-weight:800;font-size:15px;color:#1E3A8A">Enrolled in Batch 7 · Course Starts on ' + window.courseStartDate + '</span>' +
+              '<span class="chip chip-tg" style="font-size:11px">✓ Seat Confirmed</span>' +
+            '</div>' +
+            '<p style="margin:4px 0 0;font-size:13px;color:#334155">Video lecture streaming and module assignments will unlock on the course start date. In the meantime, your <b>Pre-Read Materials</b>, <b>AI Tutor</b>, and <b>Study Lab</b> are completely UNLOCKED!</p>' +
+          '</div>' +
+          '<button class="btn btn-sm btn-outline" onclick="tab(\'course\',\'preread\',document.querySelector(\'[data-tabgroup=\\\"course\\\"]\'))" style="border-color:#2563EB;color:#2563EB;background:#fff;white-space:nowrap">Open Pre-Read Material →</button>';
+        hero.parentNode.insertBefore(banner, hero.nextSibling);
+      }
+    }
+  } else {
+    if (existingBanner) existingBanner.remove();
+  }
+
+  // Update video lesson buttons to reflect lock status if enrolled
+  var videoButtons = document.querySelectorAll('#pane-course-all button[data-go="video"], #pane-course-class button[data-go="video"]');
+  videoButtons.forEach(function(btn) {
+    if (window.hasPurchased) {
+      btn.innerHTML = '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Opens Dec 5';
+      btn.title = 'Video lectures unlock on course start date (December 5, 2026)';
+      btn.onclick = function(e) {
+        e.stopPropagation();
+        showStartDateModal('Video Lecture');
+      };
+    } else {
+      btn.innerHTML = '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Watch Video';
+      btn.onclick = function() { screen('video'); };
+    }
+  });
+}
+
 /* ============ PDF READER & GROUNDED CHAT SYSTEM ============ */
 var currentPdfData = {
   title: 'Prompting Handbook.pdf',
@@ -3407,6 +3606,7 @@ function downloadCurrentPdf() {
 function sendPdfChat() {
   var input = document.getElementById('pdfChatInput');
   if(!input || !input.value.trim()) return;
+  if(!useTokens(5, 'Chat with PDF')) return;
   var userQ = input.value.trim();
   input.value = '';
 
@@ -3482,7 +3682,14 @@ function openDoubt(ctx){
 }
 function closeDoubt(){document.getElementById('scrim').classList.remove('open');document.getElementById('drawer').classList.remove('open');}
 function addDoubt(txt,who){var f=document.getElementById('doubtFeed');var d=document.createElement('div');d.className='d-msg '+who;d.innerHTML=txt;f.appendChild(d);f.scrollTop=f.scrollHeight;}
-function sendDoubt(){var i=document.getElementById('doubtInput');if(!i.value.trim())return;addDoubt(i.value,'me');var q=i.value;i.value='';setTimeout(function(){addDoubt("Great question! Here's a simple way to see it… I'll break it into steps and check your grade-level ("+'Class 9, CBSE'+"). Want me to open the Sketchpad to draw it out?",'ai');},550);}
+function sendDoubt(){
+  var i=document.getElementById('doubtInput');
+  if(!i.value.trim())return;
+  if(!useTokens(5, 'Ask a Doubt')) return;
+  addDoubt(i.value,'me');
+  var q=i.value;i.value='';
+  setTimeout(function(){addDoubt("Great question! Here's a simple way to see it… I'll break it into steps and check your grade-level ("+'Class 9, CBSE'+"). Want me to open the Sketchpad to draw it out?",'ai');},550);
+}
 function doubtQuick(q){addDoubt(q,'me');setTimeout(function(){addDoubt("Sure — here you go. (Grounded in your course content + NCERT.) Ask a follow-up any time.",'ai');},500);}
 
 /* ============ TABS ============ */
@@ -3508,8 +3715,14 @@ function setLabMode(el,mode){el.parentElement.querySelectorAll('.lab-mode').forE
 /* ============ TUTOR CHAT + SKETCH ============ */
 function addMsg(txt,who){var f=document.getElementById('chatFeed');var d=document.createElement('div');d.className='msg '+who;
   d.innerHTML=(who==='ai'?'<div class="who">AI Tutor · Pragya</div>':'')+txt;f.appendChild(d);f.scrollTop=f.scrollHeight;}
-function sendChat(){var i=document.getElementById('chatInput');if(!i.value.trim())return;addMsg(i.value,'me');var q=i.value;i.value='';
-  setTimeout(function(){addMsg("Let's solve it on the board together. I'll write <b>step 1</b> on the sketchpad — watch the left panel. Tell me if any step feels unclear and I'll slow down. ✏️",'ai');},600);}
+function sendChat(){
+  var i=document.getElementById('chatInput');
+  if(!i.value.trim())return;
+  if(!useTokens(5, 'AI Tutor')) return;
+  addMsg(i.value,'me');
+  var q=i.value;i.value='';
+  setTimeout(function(){addMsg("Let's solve it on the board together. I'll write <b>step 1</b> on the sketchpad — watch the left panel. Tell me if any step feels unclear and I'll slow down. ✏️",'ai');},600);
+}
 function tutorQuick(q){addMsg(q,'me');setTimeout(function(){addMsg("Good one — here's a simpler way to picture it, with an example from your NCERT chapter. I've sketched it on the board.",'ai');},550);}
 function toggleVoice(el){el.classList.toggle('on');}
 var sketchInit=false;
@@ -3578,6 +3791,7 @@ function switchStudyMode(mode) {
 }
 
 function processStudyResource() {
+  if(!useTokens(5, 'Study Lab Processing')) return;
   var input = document.getElementById('sl-input-field');
   var resTitle = input && input.value ? input.value : 'Study Resource';
   if (resTitle.includes('youtu')) resTitle = 'Photosynthesis — Class 10 Biology';
@@ -3908,6 +4122,7 @@ function closeToolPlayground() {
 }
 
 function runToolGeneration() {
+  if(!useTokens(5, 'AI Tool Generation')) return;
   var modal = document.getElementById('toolPlaygroundModal');
   var toolKey = modal.dataset.currentTool || 'explainer';
   var btn = document.getElementById('modalGenerateBtn');
@@ -3925,5 +4140,89 @@ function runToolGeneration() {
 }
 
 </script>
+
+<!-- ============ BUY COURSE / OUT OF TOKENS MODAL ============ -->
+<div id="buyCourseModal" class="tool-modal-overlay" style="z-index:10000;display:none;align-items:center;justify-content:center">
+  <div class="tool-modal-box" style="max-width:580px;width:92%;padding:0;overflow:hidden;border:1px solid #E2E8F0;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25)">
+    <!-- Header with Economic Times & YoLearn cobrand -->
+    <div style="background:linear-gradient(135deg,#8B0000 0%,#D2232A 60%,#E4151B 100%);color:#fff;padding:24px 28px;position:relative">
+      <button onclick="closeBuyCourseModal()" style="position:absolute;top:16px;right:16px;background:rgba(255,255,255,0.2);color:#fff;border:none;border-radius:99px;width:32px;height:32px;cursor:pointer;font-size:16px;display:grid;place-items:center">✕</button>
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.18);padding:4px 12px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:12px">
+        <span>The Economic Times Masterclass</span> · <span>YoLearn.ai</span>
+      </div>
+      <h2 style="font-size:22px;margin:0 0 6px;font-weight:800" id="buyModalTitle">Unlock the Full AI Masterclass</h2>
+      <p style="margin:0;font-size:13.5px;color:rgba(255,255,255,0.9)" id="buyModalSubtitle">You have used your 20 free trial AI tokens. Enroll in the official masterclass to unlock everything!</p>
+    </div>
+
+    <!-- Body -->
+    <div style="padding:24px 28px;background:#FFFFFF">
+      <!-- Course Highlights Card -->
+      <div style="background:#F8FAFC;border:1.5px solid #E2E8F0;border-radius:14px;padding:16px 18px;margin-bottom:20px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+          <div>
+            <span class="chip chip-tg" style="font-size:11px">Official Batch 7</span>
+            <div style="font-weight:800;font-size:16px;color:#0F172A;margin-top:4px">AI for Students Masterclass</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-size:12px;color:#64748B">Course Batch Starts</div>
+            <div style="font-weight:800;font-size:14px;color:#DC2626">December 5, 2026</div>
+          </div>
+        </div>
+        
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:12.5px;color:#334155;margin-top:12px;padding-top:12px;border-top:1px dashed #CBD5E1">
+          <div style="display:flex;align-items:center;gap:6px">✅ <b>Unlimited AI Tokens</b> across all tools</div>
+          <div style="display:flex;align-items:center;gap:6px">✅ <b>24/7 AI Tutor</b> on Sketchpad &amp; PDF</div>
+          <div style="display:flex;align-items:center;gap:6px">✅ <b>16 AI Learning Tools</b> &amp; Study Lab</div>
+          <div style="display:flex;align-items:center;gap:6px">✅ <b>Verified Co-Brand Certificate</b></div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <!-- Official External Entry Point -->
+        <a href="https://economictimes.indiatimes.com/masterclass/ai-for-students?utm_source=yolearn.ai" target="_blank" class="btn btn-pri" style="text-decoration:none;justify-content:center;padding:13px 20px;font-size:14.5px;font-weight:800;background:#E4151B;color:#fff;border-radius:12px;display:flex;align-items:center;gap:8px;box-shadow:0 4px 14px rgba(228,21,27,0.3)">
+          <span>Buy Course on The Economic Times</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+        </a>
+
+        <!-- Interactive Prototype Simulation Button -->
+        <button class="btn btn-outline" onclick="completeCoursePurchase()" style="justify-content:center;padding:11px 20px;font-size:13.5px;font-weight:700;border-radius:12px;border:1.5px solid #0C8F6A;color:#0C8F6A;background:#F0FDF4;display:flex;align-items:center;gap:8px">
+          <span>✨ Simulate Purchase / I Have Enrolled (Test Enrolled State)</span>
+        </button>
+      </div>
+
+      <div style="text-align:center;margin-top:14px;font-size:12px;color:#64748B">
+        Already registered with your school? Contact your institution coordinator.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ COURSE START DATE UNLOCK MODAL ============ -->
+<div id="courseStartDateModal" class="tool-modal-overlay" style="z-index:10000;display:none;align-items:center;justify-content:center">
+  <div class="tool-modal-box" style="max-width:500px;width:90%;padding:28px 30px;border-radius:20px;border:1.5px solid #BFDBFE;box-shadow:0 20px 45px rgba(0,0,0,0.2)">
+    <div style="width:52px;height:52px;border-radius:14px;background:#EFF6FF;color:#2563EB;display:grid;place-items:center;font-size:26px;margin-bottom:16px">
+      🗓️
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+      <span class="chip chip-tg" style="font-size:11px">✓ Enrolled &amp; Confirmed</span>
+      <span class="chip chip-blue" style="font-size:11px">Batch 7</span>
+    </div>
+    <h3 style="font-size:20px;font-weight:800;color:#0F172A;margin:0 0 8px" id="startDateModalHeading">Opens on Course Start Date</h3>
+    <p style="font-size:14px;line-height:1.6;color:#475569;margin:0 0 18px" id="startDateModalMsg">
+      This video lecture and module assignment will officially unlock on <b>December 5, 2026</b> when Batch 7 begins.
+    </p>
+
+    <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:12px;padding:14px;font-size:13px;color:#334155;margin-bottom:20px">
+      💡 <b>What you can do right now:</b> Your AI Tutor (Pragya), Study Lab, and all <b>Pre-Read Material PDFs</b> are completely UNLOCKED. You can read ahead and chat with the AI on any document!
+    </div>
+
+    <div style="display:flex;gap:10px;justify-content:flex-end">
+      <button class="btn btn-ghost btn-sm" onclick="closeStartDateModal()">Close</button>
+      <button class="btn btn-pri btn-sm" onclick="closeStartDateModal(); tab('course', 'preread', document.querySelector('[data-tabgroup=\'course\']'));">Go to Pre-Read Materials →</button>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
