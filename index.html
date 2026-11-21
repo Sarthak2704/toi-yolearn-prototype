@@ -341,6 +341,276 @@ img{max-width:100%;display:block}
   .fab span{display:none}.fab{padding:16px}
 }
 </style>
+
+/* ================================================================
+   AI TOOLS SECTION (YoLearn Macmillan Design)
+================================================================ */
+.tools-header-wrap {
+  margin-bottom: 24px;
+}
+.tools-main-title {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #12141D;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 18px 0;
+}
+.brand-badge-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #E4151B;
+  color: #FFFFFF;
+  padding: 4px 10px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 3px 8px rgba(228, 21, 27, 0.28);
+  vertical-align: middle;
+}
+.tools-search-box {
+  position: relative;
+  max-width: 380px;
+  margin-bottom: 22px;
+}
+.tools-search-box svg {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9CA3AF;
+  pointer-events: none;
+}
+.tools-search-input {
+  width: 100%;
+  height: 42px;
+  padding: 0 16px 0 42px;
+  border-radius: 999px;
+  border: 1.5px solid #E5E7EB;
+  background: #FFFFFF;
+  font-size: 14px;
+  color: #1F2937;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+  font-family: inherit;
+}
+.tools-search-input:focus {
+  border-color: #E4151B;
+  box-shadow: 0 0 0 3px rgba(228, 21, 27, 0.1);
+}
+.tools-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.tools-filter-btn {
+  background: #FFFFFF;
+  border: 1.5px solid #E5E7EB;
+  color: #374151;
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all .18s ease;
+  font-family: inherit;
+}
+.tools-filter-btn:hover {
+  border-color: #D1D5DB;
+  background: #F9FAFB;
+}
+.tools-filter-btn.active {
+  background: #E4151B;
+  color: #FFFFFF;
+  border-color: #E4151B;
+  box-shadow: 0 2px 8px rgba(228, 21, 27, 0.25);
+}
+.tools-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+@media (max-width: 1200px) {
+  .tools-grid-4 { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 900px) {
+  .tools-grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .tools-grid-4 { grid-template-columns: 1fr; }
+}
+.tool-showcase-card {
+  background: #FFFFFF;
+  border: 1.5px solid #F1E2E4;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+  cursor: pointer;
+}
+.tool-showcase-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(228, 21, 27, 0.09);
+  border-color: #FFCCD2;
+}
+.tool-mock-view {
+  height: 200px;
+  background: #F8F9FD;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #F5EAEB;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.tool-mock-inner {
+  background: #FFFFFF;
+  border: 1px solid #ECECF2;
+  border-radius: 12px;
+  height: 100%;
+  padding: 12px 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+.tool-card-body {
+  padding: 14px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.tool-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.tool-title-text {
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #181920;
+}
+.tool-start-link {
+  font-size: 13px;
+  font-weight: 700;
+  color: #E4151B;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  text-decoration: none;
+}
+.tool-card-body:hover .tool-start-link {
+  text-decoration: underline;
+}
+.tool-desc-text {
+  font-size: 12px;
+  line-height: 1.45;
+  color: #6B7280;
+  margin: 0;
+}
+
+/* Tool Mockup Elements */
+.tm-badge {
+  display: inline-block;
+  font-size: 8.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #FEE2E2;
+  color: #DC2626;
+  margin-bottom: 4px;
+}
+.tm-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: #111827;
+  line-height: 1.2;
+}
+.tm-text {
+  font-size: 9.5px;
+  color: #6B7280;
+  line-height: 1.35;
+  margin-top: 3px;
+}
+.tm-formula-box {
+  background: #FFF1F2;
+  border: 1px dashed #FECDD3;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: #9F1239;
+  text-align: center;
+  margin: 4px 0;
+}
+.tm-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 9.5px;
+  font-weight: 700;
+  background: #E4151B;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  width: fit-content;
+}
+
+/* Tool Playground Modal */
+.tool-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.tool-modal-overlay.open {
+  display: flex;
+}
+.tool-modal-box {
+  background: #FFFFFF;
+  border-radius: 20px;
+  max-width: 680px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  position: relative;
+  border: 1px solid #F1E2E4;
+  animation: modalPop .25s ease-out;
+}
+@keyframes modalPop {
+  from { opacity: 0; transform: scale(0.96) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
 </head>
 <body>
 
@@ -397,7 +667,7 @@ img{max-width:100%;display:block}
     <div class="grp">AI Learning</div>
     <a data-go="tutor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1 3-1 5H8c0-2-1-3-1-5a5 5 0 015-5zM9 17h6M10 21h4"/></svg>Learn with AI Tutor</a>
     <a data-go="studylab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5a2 2 0 012-2h9l5 5v11a0 0 0 010 0H4zM14 3v6h6"/></svg>Study Lab</a>
-    <a data-go="tools"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>AI Tools<span class="tag">12</span></a>
+    <a data-go="tools"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>AI Tools<span class="tag">16</span></a>
     <div class="grp">Account</div>
     <a data-go="certificates"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="9" r="6"/><path d="M8 14l-1 7 5-3 5 3-1-7"/></svg>Certificates</a>
     <a data-go="badges"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 7.7l5.4-.8z"/></svg>Badges</a>
@@ -1657,39 +1927,576 @@ img{max-width:100%;display:block}
     </div>
   </div>
 </section>
-<!-- ========== 11. AI TOOLS HUB ========== -->
+<!-- ========== 11. AI TOOLS HUB (YoLearn Style) ========== -->
 <section class="screen" id="s-tools">
-  <div class="page-h"><div><h1>AI Tools</h1><p>Launch any tool with your learning context — current course, chapter, grade &amp; NCERT — pre-loaded.</p></div><span class="chip chip-ai">⚡ Context: Module 3 · Prompting</span></div>
+  <div class="tools-header-wrap">
+    <h1 class="tools-main-title">
+      Learn with AI powered 
+      <span class="brand-badge-logo">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM3.45 9L12 4.34 20.55 9 12 13.66 3.45 9zM5 12.87v4.26c0 2.5 4.5 4.5 7 4.5s7-2 7-4.5v-4.26L12 16.5 5 12.87z"/></svg>
+        Macmillan
+      </span>
+      Tools
+    </h1>
 
-  <div class="tool-cat">Text &amp; Mnemonic</div>
-  <div class="grid g-4">
-    <button class="tool-card" data-go="studylab"><div class="ic" style="background:linear-gradient(135deg,#6C4BF6,#9A7BFF)">📝</div><div><h4>AI Notes</h4><p>Clean notes from any topic</p></div></button>
-    <button class="tool-card"><div class="ic" style="background:linear-gradient(135deg,#0C8F6A,#12B886)">📄</div><div><h4>Summarization</h4><p>TL;DR of any content</p></div></button>
-    <button class="tool-card"><div class="ic" style="background:linear-gradient(135deg,#B45309,#F59E0B)">🔑</div><div><h4>Key Points</h4><p>Bullet the essentials</p></div></button>
-    <button class="tool-card"><div class="ic" style="background:linear-gradient(135deg,#2563EB,#4f8bff)">🧮</div><div><h4>Formula Sheet</h4><p>All formulas, one page</p></div></button>
+    <div class="tools-search-box">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" class="tools-search-input" id="toolSearchInput" placeholder="Search for tools..." oninput="filterToolsSearch(this.value)">
+    </div>
+
+    <!-- Category Filter Tabs -->
+    <div class="tools-filter-bar">
+      <button class="tools-filter-btn active" data-toolcat="all" onclick="filterToolCategory('all', this)">
+        <span>All</span>
+      </button>
+      <button class="tools-filter-btn" data-toolcat="text" onclick="filterToolCategory('text', this)">
+        <span>📖 Text &amp; Mnemonic-Based Tools</span>
+      </button>
+      <button class="tools-filter-btn" data-toolcat="visual" onclick="filterToolCategory('visual', this)">
+        <span>🖼️ Visual &amp; Infographic Tools</span>
+      </button>
+      <button class="tools-filter-btn" data-toolcat="interactive" onclick="filterToolCategory('interactive', this)">
+        <span>▶️ Interactive &amp; Multimedia Tools</span>
+      </button>
+      <button class="tools-filter-btn" data-toolcat="templates" onclick="filterToolCategory('templates', this)">
+        <span>⚙️ Templates &amp; Kits</span>
+      </button>
+    </div>
   </div>
 
-  <div class="tool-cat">Visual &amp; Infographic</div>
-  <div class="grid g-4">
-    <button class="tool-card"><div class="ic" style="background:linear-gradient(135deg,#C44BF6,#E4151B)">🧠</div><div><h4>Mindmaps</h4><p>See how ideas connect</p></div></button>
-    <button class="tool-card" data-go="tutor"><div class="ic" style="background:linear-gradient(135deg,#6C4BF6,#C44BF6)">🎨</div><div><h4>Explain with AI</h4><p>Visual, on the sketchpad</p></div></button>
-    <button class="tool-card"><div class="ic" style="background:linear-gradient(135deg,#0C8F6A,#2563EB)">📊</div><div><h4>Infographic</h4><p>Topic as a visual</p></div></button>
+  <!-- 16 AI Tool Cards (4x4 Grid) -->
+  <div class="tools-grid-4" id="toolsGrid">
+
+    <!-- Card 1: CONCEPT EXPLAINER -->
+    <div class="tool-showcase-card" data-cat="visual text" data-tool="explainer" onclick="launchToolPlayground('explainer')">
+      <div class="tool-mock-view">
+        <div class="tool-mock-inner" style="background:#F6FAFF;border-color:#DBEAFE">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span class="tm-badge" style="background:#EFF6FF;color:#2563EB">Humidity</span>
+              <span style="font-size:10px;font-weight:700;color:#2563EB">60%</span>
+            </div>
+            <div class="tm-title" style="margin-top:2px">Humidity</div>
+            <div class="tm-text">Humidity is the amount of water vapour present in the air...</div>
+          </div>
+          <div style="background:#fff;border-radius:8px;padding:6px;border:1px solid #E2E8F0">
+            <div style="font-size:8px;font-weight:800;color:#64748B;letter-spacing:.05em">REAL-WORLD EXAMPLES</div>
+            <div style="display:flex;gap:6px;margin-top:4px">
+              <div style="flex:1;background:#F1F5F9;padding:4px;border-radius:4px;font-size:8.5px;font-weight:600">🌧️ Rainy Weather</div>
+              <div style="flex:1;background:#F1F5F9;padding:4px;border-radius:4px;font-size:8.5px;font-weight:600">🌊 Water Bodies</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tool-card-body">
+        <div class="tool-meta-row">
+          <span class="tool-title-text">CONCEPT EXPLAINER</span>
+          <span class="tool-start-link">Start &gt;</span>
+        </div>
+        <p class="tool-desc-text">Video/text/visual explanation with companion reactions</p>
+      </div>
+    </div>
+
+    <!-- Card 2: CONCEPT VISUALIZER -->
+    <div class="tool-showcase-card" data-cat="visual" data-tool="visualizer" onclick="launchToolPlayground('visualizer')">
+      <div class="tool-mock-view">
+        <div class="tool-mock-inner" style="background:#FFFBF5;border-color:#FED7AA">
+          <div>
+            <span class="tm-badge" style="background:#FFEDD5;color:#EA580C">PHYSICS</span>
+            <div class="tm-title">Resistance in a Circuit</div>
+            <div class="tm-text">Resistance is the property that opposes the flow of electric current.</div>
+          </div>
+          <div style="background:#FFFFFF;border-radius:8px;padding:6px;border:1px dashed #FDBA74;text-align:center">
+            <svg viewBox="0 0 160 45" width="100%" height="40">
+              <rect x="5" y="15" width="22" height="15" rx="3" fill="#EA580C" />
+              <text x="16" y="26" font-size="8" fill="#fff" font-weight="bold" text-anchor="middle">+ -</text>
+              <line x1="27" y1="22" x2="60" y2="22" stroke="#EA580C" stroke-width="2" />
+              <circle cx="80" cy="22" r="12" fill="#FEF08A" stroke="#EAB308" stroke-width="2" />
+              <text x="80" y="26" font-size="12" text-anchor="middle">💡</text>
+              <line x1="92" y1="22" x2="135" y2="22" stroke="#EA580C" stroke-width="2" />
+              <rect x="135" y="17" width="20" height="11" rx="2" fill="#FED7AA" stroke="#EA580C" />
+              <text x="145" y="25" font-size="7" fill="#9A3412" font-weight="bold" text-anchor="middle">R</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="tool-card-body">
+        <div class="tool-meta-row">
+          <span class="tool-title-text">CONCEPT VISUALIZER</span>
+          <span class="tool-start-link">Start &gt;</span>
+        </div>
+        <p class="tool-desc-text">Visualize any concept with AI</p>
+      </div>
+    </div>
+
+    <!-- Card 3: FLASHCARDS -->
+    <div class="tool-showcase-card" data-cat="interactive text" data-tool="flashcards" onclick="launchToolPlayground('flashcards')">
+      <div class="tool-mock-view">
+        <div class="tool-mock-inner" style="background:#FAF5FF;border-color:#E9D5FF;align-items:center;justify-content:center">
+          <div style="font-size:12px;font-weight:800;color:#6B21A8;margin-bottom:6px">Chemical Reactions</div>
+          <div style="position:relative;width:130px;height:75px">
+            <div style="position:absolute;inset:0;background:#F3E8FF;border:1px solid #D8B4FE;border-radius:8px;transform:rotate(-6deg)"></div>
+            <div style="position:absolute;inset:0;background:#EDE9FE;border:1px solid #C4B5FD;border-radius:8px;transform:rotate(5deg)"></div>
+            <div style="position:absolute;inset:0;background:#FFFFFF;border:1.5px solid #A855F7;border-radius:8px;padding:6px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 4px 10px rgba(0,0,0,0.06)">
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <span style="font-size:8px;font-weight:700;color:#9333EA">Reactants → Products</span>
+                <span>⚗️</span>
+              </div>
+              <div style="font-size:8px;color:#4B5563">Chemical bonds break and reform.</div>
+              <div style="font-size:7.5px;color:#9333EA;font-weight:700">Tap to flip ↻</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tool-card-body">
+        <div class="tool-meta-row">
+          <span class="tool-title-text">FLASHCARDS</span>
+          <span class="tool-start-link">Start &gt;</span>
+        </div>
+        <p class="tool-desc-text">Generate interactive flashcards instantly for fast revision and memory retention</p>
+      </div>
+    </div>
+
+    <!-- Card 4: FLOWCHART GENERATOR -->
+    <div class="tool-showcase-card" data-cat="visual templates" data-tool="flowchart" onclick="launchToolPlayground('flowchart')">
+      <div class="tool-mock-view">
+        <div class="tool-mock-inner" style="background:#0F292B;border-color:#134E4A;color:#E6FFFA">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span style="font-size:9.5px;font-weight:800;color:#5EEAD4;letter-spacing:.05em">TIMELINE DESIGNER</span>
+              <span style="font-size:10px">📜</span>
+            </div>
+            <div style="display:flex;gap:4px;margin-top:6px">
+              <span style="background:#134E4A;color:#99F6E4;font-size:7.5px;padding:2px 5px;border-radius:3px">Physics</span>
+              <span style="background:#134E4A;color:#99F6E4;font-size:7.5px;padding:2px 5px;border-radius:3px">Lenses</span>
+              <span style="background:#134E4A;color:#99F6E4;font-size:7.5px;padding:2px 5px;border-radius:3px">30d</span>
+            </div>
+          </div>
+          <div style="background:#133E41;border-radius:6px;padding:6px;font-size:8px;color:#CCFBF1">
+            <div style="display:flex;align-items:center;gap:4px">
+              <span style="background:#2DD4BF;color:#042F2E;padding:1px 4px;border-radius:2px;font-weight:bold">1</span>
+              <span>Ray Diagram</span> →
+              <span style="background:#2DD4BF;color:#042F2E;padding:1px 4px;border-radius:2px;font-weight:bold">2</span>
+              <span>Focal Point</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tool-card-body">
+        <div class="tool-meta-row">
+          <span class="tool-title-text">FLOWCHART GENERATOR</span>
+          <span class="tool-start-link">Start &gt;</span>
+        </div>
+        <p class="tool-desc-text">Generate dynamic flowcharts for various processes and phases</p>
+      </div>
+    </div>
+
+    <!-- Card 5: FORMULA & CHEAT SHEET BUILDER -->
+    <div class="tool-showcase-card" data-cat="text templates" data-tool="cheatsheet" onclick="launchToolPlayground('cheatsheet')">
+      <div class="tool-mock-view">
+        <div class="tool-mock-inner" style="background:#FFFBFB;border-color:#FCE7F3">
+          <div>
+            <span class="tm-badge" style="background:#FCE7F3;color:#BE185D">FORMULA SHEET</span>
+            <div class="tm-title">Electricity</div>
+          </div>
+          <div style="background:#FFFFFF;border:1px solid #FBCFE8;border-radius:6px;padding:5px;font-size:8.5px">
+            <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px dashed #FCE7F3">
+              <span style="color:#6B7280">Ohm's Law</span><b style="color:#BE185D">V = I · R</b>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px dashed #FCE7F3">
+              <span style="color:#6B7280">Power</span><b style="color:#BE185D">P = V · I</b>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:2px 0">
+              <span style="color:#6B7280">Series</span><b style="color:#BE185D">R_s = R₁ + R₂</b>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tool-card-body">
+        <div class="tool-meta-row">
+          <span class="tool-title-text">FORMULA &amp; CHEAT SHEET BUILDER</span>
+          <span class="tool-start-link">Start &gt;</span>
+        </div>
+        <p class="tool-desc-text">Fit the formulas, laws and key terms of up to 3 chapters on one or two pages</p>
+      </div>
+    </div>
+
+    <!-- Card 6: INFOGRAPHIC GENERATOR -->
+    <div class="tool-showcase-card" data-cat="visual" data-tool="infographic" onclick="launchToolPlayground('infographic')">
+      <div class="tool-mock-view">
+        <div class="tool-mock-inner" style="background:#F0FDF4;border-color:#BBF7D0">
+          <div>
+            <span class="tm-badge" style="background:#DCFCE7;color:#15803D">INFOGRAPHIC</span>
+            <div class="tm-title">Photosynthesis</div>
+          </div>
+          <div class="tm-formula-box" style="background:#DCFCE7;border-color:#86EFAC;color:#166534">
+            6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂
+          </div>
+          <div style="display:flex;gap:4px">
+            <div style="flex:1;background:#fff;border-radius:4px;padding:4px;border:1px solid #DCFCE7;text-align:center">
+              <div style="font-size:9px">☀️ Light</div>
+            </div>
+            <div style="flex:1;background:#fff;border-radius:4px;padding:4px;border:1px solid #DCFCE7;text-align:center">
+              <div style="font-size:9px">🍃 Chloroplast</div>
+            </div>
+            <div style="flex:1;background:#fff;border-radius:4px;padding:4px;border:1px solid #DCFCE7;text-align:center">
+              <div style="font-size:9px">🍬 Glucose</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tool-card-body">
+        <div class="tool-meta-row">
+          <span class="tool-title-text">INFOGRAPHIC GENERATOR</span>
+          <span class="tool-start-link">Start &gt;</span>
+        </div>
+        <p class="tool-desc-text">Turn NCERT topics into a one page infographic, checked against the textbook</p>
+      </div>
+    </div>
+
+    <!-- Card 7: MIND MAP -->
+    <div class="tool-showcase-card" data-cat="visual" data-tool="mindmap" onclick="launchToolPlayground('mindmap')">
+      <div class="tool-mock-view">
+        <div class="tool-mock-inner" style="background:#FDF4FF;border-color:#F5D0FE">
+          <div style="display:flex;justify-content:space-between">
+            <span class="tm-badge" style="background:#FAE8FF;color:#A21CAF">MIND MAP</span>
+            <span style="font-size:11px;font-weight:bold;color:#701A75">Reflection</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;height:65px">
+            <svg viewBox="0 0 160 65" width="100%" height="100%">
+              <circle cx="80" cy="32" r="16" fill="#E879F9" />
+              <text x="80" y="35" font-size="7" fill="#fff" font-weight="bold" text-anchor="middle">Reflection</text>
+              <line x1="64" y1="32" x2="25" y2="18" stroke="#D946EF" stroke-width="1.5" />
+              <rect x="5" y="10" width="30" height="15" rx="3" fill="#FDF4FF" stroke="#D946EF" />
+              <text x="20" y="20" font-size="6" fill="#701A75" text-anchor="middle">Conditions</text>
+              <line x1="96" y1="32" x2="135" y2="18" stroke="#D946EF" stroke-width="1.5" />
+              <rect x="125" y="10" width="30" height="15" rx="3" fill="#FDF4FF" stroke="#D946EF" />
+              <text x="140" y="20" font-size="6" fill="#701A75" text-anchor="middle">Laws</text>
+              <line x1="80" y1="48" x2="80" y2="58" stroke="#D946EF" stroke-width="1.5" />
+              <rect x="62" y="52" width="36" height="12" rx="3" fill="#FDF4FF" stroke="#D946EF" />
+              <text x="80" y="60" font-size="6" fill="#701A75" text-anchor="middle">Uses</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="tool-card-body">
+        <div class="tool-meta-row">
+          <span class="tool-title-text">MIND MAP</span>
+          <span class="tool-start-link">Start &gt;</span>
+        </div>
+        <p class="tool-desc-text">Create dynamic concept maps that visually connect ideas for deeper understanding</p>
+      </div>
+    </div>
+
+    <!-- Card 8: MNEMONIC GENERATOR -->
+    <div class="tool-showcase-card" data-cat="text" data-tool="mnemonic" onclick="launchToolPlayground('mnemonic')">
+      <div class="tool-mock-view">
+        <div class="tool-mock-inner" style="background:#FFFBEB;border-color:#FDE68A">
+          <div>
+            <span class="tm-badge" style="background:#FEF3C7;color:#B45309">MNEMONIC</span>
+            <div class="tm-title">Water Management</div>
+          </div>
+          <div style="display:flex;gap:4px;margin-top:4px">
+            <div style="flex:1;background:#fff;border-radius:5px;border:1px solid #FDE68A;padding:4px 2px;text-align:center">
+              <div style="font-size:12px;font-weight:900;color:#DC2626">C</div>
+              <div style="font-size:7px;color:#4B5563">Conserve</div>
+            </div>
+            <div style="flex:1;background:#fff;border-radius:5px;border:1px solid #FDE68A;padding:4px 2px;text-align:center">
+              <div style="font-size:12px;font-weight:900;color:#D97706">H</div>
+              <div style="font-size:7px;color:#4B5563">Harvest</div>
+            </div>
+            <div style="flex:1;background:#fff;border-radius:5px;border:1px solid #FDE68A;padding:4px 2px;text-align:center">
+              <div style="font-size:12px;font-weight:900;color:#2563EB">A</div>
+              <div style="font-size:7px;color:#4B5563">Aqua</div>
+            </div>
+            <div style="flex:1;background:#fff;border-radius:5px;border:1px solid #FDE68A;padding:4px 2px;text-align:center">
+              <div style="font-size:12px;font-weight:900;color:#16A34A">R</div>
+              <div style="font-size:7px;color:#4B5563">River</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tool-card-body">
+        <div class="tool-meta-row">
+          <span class="tool-title-text">MNEMONIC GENERATOR</span>
+          <span class="tool-start-link">Start &gt;</span>
+        </div>
+        <p class="tool-desc-text">Create memory aids and mnemonics for better recall</p>
+      </div>
+    </div>
+
+    <!-- Card 9: MOCK TEST -->
+    <div class="tool-showcase-card" data-cat="interactive" data-tool="mocktest" onclick="launchToolPlayground('mocktest')">
+      <div class="tool-mock-view">
+        <div class="tool-mock-inner" style="background:#FFF1F2;border-color:#FECDD3">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span class="tm-badge" style="background:#FFE4E6;color:#E11D48">Practice Test</span>
+            <span style="font-size:9.5px;font-weight:bold;color:#BE123C">⏱️ 14:20</span>
+          </div>
+          <div style="font-size:9.5px;font-weight:700;color:#1F2937">Soil Conservation method?</div>
+          <div style="background:#fff;border-radius:6px;padding:4px 6px;border:1px solid #E2E8F0;font-size:8px">
+            <div style="display:flex;align-items:center;gap:4px;color:#15803D;font-weight:bold">
+              <span>✓</span> A. Contour ploughing
+            </div>
+            <div style="color:#9CA3AF;margin-top:2px">B. Deforestation</div>
+          </div>
+        </div>
+      </div>
+      <div class="tool-card-body">
+        <div class="tool-meta-row">
+          <span class="tool-title-text">MOCK TEST</span>
+          <span class="tool-start-link">Start &gt;</span>
+        </div>
+        <p class="tool-desc-text">Quickly generate practice tests tailored for speed, accuracy, and revision</p>
+      </div>
+    </div>
+
+    <!-- Card 10: PRONUNCIATION COACH -->
+    <div class="tool-showcase-card" data-cat="interactive" data-tool="pronounce" onclick="launchToolPlayground('pronounce')">
+      <div class="tool-mock-view">
+        <div class="tool-mock-inner" style="background:#FFF7ED;border-color:#FED7AA;align-items:center;text-align:center">
+          <div style="font-size:9px;color:#4B5563;line-height:1.3">
+            "The solar system is made up of the Sun and everything that orbits around it..."
+          </div>
+          <div style="font-size:18px;margin:2px 0">🪐</div>
+          <span class="tm-pill-btn" style="background:#E4151B">
+            ▶ ılılı•lılı Tap to pronounce
+          </span>
+        </div>
+      </div>
+      <div class="tool-card-body">
+        <div class="tool-meta-row">
+          <span class="tool-title-text">PRONUNCIATION COACH</span>
+          <span class="tool-start-link">Start &gt;</span>
+        </div>
+        <p class="tool-desc-text">Quickly practice and improve pronunciation</p>
+      </div>
+    </div>
+
+    <!-- Card 11: QUICKPROMPTS -->
+    <div class="tool-showcase-card" data-cat="templates" data-tool="quickprompts" onclick="launchToolPlayground('quickprompts')">
+      <div class="tool-mock-view">
+        <div class="tool-mock-inner" style="background:#FDF2F8;border-color:#FBCFE8">
+          <div style="border-left:2.5px solid #E11D48;padding-left:6px;background:#fff;border-radius:0 4px 4px 0;padding:3px 6px">
+            <div style="font-size:8px;font-weight:800;color:#BE123C">Prompt 1:</div>
+            <div style="font-size:7.5px;color:#4B5563">Imagine you are exploring outer space...</div>
+          </div>
+          <div style="border-left:2.5px solid #2563EB;padding-left:6px;background:#fff;border-radius:0 4px 4px 0;padding:3px 6px">
+            <div style="font-size:8px;font-weight:800;color:#1D4ED8">Prompt 2:</div>
+            <div style="font-size:7.5px;color:#4B5563">Design a futuristic eco-friendly city...</div>
+          </div>
+          <div style="border-left:2.5px solid #16A34A;padding-left:6px;background:#fff;border-radius:0 4px 4px 0;padding:3px 6px">
+            <div style="font-size:8px;font-weight:800;color:#15803D">Prompt 3:</div>
+            <div style="font-size:7.5px;color:#4B5563">Create a dialogue between Einstein &amp; Newton...</div>
+          </div>
+        </div>
+      </div>
+      <div class="tool-card-body">
+        <div class="tool-meta-row">
+          <span class="tool-title-text">QUICKPROMPTS</span>
+          <span class="tool-start-link">Start &gt;</span>
+        </div>
+        <p class="tool-desc-text">Generate creative prompts for brainstorming and activities</p>
+      </div>
+    </div>
+
+    <!-- Card 12: QUIZ ME -->
+    <div class="tool-showcase-card" data-cat="interactive" data-tool="quizme" onclick="launchToolPlayground('quizme')">
+      <div class="tool-mock-view">
+        <div class="tool-mock-inner" style="background:#EFF6FF;border-color:#BFDBFE">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:10px;font-weight:800;color:#1E40AF">Thunderstorms</span>
+            <span style="font-size:9px;color:#3B82F6">⚡ 00:45</span>
+          </div>
+          <div style="background:#fff;border-radius:6px;padding:5px;border:1px solid #DBEAFE">
+            <div style="font-size:8px;font-weight:700">Cause of thunderstorm?</div>
+            <div style="background:#DCFCE7;color:#166534;padding:2px 4px;border-radius:3px;font-size:7.5px;margin-top:3px;font-weight:bold">
+              ✓ Rapid rising of warm air
+            </div>
+          </div>
+          <div style="text-align:right">
+            <span class="tm-pill-btn" style="background:#E4151B;font-size:8px;padding:2px 8px">Next →</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-card-body">
+        <div class="tool-meta-row">
+          <span class="tool-title-text">QUIZ ME</span>
+          <span class="tool-start-link">Start &gt;</span>
+        </div>
+        <p class="tool-desc-text">Generate, attempt, and analyze quizzes - with or without exam pressure</p>
+      </div>
+    </div>
+
+    <!-- Card 13: SLIDE DECK GENERATOR -->
+    <div class="tool-showcase-card" data-cat="templates" data-tool="slidedeck" onclick="launchToolPlayground('slidedeck')">
+      <div class="tool-mock-view">
+        <div class="tool-mock-inner" style="background:#F8FAFC;border-color:#CBD5E1">
+          <div style="display:flex;justify-content:space-between">
+            <span class="tm-badge" style="background:#E2E8F0;color:#475569">SLIDE DECK</span>
+            <span style="font-size:8.5px;color:#64748B">Slide 1/6</span>
+          </div>
+          <div class="tm-title">Types of Soil</div>
+          <div style="display:flex;gap:4px">
+            <div style="flex:1;background:#E2E8F0;padding:3px;border-radius:3px;text-align:center;font-size:7.5px">Sandy</div>
+            <div style="flex:1;background:#E2E8F0;padding:3px;border-radius:3px;text-align:center;font-size:7.5px">Clayey</div>
+            <div style="flex:1;background:#E2E8F0;padding:3px;border-radius:3px;text-align:center;font-size:7.5px">Loamy</div>
+            <div style="flex:1;background:#E2E8F0;padding:3px;border-radius:3px;text-align:center;font-size:7.5px">Silt</div>
+          </div>
+        </div>
+      </div>
+      <div class="tool-card-body">
+        <div class="tool-meta-row">
+          <span class="tool-title-text">SLIDE DECK GENERATOR</span>
+          <span class="tool-start-link">Start &gt;</span>
+        </div>
+        <p class="tool-desc-text">Generate slide decks for presentations and lessons</p>
+      </div>
+    </div>
+
+    <!-- Card 14: SUMMARIZER -->
+    <div class="tool-showcase-card" data-cat="text" data-tool="summarizer" onclick="launchToolPlayground('summarizer')">
+      <div class="tool-mock-view">
+        <div class="tool-mock-inner" style="background:#F0FDF4;border-color:#DCFCE7">
+          <div>
+            <span class="tm-badge" style="background:#DCFCE7;color:#16A34A">SUMMARY</span>
+            <div class="tm-title">Air Pressure</div>
+          </div>
+          <div style="background:#fff;border-radius:6px;padding:5px;border:1px solid #BBF7D0;font-size:8px">
+            <div><b>1. Definition:</b> Weight of atmospheric air column</div>
+            <div style="margin-top:2px"><b>2. Variation:</b> Decreases with increasing altitude</div>
+          </div>
+        </div>
+      </div>
+      <div class="tool-card-body">
+        <div class="tool-meta-row">
+          <span class="tool-title-text">SUMMARIZER</span>
+          <span class="tool-start-link">Start &gt;</span>
+        </div>
+        <p class="tool-desc-text">Generate concise summaries for any topic or lesson</p>
+      </div>
+    </div>
+
+    <!-- Card 15: VISUAL STORY BUILDER -->
+    <div class="tool-showcase-card" data-cat="visual" data-tool="storybuilder" onclick="launchToolPlayground('storybuilder')">
+      <div class="tool-mock-view">
+        <div class="tool-mock-inner" style="background:#FEF2F2;border-color:#FECACA">
+          <div>
+            <span class="tm-badge" style="background:#FEE2E2;color:#DC2626">STORYBOARD</span>
+            <div class="tm-title">What are Fossil Fuels?</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">
+            <div style="background:#fff;padding:3px;border-radius:3px;font-size:7px;border:1px solid #FECACA;text-align:center">🌿 Prehistoric swamp</div>
+            <div style="background:#fff;padding:3px;border-radius:3px;font-size:7px;border:1px solid #FECACA;text-align:center">🪨 Heat &amp; pressure</div>
+            <div style="background:#fff;padding:3px;border-radius:3px;font-size:7px;border:1px solid #FECACA;text-align:center">⛽ Crude oil &amp; coal</div>
+            <div style="background:#fff;padding:3px;border-radius:3px;font-size:7px;border:1px solid #FECACA;text-align:center">🚗 Modern energy</div>
+          </div>
+        </div>
+      </div>
+      <div class="tool-card-body">
+        <div class="tool-meta-row">
+          <span class="tool-title-text">VISUAL STORY BUILDER</span>
+          <span class="tool-start-link">Start &gt;</span>
+        </div>
+        <p class="tool-desc-text">Create engaging visual stories with panels and narrations</p>
+      </div>
+    </div>
+
+    <!-- Card 16: VOCABULARY BUILDER -->
+    <div class="tool-showcase-card" data-cat="text" data-tool="vocab" onclick="launchToolPlayground('vocab')">
+      <div class="tool-mock-view">
+        <div class="tool-mock-inner" style="background:#FFF1F2;border-color:#FFE4E6">
+          <div style="text-align:center">
+            <span class="tm-badge" style="background:#FFE4E6;color:#E11D48">VOCABULARY</span>
+            <div class="tm-title" style="font-size:12px">A Letter to God</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:2px">
+            <div style="background:#fff;border-radius:4px;padding:3px 5px;border:1px solid #FECDD3">
+              <div style="font-size:8px;font-weight:bold;color:#BE123C">crest 🔊</div>
+              <div style="font-size:7px;color:#6B7280">top of a hill</div>
+            </div>
+            <div style="background:#fff;border-radius:4px;padding:3px 5px;border:1px solid #FECDD3">
+              <div style="font-size:8px;font-weight:bold;color:#BE123C">hailstones 🔊</div>
+              <div style="font-size:7px;color:#6B7280">ice pellets</div>
+            </div>
+            <div style="background:#fff;border-radius:4px;padding:3px 5px;border:1px solid #FECDD3">
+              <div style="font-size:8px;font-weight:bold;color:#BE123C">curious 🔊</div>
+              <div style="font-size:7px;color:#6B7280">eager to know</div>
+            </div>
+            <div style="background:#fff;border-radius:4px;padding:3px 5px;border:1px solid #FECDD3">
+              <div style="font-size:8px;font-weight:bold;color:#BE123C">gather 🔊</div>
+              <div style="font-size:7px;color:#6B7280">bring together</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tool-card-body">
+        <div class="tool-meta-row">
+          <span class="tool-title-text">VOCABULARY BUILDER</span>
+          <span class="tool-start-link">Start &gt;</span>
+        </div>
+        <p class="tool-desc-text">Learn the key words of any NCERT chapter with meanings, Hindi, audio and practice</p>
+      </div>
+    </div>
+
   </div>
 
-  <div class="tool-cat">Interactive &amp; Multimedia</div>
-  <div class="grid g-4">
-    <button class="tool-card" data-go="studylab"><div class="ic" style="background:linear-gradient(135deg,#F59E0B,#E4151B)">🃏</div><div><h4>Flashcards</h4><p>Active recall</p></div></button>
-    <button class="tool-card" data-go="practice"><div class="ic" style="background:linear-gradient(135deg,#6C4BF6,#9A7BFF)">❓</div><div><h4>Quiz Generator</h4><p>Test yourself</p></div></button>
-    <button class="tool-card" data-go="practice"><div class="ic" style="background:linear-gradient(135deg,#E4151B,#ff6a4d)">⚡</div><div><h4>Rapid Fire</h4><p>Beat the clock</p></div></button>
-  </div>
-
-  <div class="tool-cat">Audio-Based &amp; Language</div>
-  <div class="grid g-4">
-    <button class="tool-card"><div class="ic" style="background:linear-gradient(135deg,#2563EB,#6C4BF6)">📖</div><div><h4>Vocabulary</h4><p>Build word power</p></div></button>
-    <button class="tool-card"><div class="ic" style="background:linear-gradient(135deg,#0C8F6A,#12B886)">🔊</div><div><h4>Pronunciation</h4><p>Say it right</p></div></button>
-    <button class="tool-card"><div class="ic" style="background:linear-gradient(135deg,#B45309,#F59E0B)">🎙️</div><div><h4>Podcast Maker</h4><p>Listen to your notes</p></div></button>
+  <!-- Empty state for search -->
+  <div id="toolsNoResult" style="display:none;text-align:center;padding:60px 20px;background:#fff;border-radius:18px;border:1.5px dashed #E5E7EB;margin-top:20px">
+    <div style="font-size:42px;margin-bottom:12px">🔍</div>
+    <h3 style="font-size:18px;font-weight:800;color:#1F2937;margin-bottom:6px">No tools found</h3>
+    <p style="color:#6B7280;font-size:14px">Try searching for a different keyword like "flashcards", "diagram", "quiz" or "summary".</p>
+    <button class="btn btn-soft btn-sm" style="margin-top:14px" onclick="filterToolsSearch('');document.getElementById('toolSearchInput').value=''">Reset search</button>
   </div>
 </section>
+
+<!-- Interactive Tool Playground Modal -->
+<div class="tool-modal-overlay" id="toolPlaygroundModal" onclick="if(event.target===this)closeToolPlayground()">
+  <div class="tool-modal-box">
+    <div style="padding:22px 24px;border-bottom:1px solid #F1E2E4;display:flex;justify-content:space-between;align-items:center">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div id="modalToolIcon" style="width:42px;height:42px;border-radius:12px;background:#FFF1F2;display:grid;place-items:center;font-size:22px;color:#E4151B">⚡</div>
+        <div>
+          <h2 id="modalToolTitle" style="font-size:18px;font-weight:800;color:#111827;margin:0">Concept Explainer</h2>
+          <p id="modalToolSubtitle" style="font-size:13px;color:#6B7280;margin:2px 0 0">Interactive AI Learning Tool</p>
+        </div>
+      </div>
+      <button onclick="closeToolPlayground()" style="background:#F3F4F6;border:none;border-radius:50%;width:34px;height:34px;cursor:pointer;display:grid;place-items:center;font-size:16px;color:#4B5563">✕</button>
+    </div>
+    <div style="padding:22px 24px">
+      <div style="margin-bottom:16px">
+        <label style="display:block;font-size:12.5px;font-weight:700;color:#374151;margin-bottom:6px">Select Topic or Chapter</label>
+        <div style="display:flex;gap:8px">
+          <select id="modalToolTopic" style="flex:1;height:40px;border-radius:8px;border:1.5px solid #E5E7EB;padding:0 12px;font-size:13.5px;font-family:inherit">
+            <option>Class 9 Science · Chapter 7 — Motion</option>
+            <option>Class 9 Science · Chapter 8 — Force &amp; Laws of Motion</option>
+            <option>Class 9 Science · Chapter 9 — Gravitation</option>
+            <option>Class 9 Maths · Chapter 1 — Number Systems</option>
+            <option>Class 9 Maths · Chapter 2 — Polynomials</option>
+            <option>AI BootCamp · Module 3 — Prompting like a Pro</option>
+            <option>Class 10 English · Chapter 1 — A Letter to God</option>
+          </select>
+          <button class="btn btn-red" onclick="runToolGeneration()" id="modalGenerateBtn">Generate with AI ✨</button>
+        </div>
+      </div>
+
+      <div id="modalToolOutput" style="background:#F9FAFB;border:1.5px solid #E5E7EB;border-radius:12px;padding:18px;min-height:160px">
+        <div style="display:flex;align-items:center;justify-content:center;height:120px;color:#9CA3AF;flex-direction:column;gap:8px">
+          <span style="font-size:28px">🪄</span>
+          <span style="font-size:13.5px">Click "Generate with AI" to create instant outputs tailored to your course.</span>
+        </div>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:16px;border-top:1px solid #F3F4F6">
+        <div style="font-size:12.5px;color:#6B7280">Mapped to NCERT syllabus &amp; TOI AI BootCamp</div>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-soft btn-sm" onclick="go('studylab');closeToolPlayground()">Open Study Lab →</button>
+          <button class="btn btn-soft btn-sm" onclick="go('practice');closeToolPlayground()">Practice Tests →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ========== 12. PROFILE ========== -->
 <section class="screen" id="s-profile">
@@ -2200,6 +3007,97 @@ function selectSubject(btn,subj){
   var sel=document.getElementById('ncertChapter');sel.innerHTML='';
   (ncertChapters[subj]||[]).forEach(function(ch){var o=document.createElement('option');o.textContent=ch;sel.appendChild(o);});
 }
+
+/* ============ AI TOOLS HUB (Filtering, Search & Playground) ============ */
+function filterToolCategory(cat, btn) {
+  document.querySelectorAll('.tools-filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  var cards = document.querySelectorAll('.tool-showcase-card');
+  var visibleCount = 0;
+  cards.forEach(card => {
+    var itemCat = card.getAttribute('data-cat') || '';
+    if (cat === 'all' || itemCat.includes(cat)) {
+      card.style.display = 'flex';
+      visibleCount++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  document.getElementById('toolsNoResult').style.display = (visibleCount === 0) ? 'block' : 'none';
+}
+
+function filterToolsSearch(query) {
+  var q = (query || '').toLowerCase().trim();
+  var activeCatBtn = document.querySelector('.tools-filter-btn.active');
+  var cat = activeCatBtn ? activeCatBtn.getAttribute('data-toolcat') : 'all';
+  var cards = document.querySelectorAll('.tool-showcase-card');
+  var visibleCount = 0;
+  cards.forEach(card => {
+    var title = (card.querySelector('.tool-title-text')?.textContent || '').toLowerCase();
+    var desc = (card.querySelector('.tool-desc-text')?.textContent || '').toLowerCase();
+    var itemCat = card.getAttribute('data-cat') || '';
+    var matchesCat = (cat === 'all' || itemCat.includes(cat));
+    var matchesSearch = !q || title.includes(q) || desc.includes(q);
+    if (matchesCat && matchesSearch) {
+      card.style.display = 'flex';
+      visibleCount++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  document.getElementById('toolsNoResult').style.display = (visibleCount === 0) ? 'block' : 'none';
+}
+
+var toolDataLookup = {
+  'explainer': { title: 'Concept Explainer', icon: '💡', sub: 'Interactive video, text and companion visual breakdown', output: '<h4 style="color:#2563EB;margin-bottom:8px">Visual Explanation: Motion & Speed</h4><p style="font-size:13.5px;color:#374151;line-height:1.5">Speed measures how fast an object covers distance (s = d/t). Velocity is speed with a specific direction. <br><br><b>Companion Reaction:</b> Think of a car speedometer — it tells you instantaneous speed, while a GPS shows velocity with direction vector!</p>' },
+  'visualizer': { title: 'Concept Visualizer', icon: '⚡', sub: 'Interactive animated circuit and concept simulation', output: '<div style="background:#FFFBF5;border:1px solid #FDBA74;border-radius:8px;padding:12px;text-align:center"><h4 style="color:#C2410C;margin-bottom:6px">Ohm\'s Law Circuit Visualization</h4><div style="font-size:24px;margin:8px 0">🔋 ─── [ R: 10Ω ] ─── 💡 (Glowing at 1.2A)</div><div style="font-size:12px;color:#9A3412">As resistance increases, current decreases proportionally according to I = V/R.</div></div>' },
+  'flashcards': { title: 'Interactive Flashcards', icon: '🃏', sub: 'Active recall flashcard set with flip animations', output: '<div style="background:#FAF5FF;border:1.5px solid #D8B4FE;border-radius:10px;padding:16px;text-align:center"><div style="font-size:11px;font-weight:800;color:#9333EA">CARD 1 OF 5 · TAP TO FLIP</div><div style="font-size:17px;font-weight:800;color:#1F2937;margin:12px 0">What is the SI unit of electric charge?</div><div style="font-size:13.5px;font-weight:700;color:#16A34A;background:#DCFCE7;padding:6px;border-radius:6px;display:inline-block">Coulomb (C)</div></div>' },
+  'flowchart': { title: 'Flowchart Generator', icon: '📊', sub: 'Step-by-step visual process flow', output: '<div style="background:#0F292B;color:#99F6E4;border-radius:10px;padding:14px;font-size:13px"><div style="font-weight:800;color:#5EEAD4;margin-bottom:8px">Optical Lenses Flowchart:</div><div style="display:flex;align-items:center;gap:8px"><span>Light Incident</span> → <span style="background:#134E4A;padding:3px 8px;border-radius:4px">Convex Lens</span> → <span style="background:#134E4A;padding:3px 8px;border-radius:4px">Convergence at Focus F</span> → <span>Real Inverted Image</span></div></div>' },
+  'cheatsheet': { title: 'Formula & Cheat Sheet Builder', icon: '📑', sub: 'High-density revision summary card', output: '<div style="background:#FFF1F2;border:1px solid #FECDD3;border-radius:8px;padding:12px"><h4 style="color:#9F1239;margin-bottom:8px">Quick Cheat Sheet: Motion</h4><ul style="font-size:13px;color:#4B5563;line-height:1.6;padding-left:18px"><li>v = u + at (Velocity-Time Relation)</li><li>s = ut + ½ at² (Position-Time Relation)</li><li>2as = v² - u² (Position-Velocity Relation)</li></ul></div>' },
+  'infographic': { title: 'Infographic Generator', icon: '🖼️', sub: 'One-page visual summary checked against NCERT', output: '<div style="background:#F0FDF4;border:1px solid #86EFAC;border-radius:8px;padding:14px"><h4 style="color:#166534;margin-bottom:6px">Infographic: Photosynthesis Cycle</h4><p style="font-size:13px;color:#374151">Chloroplast absorbs sunlight energy → Photolysis of water releases O₂ → Carbon fixation builds glucose (C₆H₁₂O₆).</p></div>' },
+  'mindmap': { title: 'Dynamic Mind Map', icon: '🧠', sub: 'Concept map connecting core ideas and equations', output: '<div style="background:#FDF4FF;border:1px solid #F5D0FE;border-radius:8px;padding:14px;text-align:center"><div style="font-size:16px;font-weight:800;color:#701A75">Reflection of Light</div><div style="display:flex;justify-content:space-around;margin-top:10px;font-size:12.5px"><div style="background:#fff;padding:6px 10px;border-radius:6px;border:1px solid #F5D0FE">Laws of Reflection</div><div style="background:#fff;padding:6px 10px;border-radius:6px;border:1px solid #F5D0FE">Spherical Mirrors</div><div style="background:#fff;padding:6px 10px;border-radius:6px;border:1px solid #F5D0FE">Magnification</div></div></div>' },
+  'mnemonic': { title: 'Mnemonic Generator', icon: '🔤', sub: 'Memory peg and acronym creator', output: '<div style="background:#FFFBEB;border:1px solid #FDE68A;border-radius:8px;padding:12px"><h4 style="color:#B45309;margin-bottom:6px">Mnemonic for Kingdom Classification</h4><div style="font-size:15px;font-weight:800;color:#92400E">"Dear King Philip Came Over For Good Soup"</div><div style="font-size:12px;color:#6B7280;margin-top:4px">Domain, Kingdom, Phylum, Class, Order, Family, Genus, Species</div></div>' },
+  'mocktest': { title: 'Mock Test Simulator', icon: '⏱️', sub: 'Timed practice test with instant analytics', output: '<div style="background:#FFF1F2;border:1px solid #FECDD3;border-radius:8px;padding:12px"><div style="font-weight:700;color:#BE123C">Q1. If an object moves with constant velocity, its acceleration is:</div><div style="margin-top:8px;display:flex;gap:6px"><span style="background:#DCFCE7;color:#166534;padding:4px 10px;border-radius:6px;font-weight:bold">A. Zero (Correct)</span><span style="background:#fff;padding:4px 10px;border-radius:6px;color:#6B7280">B. Positive</span><span style="background:#fff;padding:4px 10px;border-radius:6px;color:#6B7280">C. Negative</span></div></div>' },
+  'pronounce': { title: 'Pronunciation Coach', icon: '🗣️', sub: 'Voice feedback and acoustic waveform analysis', output: '<div style="background:#FFF7ED;border:1.5px solid #FED7AA;border-radius:10px;padding:16px;text-align:center"><div style="font-size:18px;font-weight:800;color:#C2410C">"Photosynthesis"</div><div style="font-size:14px;color:#7C2D12;margin:4px 0">/ˌfoʊ.toʊˈsɪn.θə.sɪs/</div><div style="font-size:12px;color:#15803D;font-weight:700;margin-top:8px">✓ Accuracy Score: 96% · Clean stress on second syllable!</div></div>' },
+  'quickprompts': { title: 'QuickPrompts Hub', icon: '📌', sub: 'Creative learning and discussion prompts', output: '<div style="background:#FDF2F8;border:1px solid #FBCFE8;border-radius:8px;padding:12px"><div style="font-weight:700;color:#9D174D;margin-bottom:6px">Discussion Prompt:</div><div style="font-size:13.5px;color:#374151;font-style:italic">"If gravity doubled on Earth tomorrow, how would skyscraper architecture, flying birds, and ocean tides instantly change?"</div></div>' },
+  'quizme': { title: 'Quiz Me Generator', icon: '❓', sub: 'Adaptive diagnostic quiz with instant remediation', output: '<div style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;padding:12px"><h4 style="color:#1D4ED8;margin-bottom:6px">Thunderstorms & Lightning Quiz</h4><div style="font-size:13px;color:#1E40AF">10 questions ready with step-by-step solutions and NCERT references.</div></div>' },
+  'slidedeck': { title: 'Slide Deck Generator', icon: '📑', sub: 'Structured presentation slides with speaking notes', output: '<div style="background:#F8FAFC;border:1px solid #CBD5E1;border-radius:8px;padding:12px"><h4 style="color:#334155;margin-bottom:6px">Slide Deck: Types of Soil (6 Slides)</h4><p style="font-size:13px;color:#64748B">Slide 1: Intro · Slide 2: Sandy Soil · Slide 3: Clayey Soil · Slide 4: Loamy Soil · Slide 5: Agricultural Suitability · Slide 6: Summary</p></div>' },
+  'summarizer': { title: 'AI Summarizer', icon: '📝', sub: 'Concise executive summary of chapters and notes', output: '<div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;padding:12px"><h4 style="color:#15803D;margin-bottom:6px">Summary: Atmospheric Pressure</h4><p style="font-size:13px;color:#374151">Standard atmospheric pressure at sea level is 101.3 kPa (1 atm). Warm air rises creating low pressure zones, while cold dense air sinks creating high pressure systems.</p></div>' },
+  'storybuilder': { title: 'Visual Story Builder', icon: '🎨', sub: 'Narrative storytelling with illustrated panels', output: '<div style="background:#FEF2F2;border:1px solid #FECACA;border-radius:8px;padding:12px"><h4 style="color:#DC2626;margin-bottom:6px">Story Panel: Journey of a Water Molecule</h4><p style="font-size:13px;color:#374151">From evaporating in the Indian Ocean to precipitating over the Himalayas and flowing down the Ganges river basin into fertile farmland.</p></div>' },
+  'vocab': { title: 'Vocabulary Builder', icon: '📚', sub: 'NCERT word power with audio pronunciation & Hindi meanings', output: '<div style="background:#FFF1F2;border:1px solid #FECDD3;border-radius:8px;padding:12px"><h4 style="color:#BE123C;margin-bottom:8px">NCERT Class 10: A Letter to God</h4><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12.5px"><div style="background:#fff;padding:6px;border-radius:6px"><b>crest:</b> चोटी (top of a hill)</div><div style="background:#fff;padding:6px;border-radius:6px"><b>hailstones:</b> ओले (frozen rain)</div><div style="background:#fff;padding:6px;border-radius:6px"><b>curious:</b> जिज्ञासु (eager to know)</div><div style="background:#fff;padding:6px;border-radius:6px"><b>gather:</b> इकट्ठा करना (collect)</div></div></div>' }
+};
+
+function launchToolPlayground(toolKey) {
+  var data = toolDataLookup[toolKey] || { title: 'AI Tool Playground', icon: '⚡', sub: 'AI Learning Tool', output: 'Tool loaded.' };
+  document.getElementById('modalToolIcon').textContent = data.icon;
+  document.getElementById('modalToolTitle').textContent = data.title;
+  document.getElementById('modalToolSubtitle').textContent = data.sub;
+  document.getElementById('modalToolOutput').innerHTML = '<div style="text-align:center;padding:24px;color:#6B7280"><div style="font-size:24px;margin-bottom:6px">🪄</div><div>Ready to generate for selected topic. Click <b>Generate with AI ✨</b> above.</div></div>';
+  document.getElementById('toolPlaygroundModal').dataset.currentTool = toolKey;
+  document.getElementById('toolPlaygroundModal').classList.add('open');
+}
+
+function closeToolPlayground() {
+  document.getElementById('toolPlaygroundModal').classList.remove('open');
+}
+
+function runToolGeneration() {
+  var modal = document.getElementById('toolPlaygroundModal');
+  var toolKey = modal.dataset.currentTool || 'explainer';
+  var btn = document.getElementById('modalGenerateBtn');
+  var out = document.getElementById('modalToolOutput');
+  btn.disabled = true;
+  btn.innerHTML = 'Generating... ⏳';
+  out.innerHTML = '<div style="text-align:center;padding:32px;color:#E4151B"><div style="font-size:26px;animation:spin 1s linear infinite">⚙️</div><div style="margin-top:8px;font-weight:700">Synthesizing textbook context with AI...</div></div>';
+  
+  setTimeout(function() {
+    btn.disabled = false;
+    btn.innerHTML = 'Generate with AI ✨';
+    var data = toolDataLookup[toolKey] || toolDataLookup['explainer'];
+    out.innerHTML = data.output + '<div style="margin-top:14px;display:flex;gap:8px"><button class="btn btn-sm btn-soft" onclick="alert(\'Saved to your Study Lab!\')">💾 Save to Study Lab</button><button class="btn btn-sm btn-ghost" onclick="navigator.clipboard.writeText(out.innerText);alert(\'Copied output to clipboard!\')">📋 Copy Text</button></div>';
+  }, 700);
+}
+
 </script>
 </body>
 </html>
