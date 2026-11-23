@@ -2120,7 +2120,7 @@ img{max-width:100%;display:block}
     <span class="chip chip-ai">⚡ Adaptive difficulty</span>
   </div>
 
-  <!-- Entry Points Grid (Reference Design - Matches Image 2) -->
+  <!-- Entry Points Grid (Matches Image 2) -->
   <div class="grid g-3" style="gap:18px;margin-bottom:24px">
     <!-- ENTRY 1: AI BootCamp Practice -->
     <div class="practice-entry-card active" id="entry-bootcamp" onclick="switchPracticeMode('bootcamp')">
@@ -2156,19 +2156,6 @@ img{max-width:100%;display:block}
         <p class="muted" style="font-size:13px;line-height:1.45">Adaptive revision drills targeting concepts you found challenging</p>
       </div>
       <div class="entry-link" style="color:var(--red);font-weight:700">Start <span style="font-size:16px">→</span></div>
-    </div>
-  </div>
-
-    <!-- ENTRY 2: Infinite NCERT Mock Tests -->
-    <div class="practice-entry-card" id="entry-ncert" onclick="switchPracticeMode('ncert')">
-      <div>
-        <div class="entry-icon" style="background:#EFF6FF;color:#2563EB">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
-        </div>
-        <h3 style="font-size:16.5px;font-weight:800;margin-bottom:6px">Infinite Subject Mock Tests</h3>
-        <p class="muted" style="font-size:13px;line-height:1.45">Endless mock tests tailored to your CBSE Class 9 subjects &amp; chapters</p>
-      </div>
-      <div class="entry-link">Start <span style="font-size:16px">→</span></div>
     </div>
   </div>
 
@@ -2218,46 +2205,44 @@ img{max-width:100%;display:block}
           </select>
         </div>
 
-        <!-- Question count, Difficulty, Question type -->
+        <!-- Question Count & Difficulty -->
         <div class="grid g-3" style="gap:14px">
           <div>
             <label style="display:block;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-bottom:8px">Question Count</label>
             <select id="bootcampQCount" style="width:100%;border:1.5px solid var(--line);padding:11px 12px;border-radius:11px;background:var(--bg);font-weight:600;font-size:13.5px;cursor:pointer">
-              <option value="5">5 questions · Quick</option>
-              <option value="10" selected>10 questions · Standard</option>
-              <option value="20">20 questions · Deep practice</option>
+              <option>5 questions · Quick</option>
+              <option selected>10 questions · Standard</option>
+              <option>20 questions · Full assessment</option>
             </select>
           </div>
-
           <div>
             <label style="display:block;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-bottom:8px">Question Type</label>
             <select id="bootcampQType" style="width:100%;border:1.5px solid var(--line);padding:11px 12px;border-radius:11px;background:var(--bg);font-weight:600;font-size:13.5px;cursor:pointer">
               <option selected>MCQ + Short answer</option>
-              <option>MCQ only</option>
-              <option>Subjective only</option>
+              <option>Only Multiple Choice (MCQ)</option>
+              <option>Case Study &amp; Scenario</option>
             </select>
           </div>
-
           <div>
             <label style="display:block;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-bottom:8px">Difficulty</label>
-            <select id="bootcampDiff" style="width:100%;border:1.5px solid var(--line);padding:11px 12px;border-radius:11px;background:var(--bg);font-weight:600;font-size:13.5px;cursor:pointer">
-              <option>Easy — revision</option>
+            <select id="bootcampDifficulty" style="width:100%;border:1.5px solid var(--line);padding:11px 12px;border-radius:11px;background:var(--bg);font-weight:600;font-size:13.5px;cursor:pointer">
+              <option>Foundation — easy</option>
               <option selected>Adaptive — Medium</option>
-              <option>Hard — exam challenge</option>
+              <option>Challenger — hard</option>
             </select>
           </div>
         </div>
 
         <div style="margin-top:6px">
           <button class="btn btn-pri" style="width:100%;justify-content:center;font-size:15px;padding:13px" onclick="createBootcampTest()">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
             Create AI BootCamp Practice Test
           </button>
         </div>
       </div>
     </div>
 
-    <!-- PANEL 2: NCERT Subject Practice -->
+    <!-- PANEL 2: NCERT Mock Tests -->
     <div class="card" id="panel-ncert" style="display:none;padding:26px 28px;border:1.5px solid var(--line);border-radius:var(--r);background:#fff">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px">
         <div style="display:flex;align-items:center;gap:12px">
@@ -2275,26 +2260,26 @@ img{max-width:100%;display:block}
         <div>
           <label style="display:block;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-bottom:8px">1. Select Subject</label>
           <div class="grid g-4" style="gap:10px" id="subjectGrid">
-            <button class="card subj-btn on" onclick="selectSubject(this,'maths')">
-              <div style="font-size:24px;margin-bottom:4px">📐</div>
-              <div style="font-weight:700;font-size:13px;color:var(--yl-700)">Mathematics</div>
+            <button type="button" class="btn on" onclick="selectSubject(this,'maths')" style="padding:14px 10px;flex-direction:column;gap:6px;border:2px solid var(--yl);background:var(--yl-50);border-radius:12px">
+              <div style="font-size:22px">📐</div>
+              <div style="font-size:13px;font-weight:700;color:var(--yl-700)">Mathematics</div>
             </button>
-            <button class="card subj-btn" onclick="selectSubject(this,'science')">
-              <div style="font-size:24px;margin-bottom:4px">🔬</div>
-              <div style="font-weight:700;font-size:13px;color:var(--ink-2)">Science</div>
+            <button type="button" class="btn" onclick="selectSubject(this,'science')" style="padding:14px 10px;flex-direction:column;gap:6px;border:1.5px solid var(--line);background:#fff;border-radius:12px">
+              <div style="font-size:22px">🔬</div>
+              <div style="font-size:13px;font-weight:700;color:var(--ink-2)">Science</div>
             </button>
-            <button class="card subj-btn" onclick="selectSubject(this,'sst')">
-              <div style="font-size:24px;margin-bottom:4px">🌍</div>
-              <div style="font-weight:700;font-size:13px;color:var(--ink-2)">Social Science</div>
+            <button type="button" class="btn" onclick="selectSubject(this,'sst')" style="padding:14px 10px;flex-direction:column;gap:6px;border:1.5px solid var(--line);background:#fff;border-radius:12px">
+              <div style="font-size:22px">🌍</div>
+              <div style="font-size:13px;font-weight:700;color:var(--ink-2)">Social Science</div>
             </button>
-            <button class="card subj-btn" onclick="selectSubject(this,'english')">
-              <div style="font-size:24px;margin-bottom:4px">📖</div>
-              <div style="font-weight:700;font-size:13px;color:var(--ink-2)">English</div>
+            <button type="button" class="btn" onclick="selectSubject(this,'english')" style="padding:14px 10px;flex-direction:column;gap:6px;border:1.5px solid var(--line);background:#fff;border-radius:12px">
+              <div style="font-size:22px">📖</div>
+              <div style="font-size:13px;font-weight:700;color:var(--ink-2)">English</div>
             </button>
           </div>
         </div>
 
-        <!-- Chapter Selection -->
+        <!-- Chapter Selector -->
         <div>
           <label style="display:block;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-bottom:8px">2. Select Chapter</label>
           <select id="ncertChapter" style="width:100%;border:1.5px solid var(--line);padding:12px 14px;border-radius:12px;background:var(--bg);font-weight:600;font-size:14px;cursor:pointer;outline:none">
@@ -2399,32 +2384,6 @@ img{max-width:100%;display:block}
       <div style="display:flex;align-items:center;gap:8px;font-weight:700;color:#0C8F6A;margin-bottom:6px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Correct — it's the <b style="margin:0 3px">Role</b></div>
       <p class="sm muted">The <b>Role</b> tells the AI what persona to adopt, e.g. "act as a Class 9 science teacher". This shapes the tone and depth of the answer.</p>
       <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap"><button class="btn btn-ghost btn-sm" onclick="openDoubt('Practice — Prompting')">Explain more</button><button class="btn btn-ghost btn-sm">Harder question</button><button class="btn btn-pri btn-sm" onclick="nextQ()">Next question →</button></div>
-    </div>
-  </div>
-
-  <!-- WEAK AREAS SECTION (Reference Image 2) -->
-  <div style="margin-top:34px">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:12px">
-      <div>
-        <div style="font-size:11px;font-weight:800;letter-spacing:.09em;color:var(--muted);text-transform:uppercase">Improve</div>
-        <div style="display:flex;align-items:center;gap:6px;margin-top:2px">
-          <h3 style="font-size:18px;font-weight:800">Weak Areas</h3>
-          <span style="display:inline-grid;place-items:center;width:17px;height:17px;border-radius:50%;background:var(--line);color:var(--muted);font-size:11px;font-weight:700;cursor:help" title="Questions automatically adapted based on your past quiz answers">i</span>
-        </div>
-      </div>
-      <a class="link" style="font-size:13px;font-weight:700;cursor:pointer" onclick="switchPracticeMode('bootcamp')">Go to Practice →</a>
-    </div>
-
-    <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">
-      <button class="pill" onclick="switchPracticeMode('bootcamp')" style="border:1.5px solid var(--yl);color:var(--yl);background:var(--yl-50);font-size:13px;padding:7px 16px;cursor:pointer">AI BootCamp</button>
-      <button class="pill" onclick="switchPracticeMode('ncert')" style="border:1px solid var(--line);color:var(--muted);background:#fff;font-size:13px;padding:7px 16px;cursor:pointer">Mathematics</button>
-    </div>
-
-    <div class="card" style="padding:36px 20px;text-align:center;background:#fff;border:1px solid var(--line);border-radius:16px">
-      <div style="font-size:46px;margin-bottom:10px">🏆</div>
-      <div style="font-weight:800;font-size:17.5px;margin-bottom:5px">You're all caught up</div>
-      <p class="muted" style="font-size:13.5px;max-width:440px;margin:0 auto 16px">Great job! We couldn't find any urgent weak topics right now. Keep practicing to maintain your progress.</p>
-      <button class="btn btn-soft btn-sm" onclick="switchPracticeMode('bootcamp')">Practice AI BootCamp Topics</button>
     </div>
   </div>
 </section>
