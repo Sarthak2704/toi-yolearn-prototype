@@ -2121,7 +2121,7 @@ img{max-width:100%;display:block}
   </div>
 
   <!-- Entry Points Grid (Matches Image 2) -->
-  <div class="grid g-3" style="gap:18px;margin-bottom:24px">
+  <div class="grid g-2" style="gap:18px;margin-bottom:24px">
     <!-- ENTRY 1: AI BootCamp Practice -->
     <div class="practice-entry-card active" id="entry-bootcamp" onclick="switchPracticeMode('bootcamp')">
       <div>
@@ -2142,18 +2142,6 @@ img{max-width:100%;display:block}
         </div>
         <h3 style="font-size:16.5px;font-weight:800;margin-bottom:6px">Infinite Subject Mock Tests</h3>
         <p class="muted" style="font-size:13px;line-height:1.45">Endless mock tests tailored to your CBSE Class 9 subjects &amp; chapters</p>
-      </div>
-      <div class="entry-link" style="color:var(--red);font-weight:700">Start <span style="font-size:16px">→</span></div>
-    </div>
-
-    <!-- ENTRY 3: Target Weak Areas Drill (Matches Image 2) -->
-    <div class="practice-entry-card" id="entry-weak" onclick="switchPracticeMode('weak')">
-      <div>
-        <div class="entry-icon" style="background:var(--ai-50);color:var(--ai-700)">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        </div>
-        <h3 style="font-size:16.5px;font-weight:800;margin-bottom:6px">Target Weak Areas Drill</h3>
-        <p class="muted" style="font-size:13px;line-height:1.45">Adaptive revision drills targeting concepts you found challenging</p>
       </div>
       <div class="entry-link" style="color:var(--red);font-weight:700">Start <span style="font-size:16px">→</span></div>
     </div>
@@ -2327,48 +2315,7 @@ img{max-width:100%;display:block}
       </div>
     </div>
 
-    <!-- PANEL 3: Target Weak Areas Drill (Matches Image 2) -->
-    <div class="card" id="panel-weak" style="display:none;padding:26px 28px;border:1.5px solid var(--line);border-radius:var(--r);background:#fff">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px">
-        <div style="display:flex;align-items:center;gap:12px">
-          <div style="width:40px;height:40px;border-radius:11px;background:var(--ai-50);color:var(--ai-700);display:grid;place-items:center;font-size:18px">⚡</div>
-          <div>
-            <h3 style="font-size:17.5px;font-weight:800">Target Weak Areas Drill</h3>
-            <p class="muted tiny">Adaptive revision drills targeting concepts you found challenging</p>
-          </div>
-        </div>
-        <span class="chip chip-ai">⚡ Adaptive Difficulty Active</span>
-      </div>
-
-      <div style="background:#FFFBEB;border:1px solid #FDE68A;border-radius:12px;padding:14px 18px;margin-bottom:20px;display:flex;align-items:center;gap:12px">
-        <div style="font-size:22px">🎯</div>
-        <div style="font-size:13.5px;color:#92400E;line-height:1.45">
-          Based on your recent modules, our AI identified <b>3 areas</b> where you hesitated: <b>Transformer Embeddings</b>, <b>Context Conditioning</b>, and <b>Prompt Constraints</b>.
-        </div>
-      </div>
-
-      <div class="grid g-3" style="gap:14px;margin-bottom:20px">
-        <div class="card" style="padding:14px;border:1px solid var(--line);background:#FAFAFA">
-          <div style="font-weight:700;font-size:13.5px">Context Conditioning</div>
-          <div class="tiny muted" style="margin-top:2px">Accuracy: 50% · 2 errors</div>
-          <button class="btn btn-soft btn-sm" style="margin-top:10px;width:100%;justify-content:center" onclick="createWeakTest('Context Conditioning')">Drill this →</button>
-        </div>
-        <div class="card" style="padding:14px;border:1px solid var(--line);background:#FAFAFA">
-          <div style="font-weight:700;font-size:13.5px">Transformer Embeddings</div>
-          <div class="tiny muted" style="margin-top:2px">Accuracy: 40% · 3 errors</div>
-          <button class="btn btn-soft btn-sm" style="margin-top:10px;width:100%;justify-content:center" onclick="createWeakTest('Transformer Embeddings')">Drill this →</button>
-        </div>
-        <div class="card" style="padding:14px;border:1px solid var(--line);background:#FAFAFA">
-          <div style="font-weight:700;font-size:13.5px">Prompt Constraints</div>
-          <div class="tiny muted" style="margin-top:2px">Accuracy: 60% · 1 error</div>
-          <button class="btn btn-soft btn-sm" style="margin-top:10px;width:100%;justify-content:center" onclick="createWeakTest('Prompt Constraints')">Drill this →</button>
-        </div>
-      </div>
-
-      <div style="display:flex;gap:10px;justify-content:flex-end">
-        <button class="btn btn-pri" onclick="createWeakTest('Combined Weak Areas')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Launch Full Adaptive Drill (10 Questions)</button>
-      </div>
-    </div>
+    
   </div>
 
   <!-- Active question card (hidden until a test is created) -->
