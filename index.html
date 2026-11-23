@@ -809,8 +809,9 @@ img{max-width:100%;display:block}
   <div class="tabs" style="overflow-x:auto;white-space:nowrap;padding-bottom:2px">
     <button class="on" onclick="tab('course','all',this)">All</button>
     <button onclick="tab('course','class',this)">Class</button>
-    <button onclick="tab('course','resources',this)">Resources &amp; PDFs</button>
-    <button onclick="tab('course','assign',this)">Assignment</button>
+    <button onclick="tab('course','preread',this)">Pre Read Material</button>
+    <button onclick="tab('course','addres',this)">Additional Resource</button>
+    <button onclick="tab('course','safety',this)">Safety and Security</button>
     <button onclick="tab('course','cert',this)">Certificate</button>
   </div>
   <div data-tabgroup="course">
@@ -1213,130 +1214,291 @@ img{max-width:100%;display:block}
       </div>
     </div>
 
-    <div class="tabpane" id="pane-course-resources">
+    
+    <!-- TAB 3: PRE READ MATERIAL (only pre read material are there pdf list) -->
+    <div class="tabpane" id="pane-course-preread">
+
       <div class="sec-h" style="margin:8px 0 14px">
-        <h2>Course Resources &amp; PDF Materials</h2>
-        <span class="chip chip-ai">Grounded AI Chat on every document</span>
+        <h2>Pre Read Material</h2>
+        <span class="chip chip-ai">Official Handbooks &amp; Primers · AI Chat Grounded</span>
       </div>
-
-      <!-- Pre-Read Handbooks & Essential Course Packs -->
-      <div style="margin-bottom:24px">
-        <div style="font-weight:800;font-size:15px;margin-bottom:12px;color:var(--ink);display:flex;align-items:center;gap:8px">
-          <span style="font-size:16px">📖</span> Course Handbooks &amp; Pre-Read Material
-        </div>
-        <div class="grid g-2" style="gap:14px">
-          <div class="card" style="padding:18px;display:flex;flex-direction:column;justify-content:space-between">
-            <div>
-              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
-                <div class="ico-box" style="background:#EFF6FF;color:#2563EB;width:40px;height:40px">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg>
-                </div>
-                <span class="chip chip-tg">Module 1 &amp; 2</span>
+      <p class="muted" style="font-size:13.5px;margin-bottom:18px">Official curriculum reading handbooks to read before joining live classes and video lectures.</p>
+      
+      <div class="grid g-2" style="gap:16px">
+        <div class="card" style="padding:20px;display:flex;flex-direction:column;justify-content:space-between">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+              <div class="ico-box" style="background:#EFF6FF;color:#2563EB;width:42px;height:42px">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg>
               </div>
-              <h4 style="font-weight:700;font-size:15px">Module 1 — AI Foundations Handbook</h4>
-              <p class="tiny muted" style="margin-top:4px;line-height:1.45">18 pages · Core concepts of AI, Machine Learning, algorithms, and cognitive computing.</p>
+              <span class="chip chip-tg">Module 1 &amp; 2</span>
             </div>
-            <div style="display:flex;gap:8px;margin-top:16px">
-              <button class="btn btn-soft btn-sm" onclick="openPdfViewer('Module 1 — AI Foundations Handbook.pdf', 'Foundations of AI')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
-              <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE;font-weight:600;display:inline-flex;align-items:center;gap:6px" onclick="openPdfViewer('Module 1 — AI Foundations Handbook.pdf', 'Foundations of AI')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
-            </div>
+            <h4 style="font-weight:700;font-size:15px">Module 1 — AI Foundations Handbook.pdf</h4>
+            <p class="tiny muted" style="margin-top:4px;line-height:1.45">18 pages · Core concepts of AI, Machine Learning algorithms, supervised vs unsupervised learning, and cognitive computing.</p>
           </div>
-
-          <div class="card" style="padding:18px;display:flex;flex-direction:column;justify-content:space-between">
-            <div>
-              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
-                <div class="ico-box" style="background:#EFF6FF;color:#2563EB;width:40px;height:40px">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg>
-                </div>
-                <span class="chip chip-blue">Module 3</span>
-              </div>
-              <h4 style="font-weight:700;font-size:15px">Prompt Engineering Cheat Sheet</h4>
-              <p class="tiny muted" style="margin-top:4px;line-height:1.45">8 pages · The 4-part formula, zero-shot/few-shot templates, role conditioning.</p>
-            </div>
-            <div style="display:flex;gap:8px;margin-top:16px">
-              <button class="btn btn-soft btn-sm" onclick="openPdfViewer('Prompt Engineering Cheat Sheet.pdf', 'AI Tools')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
-              <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE;font-weight:600;display:inline-flex;align-items:center;gap:6px" onclick="openPdfViewer('Prompt Engineering Cheat Sheet.pdf', 'AI Tools')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
-            </div>
+          <div style="display:flex;gap:8px;margin-top:16px">
+            <button class="btn btn-soft btn-sm" onclick="openPdfViewer('Module 1 — AI Foundations Handbook.pdf', 'Pre Read Material')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
+            <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE;font-weight:600;display:inline-flex;align-items:center;gap:6px" onclick="openPdfViewer('Module 1 — AI Foundations Handbook.pdf', 'Pre Read Material')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
           </div>
         </div>
-      </div>
 
-      <!-- Additional Resources & Safety -->
-      <div style="margin-bottom:18px">
-        <div style="font-weight:800;font-size:15px;margin-bottom:12px;color:var(--ink);display:flex;align-items:center;gap:8px">
-          <span style="font-size:16px">🛡️</span> Additional Resources, Ethics &amp; Safety Guidelines
-        </div>
-        <div class="grid g-2" style="gap:14px">
-          <div class="card" style="padding:18px;display:flex;flex-direction:column;justify-content:space-between">
-            <div>
-              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
-                <div class="ico-box" style="background:#FEF3C7;color:#B45309;width:40px;height:40px">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                </div>
-                <span class="chip chip-yl">Ethics &amp; Safety</span>
+        <div class="card" style="padding:20px;display:flex;flex-direction:column;justify-content:space-between">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+              <div class="ico-box" style="background:#EFF6FF;color:#2563EB;width:42px;height:42px">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg>
               </div>
-              <h4 style="font-weight:700;font-size:15px">Responsible AI &amp; Student Safety Guidelines</h4>
-              <p class="tiny muted" style="margin-top:4px;line-height:1.45">12 pages · Digital citizenship, avoiding bias, protecting personal privacy in AI tools.</p>
+              <span class="chip chip-blue">Module 3</span>
             </div>
-            <div style="display:flex;gap:8px;margin-top:16px">
-              <button class="btn btn-soft btn-sm" onclick="openPdfViewer('Responsible AI & Student Safety Guidelines.pdf', 'Safety and Security')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
-              <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE;font-weight:600;display:inline-flex;align-items:center;gap:6px" onclick="openPdfViewer('Responsible AI & Student Safety Guidelines.pdf', 'Safety and Security')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
-            </div>
+            <h4 style="font-weight:700;font-size:15px">Prompt Engineering Handbook &amp; Cheat Sheet.pdf</h4>
+            <p class="tiny muted" style="margin-top:4px;line-height:1.45">8 pages · The 4-part formula (Role, Task, Context, Format), zero-shot &amp; few-shot templates, and constraint conditioning.</p>
           </div>
+          <div style="display:flex;gap:8px;margin-top:16px">
+            <button class="btn btn-soft btn-sm" onclick="openPdfViewer('Prompt Engineering Cheat Sheet.pdf', 'Pre Read Material')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
+            <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE;font-weight:600;display:inline-flex;align-items:center;gap:6px" onclick="openPdfViewer('Prompt Engineering Cheat Sheet.pdf', 'Pre Read Material')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
+          </div>
+        </div>
 
-          <div class="card" style="padding:18px;display:flex;flex-direction:column;justify-content:space-between">
-            <div>
-              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
-                <div class="ico-box" style="background:#EFF6FF;color:#2563EB;width:40px;height:40px">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5a2 2 0 012-2h9l5 5v11H4zM14 3v6h6"/></svg>
-                </div>
-                <span class="chip chip-blue">Reference</span>
+        <div class="card" style="padding:20px;display:flex;flex-direction:column;justify-content:space-between">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+              <div class="ico-box" style="background:#EFF6FF;color:#2563EB;width:42px;height:42px">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg>
               </div>
-              <h4 style="font-weight:700;font-size:15px">AI Terms &amp; Vocabulary Lexicon</h4>
-              <p class="tiny muted" style="margin-top:4px;line-height:1.45">6 pages · 50+ essential definitions from Backpropagation to Zero-Shot reasoning.</p>
+              <span class="chip chip-tg">Module 2</span>
             </div>
-            <div style="display:flex;gap:8px;margin-top:16px">
-              <button class="btn btn-soft btn-sm" onclick="openPdfViewer('AI Terms & Vocabulary Lexicon.pdf', 'Additional Resources')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
-              <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE;font-weight:600;display:inline-flex;align-items:center;gap:6px" onclick="openPdfViewer('AI Terms & Vocabulary Lexicon.pdf', 'Additional Resources')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
+            <h4 style="font-weight:700;font-size:15px">Transformer &amp; Neural Network Architecture Primer.pdf</h4>
+            <p class="tiny muted" style="margin-top:4px;line-height:1.45">14 pages · Intuitive breakdown of Transformer Self-Attention, query-key-value vectors, encoders, and decoders.</p>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:16px">
+            <button class="btn btn-soft btn-sm" onclick="openPdfViewer('Transformer & Neural Network Architecture Primer.pdf', 'Pre Read Material')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
+            <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE;font-weight:600;display:inline-flex;align-items:center;gap:6px" onclick="openPdfViewer('Transformer & Neural Network Architecture Primer.pdf', 'Pre Read Material')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
+          </div>
+        </div>
+
+        <div class="card" style="padding:20px;display:flex;flex-direction:column;justify-content:space-between">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+              <div class="ico-box" style="background:#EFF6FF;color:#2563EB;width:42px;height:42px">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg>
+              </div>
+              <span class="chip chip-blue">Module 5</span>
             </div>
+            <h4 style="font-weight:700;font-size:15px">AI Project Blueprint &amp; Starter Guide.pdf</h4>
+            <p class="tiny muted" style="margin-top:4px;line-height:1.45">10 pages · Step-by-step roadmap to ideate, prototype, test, and document your Capstone Student AI application.</p>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:16px">
+            <button class="btn btn-soft btn-sm" onclick="openPdfViewer('AI Project Blueprint & Starter Guide.pdf', 'Pre Read Material')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
+            <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE;font-weight:600;display:inline-flex;align-items:center;gap:6px" onclick="openPdfViewer('AI Project Blueprint & Starter Guide.pdf', 'Pre Read Material')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="tabpane" id="pane-course-assign">
+    <!-- TAB 4: ADDITIONAL RESOURCE (resource are there pdf list) -->
+    <div class="tabpane" id="pane-course-addres">
 
-      <div class="res-row" style="margin-bottom:12px">
-        <div class="ico-box" style="background:var(--amber-50);color:#B45309"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg></div>
-        <div style="flex:1"><div style="font-weight:700;font-size:14px">Assignment 3 · Build a study prompt</div><div class="tiny" style="color:#B45309;font-weight:600">Due in 2 days · AI-assisted evaluation</div></div>
-        <button class="btn btn-pri btn-sm" data-go="assessment"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg> Start</button>
+      <div class="sec-h" style="margin:8px 0 14px">
+        <h2>Additional Resources</h2>
+        <span class="chip chip-ai">Reference Guides &amp; Starter Kits</span>
       </div>
-      <div class="res-row" style="margin-bottom:12px">
-        <div class="ico-box" style="background:var(--tg-50);color:#0C8F6A"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
-        <div style="flex:1"><div style="font-weight:700;font-size:14px">Quiz 1 · Foundations of AI</div><div class="tiny muted">Score: 10/10 · Graded</div></div>
-        <button class="btn btn-pri btn-sm" data-go="assessment"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg> Start</button>
-      </div>
-      <div class="res-row" style="margin-bottom:12px">
-        <div class="ico-box" style="background:var(--tg-50);color:#0C8F6A"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
-        <div style="flex:1"><div style="font-weight:700;font-size:14px">Quiz 2 · How Machines Learn</div><div class="tiny muted">8/10 · teacher-verified</div></div>
-        <button class="btn btn-pri btn-sm" data-go="assessment"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg> Start</button>
-      </div>
-      <div class="res-row">
-        <div class="ico-box" style="background:#EFF6FF;color:#2563EB"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
-        <div style="flex:1"><div style="font-weight:700;font-size:14px">Capstone AI Project Submission</div><div class="tiny muted">Final project presentation &amp; rubric evaluation</div></div>
-        <button class="btn btn-pri btn-sm" data-go="assessment"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M4 12a8 8 0 108-8"/></svg> Start</button>
-      </div>
+      <p class="muted" style="font-size:13.5px;margin-bottom:18px">Supplementary toolkits, code templates, and vocabulary guides to level up your AI skills.</p>
 
+      <div class="grid g-2" style="gap:16px">
+        <div class="card" style="padding:20px;display:flex;flex-direction:column;justify-content:space-between">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+              <div class="ico-box" style="background:#EFF6FF;color:#2563EB;width:42px;height:42px">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5a2 2 0 012-2h9l5 5v11H4zM14 3v6h6"/></svg>
+              </div>
+              <span class="chip chip-blue">Lexicon</span>
+            </div>
+            <h4 style="font-weight:700;font-size:15px">AI Terms &amp; Vocabulary Lexicon.pdf</h4>
+            <p class="tiny muted" style="margin-top:4px;line-height:1.45">6 pages · 50+ essential definitions from Backpropagation to Zero-Shot reasoning, embeddings, and context windows.</p>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:16px">
+            <button class="btn btn-soft btn-sm" onclick="openPdfViewer('AI Terms & Vocabulary Lexicon.pdf', 'Additional Resource')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
+            <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE;font-weight:600;display:inline-flex;align-items:center;gap:6px" onclick="openPdfViewer('AI Terms & Vocabulary Lexicon.pdf', 'Additional Resource')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
+          </div>
+        </div>
+
+        <div class="card" style="padding:20px;display:flex;flex-direction:column;justify-content:space-between">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+              <div class="ico-box" style="background:#EFF6FF;color:#2563EB;width:42px;height:42px">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8zM14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+              </div>
+              <span class="chip chip-tg">Code Kit</span>
+            </div>
+            <h4 style="font-weight:700;font-size:15px">Python AI Starter Kit &amp; Code Templates.pdf</h4>
+            <p class="tiny muted" style="margin-top:4px;line-height:1.45">16 pages · Copy-paste Python snippets for interacting with LLM APIs, prompt chaining, and JSON structured outputs.</p>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:16px">
+            <button class="btn btn-soft btn-sm" onclick="openPdfViewer('Python AI Starter Kit & Code Templates.pdf', 'Additional Resource')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
+            <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE;font-weight:600;display:inline-flex;align-items:center;gap:6px" onclick="openPdfViewer('Python AI Starter Kit & Code Templates.pdf', 'Additional Resource')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
+          </div>
+        </div>
+
+        <div class="card" style="padding:20px;display:flex;flex-direction:column;justify-content:space-between">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+              <div class="ico-box" style="background:#EFF6FF;color:#2563EB;width:42px;height:42px">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+              </div>
+              <span class="chip chip-blue">Projects</span>
+            </div>
+            <h4 style="font-weight:700;font-size:15px">Curated Student AI Projects Showcase.pdf</h4>
+            <p class="tiny muted" style="margin-top:4px;line-height:1.45">12 pages · Real-world showcase of winning AI apps built by students in previous cohorts with architectures and demo links.</p>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:16px">
+            <button class="btn btn-soft btn-sm" onclick="openPdfViewer('Curated Student AI Projects Showcase.pdf', 'Additional Resource')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
+            <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE;font-weight:600;display:inline-flex;align-items:center;gap:6px" onclick="openPdfViewer('Curated Student AI Projects Showcase.pdf', 'Additional Resource')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
+          </div>
+        </div>
+
+        <div class="card" style="padding:20px;display:flex;flex-direction:column;justify-content:space-between">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+              <div class="ico-box" style="background:#EFF6FF;color:#2563EB;width:42px;height:42px">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              </div>
+              <span class="chip chip-tg">Comparison</span>
+            </div>
+            <h4 style="font-weight:700;font-size:15px">LLM vs SLM Architecture Comparison Matrix.pdf</h4>
+            <p class="tiny muted" style="margin-top:4px;line-height:1.45">4 pages · When to use small language models on-device vs frontier cloud LLMs, latency trade-offs, and compute costs.</p>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:16px">
+            <button class="btn btn-soft btn-sm" onclick="openPdfViewer('LLM vs SLM Architecture Comparison Matrix.pdf', 'Additional Resource')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
+            <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE;font-weight:600;display:inline-flex;align-items:center;gap:6px" onclick="openPdfViewer('LLM vs SLM Architecture Comparison Matrix.pdf', 'Additional Resource')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- TAB 7: CERTIFICATE -->
+    <!-- TAB 5: SAFETY AND SECURITY (safety and security are there pdf list) -->
+    <div class="tabpane" id="pane-course-safety">
+
+      <div class="sec-h" style="margin:8px 0 14px">
+        <h2>Safety and Security</h2>
+        <span class="chip chip-ai">AI Ethics &amp; Student Safety Guidelines</span>
+      </div>
+      <p class="muted" style="font-size:13.5px;margin-bottom:18px">Official student guidelines for ethical AI usage, privacy protection, and responsible digital citizenship.</p>
+
+      <div class="grid g-2" style="gap:16px">
+        <div class="card" style="padding:20px;display:flex;flex-direction:column;justify-content:space-between">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+              <div class="ico-box" style="background:#FEF3C7;color:#B45309;width:42px;height:42px">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <span class="chip chip-yl">Ethics &amp; Safety</span>
+            </div>
+            <h4 style="font-weight:700;font-size:15px">Responsible AI &amp; Student Safety Guidelines.pdf</h4>
+            <p class="tiny muted" style="margin-top:4px;line-height:1.45">12 pages · Digital citizenship, avoiding algorithmic bias, identifying deepfakes, and protecting personal identity online.</p>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:16px">
+            <button class="btn btn-soft btn-sm" onclick="openPdfViewer('Responsible AI & Student Safety Guidelines.pdf', 'Safety and Security')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
+            <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE;font-weight:600;display:inline-flex;align-items:center;gap:6px" onclick="openPdfViewer('Responsible AI & Student Safety Guidelines.pdf', 'Safety and Security')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
+          </div>
+        </div>
+
+        <div class="card" style="padding:20px;display:flex;flex-direction:column;justify-content:space-between">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+              <div class="ico-box" style="background:#FEF3C7;color:#B45309;width:42px;height:42px">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+              </div>
+              <span class="chip chip-yl">Verification</span>
+            </div>
+            <h4 style="font-weight:700;font-size:15px">Spotting AI Hallucinations &amp; Fact-Checking Guide.pdf</h4>
+            <p class="tiny muted" style="margin-top:4px;line-height:1.45">8 pages · How to cross-verify claims, detect confabulations, and test LLM answers with grounded retrieval tools.</p>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:16px">
+            <button class="btn btn-soft btn-sm" onclick="openPdfViewer('Spotting AI Hallucinations & Fact-Checking Guide.pdf', 'Safety and Security')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
+            <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE;font-weight:600;display:inline-flex;align-items:center;gap:6px" onclick="openPdfViewer('Spotting AI Hallucinations & Fact-Checking Guide.pdf', 'Safety and Security')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
+          </div>
+        </div>
+
+        <div class="card" style="padding:20px;display:flex;flex-direction:column;justify-content:space-between">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+              <div class="ico-box" style="background:#FEF3C7;color:#B45309;width:42px;height:42px">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <span class="chip chip-yl">Privacy</span>
+            </div>
+            <h4 style="font-weight:700;font-size:15px">Student Data Privacy &amp; PII Protection Standards.pdf</h4>
+            <p class="tiny muted" style="margin-top:4px;line-height:1.45">6 pages · Protecting sensitive personal information, school IDs, and location data when interacting with third-party AI models.</p>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:16px">
+            <button class="btn btn-soft btn-sm" onclick="openPdfViewer('Student Data Privacy & PII Protection Standards.pdf', 'Safety and Security')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
+            <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE;font-weight:600;display:inline-flex;align-items:center;gap:6px" onclick="openPdfViewer('Student Data Privacy & PII Protection Standards.pdf', 'Safety and Security')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
+          </div>
+        </div>
+
+        <div class="card" style="padding:20px;display:flex;flex-direction:column;justify-content:space-between">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+              <div class="ico-box" style="background:#FEF3C7;color:#B45309;width:42px;height:42px">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+              </div>
+              <span class="chip chip-yl">Integrity</span>
+            </div>
+            <h4 style="font-weight:700;font-size:15px">Academic Integrity &amp; Ethical AI Citation Policy.pdf</h4>
+            <p class="tiny muted" style="margin-top:4px;line-height:1.45">5 pages · Best practices for transparently disclosing AI usage, creating prompt bibliographies, and maintaining academic honesty.</p>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:16px">
+            <button class="btn btn-soft btn-sm" onclick="openPdfViewer('Academic Integrity & Ethical AI Citation Policy.pdf', 'Safety and Security')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6zM14 2v6h6"/></svg> Open PDF</button>
+            <button class="btn btn-sm" style="background:var(--ai-50);color:var(--ai-700);border:1px solid #DDD6FE;font-weight:600;display:inline-flex;align-items:center;gap:6px" onclick="openPdfViewer('Academic Integrity & Ethical AI Citation Policy.pdf', 'Safety and Security')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> AI Chat</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 6: CERTIFICATE (unlock when course completed) -->
     <div class="tabpane" id="pane-course-cert">
 
-      <div class="card" style="padding:24px;display:flex;gap:20px;align-items:center;flex-wrap:wrap">
-        <div class="cert" style="width:240px"><div class="top"><div><div class="tiny" style="opacity:.8">GrowFast × YoLearn.ai</div><div style="font-weight:800;margin-top:4px">Certificate of Completion</div></div><div class="seal">★</div><div class="tiny" style="opacity:.85">AI BootCamp for Students</div></div></div>
-        <div style="flex:1;min-width:220px"><h3 style="font-size:18px">Almost there!</h3><p class="muted" style="margin:8px 0 14px">Complete the remaining 9 lessons to unlock your co-branded certificate, signed by The Times of India GrowFast.</p><div class="progress"><i style="width:62%"></i></div><button class="btn btn-ghost btn-sm" style="margin-top:14px" data-go="certificates">View certificates</button></div>
+      <div class="sec-h" style="margin:8px 0 14px">
+        <h2>Certificate of Completion</h2>
+        <span class="chip" id="certStatusBadge" style="background:#FEE2E2;color:#DC2626;font-weight:700">🔒 Locked · Unlocks at 100% Course Completion</span>
       </div>
 
+      <div class="card" id="certContainerCard" style="padding:28px;display:flex;gap:24px;align-items:center;flex-wrap:wrap;background:#FAFAFA;border:1.5px dashed #CBD5E1">
+        <div class="cert" id="certPreviewVisual" style="width:260px;position:relative;opacity:0.65;filter:grayscale(0.6)">
+          <div class="top">
+            <div>
+              <div class="tiny" style="opacity:.85">The Times of India × YoLearn.ai</div>
+              <div style="font-weight:800;margin-top:4px">Certificate of Completion</div>
+            </div>
+            <div class="seal" id="certSealIcon">🔒</div>
+            <div class="tiny" style="opacity:.85">AI BootCamp for Students · Batch 7</div>
+          </div>
+        </div>
+
+        <div style="flex:1;min-width:260px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+            <span class="chip chip-red" id="certReqChip">62% Completed</span>
+            <span class="tiny muted" id="certLessonsRemaining">9 lessons remaining to unlock</span>
+          </div>
+          <h3 style="font-size:19px;font-weight:800;margin:0 0 6px" id="certHeadingText">Complete Course to Unlock Official Certificate</h3>
+          <p class="muted" style="margin:0 0 14px;font-size:13.5px;line-height:1.5" id="certSubtext">
+            Your co-branded certificate from <b>The Times of India</b> and <b>YoLearn.ai</b> is issued automatically once you finish all 24 lessons and the capstone AI project.
+          </p>
+          
+          <div style="margin-bottom:14px">
+            <div style="display:flex;justify-content:space-between;font-size:12.5px;font-weight:700;margin-bottom:6px">
+              <span class="muted">Course Progress</span>
+              <span class="muted" id="certProgressPercent">62%</span>
+            </div>
+            <div class="progress" style="height:7px"><i id="certProgressBar" style="width:62%;background:var(--yl)"></i></div>
+          </div>
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+            <button class="btn btn-pri btn-sm" id="certContinueBtn" onclick="go('chapter')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3l14 9-14 9V3z"/></svg> Continue Lessons (Module 3)</button>
+            <button class="btn btn-outline btn-sm" id="certSimulateBtn" onclick="toggleCertificateCompletion()" style="border-color:#0C8F6A;color:#0C8F6A;background:#fff;font-weight:700">✨ Simulate 100% Completion</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -3644,6 +3806,53 @@ var pdfDatabase = {
   }
 };
 
+
+function toggleCertificateCompletion() {
+  var isUnlocked = window.courseCertUnlocked = !window.courseCertUnlocked;
+  var badge = document.getElementById('certStatusBadge');
+  var card = document.getElementById('certContainerCard');
+  var visual = document.getElementById('certPreviewVisual');
+  var seal = document.getElementById('certSealIcon');
+  var reqChip = document.getElementById('certReqChip');
+  var lessonsRem = document.getElementById('certLessonsRemaining');
+  var heading = document.getElementById('certHeadingText');
+  var subtext = document.getElementById('certSubtext');
+  var pPercent = document.getElementById('certProgressPercent');
+  var pBar = document.getElementById('certProgressBar');
+  var contBtn = document.getElementById('certContinueBtn');
+  var simBtn = document.getElementById('certSimulateBtn');
+
+  if (isUnlocked) {
+    if (badge) { badge.style.background = '#DCFCE7'; badge.style.color = '#15803D'; badge.textContent = '🎉 Unlocked · Verified Certificate of Completion'; }
+    if (card) { card.style.background = '#FFFFFF'; card.style.border = '2px solid #10B981'; card.style.boxShadow = '0 10px 25px rgba(16,185,129,0.12)'; }
+    if (visual) { visual.style.opacity = '1'; visual.style.filter = 'none'; visual.style.border = '2px solid #F59E0B'; }
+    if (seal) seal.textContent = '★';
+    if (reqChip) { reqChip.className = 'chip chip-tg'; reqChip.textContent = '100% Completed'; }
+    if (lessonsRem) { lessonsRem.textContent = 'All 24 lessons completed · Verified'; lessonsRem.style.color = '#15803D'; }
+    if (heading) heading.textContent = 'Congratulations! Your Official Certificate is Ready';
+    if (subtext) subtext.innerHTML = 'Awarded to <b>' + window.userAppState.userName + '</b> on completing <b>The Times of India AI for Students Masterclass</b> with distinction.';
+    if (pPercent) pPercent.textContent = '100%';
+    if (pBar) { pBar.style.width = '100%'; pBar.style.background = '#10B981'; }
+    if (contBtn) { contBtn.innerHTML = '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v14m0 0l-4-4m4 4l4-4M4 18v2h16v-2"/></svg> Download Verified PDF Certificate'; contBtn.onclick = function() { alert('Downloading official TOI × YoLearn Certificate for Ramesh Kumar (PDF)...'); }; }
+    if (simBtn) simBtn.textContent = '↩ Reset to In-Progress (62%)';
+    showToast('🎉 Course marked 100% complete! Official Certificate unlocked.');
+  } else {
+    if (badge) { badge.style.background = '#FEE2E2'; badge.style.color = '#DC2626'; badge.textContent = '🔒 Locked · Unlocks at 100% Course Completion'; }
+    if (card) { card.style.background = '#FAFAFA'; card.style.border = '1.5px dashed #CBD5E1'; card.style.boxShadow = 'none'; }
+    if (visual) { visual.style.opacity = '0.65'; visual.style.filter = 'grayscale(0.6)'; visual.style.border = 'none'; }
+    if (seal) seal.textContent = '🔒';
+    if (reqChip) { reqChip.className = 'chip chip-red'; reqChip.textContent = '62% Completed'; }
+    if (lessonsRem) { lessonsRem.textContent = '9 lessons remaining to unlock'; lessonsRem.style.color = ''; }
+    if (heading) heading.textContent = 'Complete Course to Unlock Official Certificate';
+    if (subtext) subtext.innerHTML = 'Your co-branded certificate from <b>The Times of India</b> and <b>YoLearn.ai</b> is issued automatically once you finish all 24 lessons and the capstone AI project.';
+    if (pPercent) pPercent.textContent = '62%';
+    if (pBar) { pBar.style.width = '62%'; pBar.style.background = 'var(--yl)'; }
+    if (contBtn) { contBtn.innerHTML = '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3l14 9-14 9V3z"/></svg> Continue Lessons (Module 3)'; contBtn.onclick = function() { go('chapter'); }; }
+    if (simBtn) simBtn.textContent = '✨ Simulate 100% Completion';
+    showToast('Reset to in-progress course state (62%).');
+  }
+}
+
 function openPdfViewer(docTitle, category) {
   var data = pdfDatabase[docTitle] || {
     title: docTitle,
@@ -4271,7 +4480,7 @@ syncAllStateUI();
 
     <div style="display:flex;gap:10px;justify-content:flex-end">
       <button class="btn btn-ghost btn-sm" onclick="closeStartDateModal()">Close</button>
-      <button class="btn btn-pri btn-sm" onclick="closeStartDateModal(); tab('course', 'resources', document.querySelector('[data-tabgroup=\'course\']'));">Open Pre-Read Handbook →</button>
+      <button class="btn btn-pri btn-sm" onclick="closeStartDateModal(); var b=document.querySelector('button[onclick*=\'preread\']'); if(b){ tab('course','preread',b); }">Open Pre-Read Handbook &rarr;</button>
     </div>
   </div>
 </div>
