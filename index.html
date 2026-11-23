@@ -3222,10 +3222,10 @@ function renderHomeBanner() {
             'Your official course video lectures and assignments are scheduled to unlock on <b>' + window.userAppState.courseStartDateStr + '</b>. In the meantime, use your <b>Pre-Read Materials</b>, <b>AI Tools</b>, and <b>Study Lab</b> to prepare ahead of the batch!' +
           '</p>' +
           '<div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">' +
-            '<button class="btn" onclick="screen(\'course\')" style="background:#FFFFFF;color:#1E3A8A;font-weight:800;font-size:14px;padding:12px 22px;border-radius:12px;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 15px rgba(0,0,0,0.15)">' +
+            '<button class="btn" onclick="go(\'course\')" style="background:#FFFFFF;color:#1E3A8A;font-weight:800;font-size:14px;padding:12px 22px;border-radius:12px;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 15px rgba(0,0,0,0.15)">' +
               '<span>View Masterclass &amp; Pre-Reads →</span>' +
             '</button>' +
-            '<button class="btn" onclick="screen(\'studylab\')" style="background:rgba(255,255,255,0.18);color:#fff;border:1px solid rgba(255,255,255,0.3);font-weight:700;font-size:13.5px;padding:11px 18px;border-radius:12px">' +
+            '<button class="btn" onclick="go(\'studylab\')" style="background:rgba(255,255,255,0.18);color:#fff;border:1px solid rgba(255,255,255,0.3);font-weight:700;font-size:13.5px;padding:11px 18px;border-radius:12px">' +
               '<span>Explore Study Lab</span>' +
             '</button>' +
           '</div>' +
@@ -3244,7 +3244,7 @@ function renderHomeBanner() {
           '<p style="max-width:640px;margin:0 0 20px;font-size:14px;line-height:1.6;color:rgba(255,255,255,0.92)">' +
             'All 5 Modules, video lectures, and practice assessments are now completely unlocked. Resume Module 1 or practice with your AI tutor Pragya.' +
           '</p>' +
-          '<button class="btn" onclick="screen(\'course\')" style="background:#FFFFFF;color:#0C8F6A;font-weight:800;font-size:14px;padding:12px 22px;border-radius:12px;display:inline-flex;align-items:center;gap:8px">' +
+          '<button class="btn" onclick="go(\'course\')" style="background:#FFFFFF;color:#0C8F6A;font-weight:800;font-size:14px;padding:12px 22px;border-radius:12px;display:inline-flex;align-items:center;gap:8px">' +
             '<span>Continue Masterclass →</span>' +
           '</button>' +
         '</div>' +
@@ -3259,7 +3259,7 @@ function renderHomeCourses() {
   if (window.userAppState.state === 'trial') {
     // In trial: show legacy trial course + study lab + practice
     grid.innerHTML = 
-      '<div class="card" style="overflow:hidden" role="button" onclick="screen(\'course\')">' +
+      '<div class="card" style="overflow:hidden" role="button" onclick="go(\'course\')">' +
         '<div class="thumb" style="aspect-ratio:16/8;background:linear-gradient(135deg,#1E293B,#334155)">' +
           '<div class="ov"><div style="display:flex;justify-content:space-between"><span class="chip" style="background:rgba(255,255,255,0.9);color:#0F172A">Trial Edition</span><span class="chip" style="background:rgba(0,0,0,0.35);color:#fff">20 Tokens</span></div>' +
           '<div><div style="font-weight:800;font-size:16px">' + window.userAppState.legacyCourse.title + '</div><div class="tiny" style="opacity:.85">' + window.userAppState.legacyCourse.subtitle + '</div></div></div>' +
@@ -3268,30 +3268,30 @@ function renderHomeCourses() {
           '<div style="display:flex;justify-content:space-between;font-size:12.5px;font-weight:700;margin-bottom:6px"><span class="muted">Progress</span><span class="muted">' + window.userAppState.legacyCourse.progress + '%</span></div>' +
           '<div class="progress"><i style="width:' + window.userAppState.legacyCourse.progress + '%"></i></div>' +
           '<div style="display:flex;align-items:center;gap:8px;margin-top:14px">' +
-            '<button class="btn btn-pri btn-sm" style="flex:1;justify-content:center" onclick="event.stopPropagation();screen(\'course\')">Continue learning</button>' +
+            '<button class="btn btn-pri btn-sm" style="flex:1;justify-content:center" onclick="event.stopPropagation();go(\'course\')">Continue learning</button>' +
           '</div>' +
         '</div>' +
       '</div>' +
-      '<div class="card" style="overflow:hidden" role="button" onclick="screen(\'studylab\')">' +
+      '<div class="card" style="overflow:hidden" role="button" onclick="go(\'studylab\')">' +
         '<div class="thumb" style="aspect-ratio:16/8;background:linear-gradient(135deg,#0C8F6A,#12B886)">' +
           '<div class="ov"><span class="chip" style="background:rgba(0,0,0,.3);color:#fff;align-self:flex-start">Study Lab</span>' +
           '<div><div style="font-weight:800;font-size:16px">Module 2 — How LLMs Work</div><div class="tiny" style="opacity:.85">AI BootCamp Handbook</div></div></div>' +
         '</div>' +
         '<div style="padding:16px"><div class="sm muted">Upload any PDF or YouTube lecture to extract instant AI notes, flashcards &amp; summaries.</div>' +
-          '<button class="btn btn-soft btn-sm" style="margin-top:12px;width:100%;justify-content:center" onclick="event.stopPropagation();screen(\'studylab\')">Open in Study Lab</button></div>' +
+          '<button class="btn btn-soft btn-sm" style="margin-top:12px;width:100%;justify-content:center" onclick="event.stopPropagation();go(\'studylab\')">Open in Study Lab</button></div>' +
       '</div>' +
-      '<div class="card" style="overflow:hidden" role="button" onclick="screen(\'practice\')">' +
+      '<div class="card" style="overflow:hidden" role="button" onclick="go(\'practice\')">' +
         '<div class="thumb" style="aspect-ratio:16/8;background:linear-gradient(135deg,#B45309,#F59E0B)">' +
           '<div class="ov"><span class="chip" style="background:rgba(0,0,0,.3);color:#fff;align-self:flex-start">Practice</span>' +
           '<div><div style="font-weight:800;font-size:16px">Weak concept: Prompting</div><div class="tiny" style="opacity:.85">7 adaptive questions ready</div></div></div>' +
         '</div>' +
         '<div style="padding:16px"><div class="sm muted">AI noticed you struggled on prompt constraints. Take a quick 5-min drill.</div>' +
-          '<button class="btn btn-soft btn-sm" style="margin-top:12px;width:100%;justify-content:center" onclick="event.stopPropagation();screen(\'practice\')">Start Drill</button></div>' +
+          '<button class="btn btn-soft btn-sm" style="margin-top:12px;width:100%;justify-content:center" onclick="event.stopPropagation();go(\'practice\')">Start Drill</button></div>' +
       '</div>';
   } else {
     // In purchased state: show BOTH courses (Masterclass + Legacy)
     grid.innerHTML = 
-      '<div class="card" style="overflow:hidden;border:2px solid #BFDBFE" role="button" onclick="screen(\'course\')">' +
+      '<div class="card" style="overflow:hidden;border:2px solid #BFDBFE" role="button" onclick="go(\'course\')">' +
         '<div class="thumb" style="aspect-ratio:16/8;background:linear-gradient(135deg,#1a0505,#8B1A1A)">' +
           '<div class="ov"><div style="display:flex;justify-content:space-between"><span class="chip chip-tg" style="background:rgba(255,255,255,.95);color:#0C8F6A">Enrolled</span>' +
           (window.userAppState.state === 'purchased_locked' ? '<span class="chip chip-red" style="background:rgba(228,21,27,0.85);color:#fff">🗓️ Starts Dec 5</span>' : '<span class="chip chip-tg">Active Batch</span>') +
@@ -3304,7 +3304,7 @@ function renderHomeCourses() {
             '<div style="display:flex;justify-content:space-between;font-size:12.5px;font-weight:700;margin-bottom:6px"><span class="muted">Progress</span><span class="muted">62%</span></div><div class="progress"><i style="width:62%"></i></div>'
           ) +
           '<div style="display:flex;align-items:center;gap:8px;margin-top:10px">' +
-            '<button class="btn btn-pri btn-sm" style="flex:1;justify-content:center" onclick="event.stopPropagation();screen(\'course\')">' +
+            '<button class="btn btn-pri btn-sm" style="flex:1;justify-content:center" onclick="event.stopPropagation();go(\'course\')">' +
               (window.userAppState.state === 'purchased_locked' ? 'View Schedule &amp; Pre-Reads' : 'Continue learning') +
             '</button>' +
           '</div>' +
@@ -3323,13 +3323,13 @@ function renderHomeCourses() {
           '</div>' +
         '</div>' +
       '</div>' +
-      '<div class="card" style="overflow:hidden" role="button" onclick="screen(\'studylab\')">' +
+      '<div class="card" style="overflow:hidden" role="button" onclick="go(\'studylab\')">' +
         '<div class="thumb" style="aspect-ratio:16/8;background:linear-gradient(135deg,#0C8F6A,#12B886)">' +
           '<div class="ov"><span class="chip" style="background:rgba(0,0,0,.3);color:#fff;align-self:flex-start">Study Lab</span>' +
           '<div><div style="font-weight:800;font-size:16px">Module 2 — How LLMs Work</div><div class="tiny" style="opacity:.85">AI BootCamp Handbook</div></div></div>' +
         '</div>' +
         '<div style="padding:16px"><div class="sm muted">Explore unlimited AI tools, YouTube video summaries, and document Q&amp;A.</div>' +
-          '<button class="btn btn-soft btn-sm" style="margin-top:12px;width:100%;justify-content:center" onclick="event.stopPropagation();screen(\'studylab\')">Open in Study Lab</button></div>' +
+          '<button class="btn btn-soft btn-sm" style="margin-top:12px;width:100%;justify-content:center" onclick="event.stopPropagation();go(\'studylab\')">Open in Study Lab</button></div>' +
       '</div>';
   }
 }
@@ -3342,7 +3342,7 @@ function renderMyCourses() {
   if (window.userAppState.state === 'trial') {
     // Show 1 course: Legacy Trial Course
     grid.innerHTML = 
-      '<div class="card" style="overflow:hidden" role="button" onclick="screen(\'course\')">' +
+      '<div class="card" style="overflow:hidden" role="button" onclick="go(\'course\')">' +
         '<div class="thumb" style="aspect-ratio:16/9;background:linear-gradient(135deg,#1E293B,#334155)"><div class="ov">' +
           '<div style="display:flex;justify-content:space-between"><span class="chip" style="background:rgba(255,255,255,.9);color:#0F172A">Trial Access</span><span class="chip" style="background:rgba(0,0,0,.35);color:#fff">20 Tokens</span></div>' +
           '<div><div style="font-weight:800;font-size:17px">' + window.userAppState.legacyCourse.title + '</div><div class="tiny" style="opacity:.85">' + window.userAppState.legacyCourse.subtitle + '</div></div></div></div>' +
@@ -3350,7 +3350,7 @@ function renderMyCourses() {
           '<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px"><span class="chip chip-ai">AI Tutor</span><span class="chip chip-gray">PDFs</span><span class="chip chip-gray">Quiz</span></div>' +
           '<div style="display:flex;justify-content:space-between;font-size:12.5px;font-weight:700;margin-bottom:6px"><span class="muted">' + window.userAppState.legacyCourse.progress + '% complete</span><span class="muted">' + window.userAppState.legacyCourse.completedLessons + '</span></div>' +
           '<div class="progress"><i style="width:' + window.userAppState.legacyCourse.progress + '%"></i></div>' +
-          '<button class="btn btn-pri btn-sm" style="margin-top:14px;width:100%;justify-content:center" onclick="event.stopPropagation();screen(\'course\')">Continue trial course</button>' +
+          '<button class="btn btn-pri btn-sm" style="margin-top:14px;width:100%;justify-content:center" onclick="event.stopPropagation();go(\'course\')" data-go="course">Continue trial course</button>' +
         '</div>' +
       '</div>';
 
@@ -3377,7 +3377,7 @@ function renderMyCourses() {
     // Show BOTH courses: Masterclass + Legacy Course
     grid.innerHTML = 
       '<!-- 1. The Times of India AI for Students Masterclass -->' +
-      '<div class="card" style="overflow:hidden;border:2px solid #BFDBFE" role="button" onclick="screen(\'course\')">' +
+      '<div class="card" style="overflow:hidden;border:2px solid #BFDBFE" role="button" onclick="go(\'course\')">' +
         '<div class="thumb" style="aspect-ratio:16/9;background:linear-gradient(135deg,#1a0505,#8B1A1A)"><div class="ov">' +
           '<div style="display:flex;justify-content:space-between">' +
             '<span class="chip chip-tg" style="background:rgba(255,255,255,.95);color:#0C8F6A">✓ Enrolled</span>' +
@@ -3391,10 +3391,10 @@ function renderMyCourses() {
               '<div style="font-weight:700;display:flex;align-items:center;gap:6px"><span>🔒</span> Pre-Launch State (Starts Dec 5)</div>' +
               '<div style="font-size:11.5px;color:#3B82F6;margin-top:2px">Video lectures unlock automatically on start date. Pre-reads ready!</div>' +
             '</div>' +
-            '<button class="btn btn-pri btn-sm" style="width:100%;justify-content:center;background:#2563EB" onclick="event.stopPropagation();screen(\'course\')">View Schedule &amp; Pre-Reads →</button>' : 
+            '<button class="btn btn-pri btn-sm" style="width:100%;justify-content:center;background:#2563EB" onclick="event.stopPropagation();go(\'course\')" data-go="course">View Schedule &amp; Pre-Reads →</button>' : 
             '<div style="display:flex;justify-content:space-between;font-size:12.5px;font-weight:700;margin-bottom:6px"><span class="muted">62% complete</span><span class="muted">15/24</span></div>' +
             '<div class="progress"><i style="width:62%"></i></div>' +
-            '<button class="btn btn-pri btn-sm" style="margin-top:14px;width:100%;justify-content:center" onclick="event.stopPropagation();screen(\'course\')">Continue course</button>'
+            '<button class="btn btn-pri btn-sm" style="margin-top:14px;width:100%;justify-content:center" onclick="event.stopPropagation();go(\'course\')" data-go="course">Continue course</button>'
           ) +
         '</div>' +
       '</div>' +
@@ -3456,7 +3456,7 @@ function updateMasterclassScreen() {
     videoButtons.forEach(function(btn) {
       btn.innerHTML = '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Watch Video';
       btn.className = 'btn btn-soft btn-sm';
-      btn.onclick = function() { screen('video'); };
+      btn.onclick = function() { go('video'); };
     });
   }
 }
@@ -3496,7 +3496,7 @@ function simulatePurchaseAction() {
   closeBuyCourseModal();
   setStudentState('purchased_locked');
   showToast('🎉 Purchase verified! The Times of India AI Masterclass added to My Courses (Starts Dec 5).');
-  screen('courses');
+  go('courses');
 }
 
 function showToast(msg) {
@@ -3677,7 +3677,7 @@ function openPdfViewer(docTitle, category) {
   }
 
   // Route to prereading screen
-  screen('prereading');
+  go('prereading');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -3759,6 +3759,7 @@ function addPdfChatMessage(text, who) {
 }
 
 /* ============ ROUTER ============ */
+function goTo(id){ go(id); }
 function go(id, push){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   var el=document.getElementById('s-'+id);
