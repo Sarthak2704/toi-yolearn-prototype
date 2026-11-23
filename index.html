@@ -677,6 +677,8 @@ img{max-width:100%;display:block}
   <main class="main" id="main">
 <!-- ========== 1. DASHBOARD ========== -->
 <section class="screen active" id="s-dashboard">
+  <!-- Top Promotional / Enrollment Banner on Home with Progress (Matches User Request) -->
+  <div id="homeWelcomeBannerContainer"></div>
   <div class="hero">
     <span class="chip" style="background:rgba(255,255,255,.18);color:#fff;backdrop-filter:blur(4px)">🔥 12-day streak · keep it up!</span>
     <h1 style="margin-top:12px">Good evening, Ramesh 👋</h1>
@@ -3176,75 +3178,89 @@ function renderHomeBanner() {
   var greeting = getDailyGreeting() + ', ' + window.userAppState.userName + ' 👋';
 
   if (window.userAppState.state === 'trial') {
-    // PERSONALIZED PROMOTIONAL DAILY WELCOME BANNER (Matching Visual Reference)
+    // EXACT MATCH TO USER'S SCREENSHOT: Light pink/red banner with progress bar
     container.innerHTML = 
-      '<div class="hero" style="background:linear-gradient(125deg,#8B0000 0%,#B91C1C 40%,#E4151B 100%);color:#fff;border-radius:20px;padding:28px 32px;box-shadow:0 12px 30px rgba(185,28,28,0.25);position:relative;overflow:hidden;margin-bottom:28px">' +
-        '<div style="position:relative;z-index:2">' +
-          '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap">' +
-            '<span class="chip" style="background:rgba(255,255,255,0.22);color:#fff;backdrop-filter:blur(6px);font-weight:700;font-size:11.5px">⚡ Special Sales Trial Access</span>' +
-            '<span class="chip" style="background:rgba(0,0,0,0.25);color:#fff;font-size:11px">20 AI Tokens Active</span>' +
+      '<div class="card" style="background:linear-gradient(135deg,#FFF5F5,#FEF2F2);border:1.5px solid #FECACA;border-radius:16px;padding:20px 24px;margin-bottom:22px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;box-shadow:0 2px 10px rgba(228,21,27,0.06)">' +
+        '<div style="max-width:700px">' +
+          '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">' +
+            '<span class="chip chip-red" style="font-size:11px;background:#FEE2E2;color:#DC2626;font-weight:700">Official Cohort</span>' +
+            '<span class="tiny muted" style="color:#B91C1C;font-weight:700">Starts ' + window.userAppState.courseStartDateStr + '</span>' +
           '</div>' +
-          '<h1 style="font-size:28px;font-weight:800;margin:0 0 8px;letter-spacing:-0.02em">' + greeting + '</h1>' +
-          '<h2 style="font-size:18px;font-weight:700;margin:0 0 10px;color:#FEE2E2">Master AI Before College: TOI AI for Students Masterclass (Batch 7)</h2>' +
-          '<p style="max-width:640px;margin:0 0 20px;font-size:14px;line-height:1.6;color:rgba(255,255,255,0.92)">' +
-            'You are currently exploring YoLearn with trial access and your legacy course. Upgrade to the live cohort with top mentors, 24 masterclass sessions, hands-on capstone AI projects, and co-branded certification by The Times of India.' +
+          '<h3 style="font-size:18px;font-weight:800;color:#991B1B;margin:0 0 6px">The Times of India AI for Students Masterclass (Batch 7)</h3>' +
+          '<p style="margin:0 0 10px;font-size:13.5px;color:#7F1D1D;line-height:1.5">' +
+            'Join the full live batch with dedicated mentor sessions, 24 video classes, capstone AI project, and verified co-branded certificate.' +
           '</p>' +
-          '<div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">' +
-            '<a href="https://economictimes.indiatimes.com/masterclass/ai-for-students?utm_source=yolearn.ai" target="_blank" class="btn" style="background:#FFFFFF;color:#DC2626;font-weight:800;font-size:14px;padding:12px 22px;border-radius:12px;display:inline-flex;align-items:center;gap:8px;text-decoration:none;box-shadow:0 4px 15px rgba(0,0,0,0.15)">' +
-              '<span>Enroll in Masterclass on Economic Times</span>' +
-              '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>' +
-            '</a>' +
-            '<button class="btn" onclick="showBuyCourseModal(\'Upgrade to the Official Masterclass\')" style="background:rgba(255,255,255,0.18);color:#fff;border:1px solid rgba(255,255,255,0.3);font-weight:700;font-size:13.5px;padding:11px 18px;border-radius:12px;display:inline-flex;align-items:center;gap:6px">' +
-              '<span>View Cohort Details</span>' +
-            '</button>' +
-            '<button class="btn" onclick="simulatePurchaseAction()" style="background:rgba(12,143,106,0.9);color:#fff;font-weight:700;font-size:13px;padding:11px 16px;border-radius:12px;display:inline-flex;align-items:center;gap:6px" title="Simulate purchase verification to test enrolled state">' +
-              '<span>✨ Simulate Purchase</span>' +
-            '</button>' +
+          '<!-- Progress row inside banner -->' +
+          '<div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:6px">' +
+            '<div style="font-size:12.5px;font-weight:700;color:#991B1B;display:flex;align-items:center;gap:6px">' +
+              '<span>Current Trial: 35% complete (4/12 lessons)</span>' +
+              '<span style="color:#DC2626">·</span>' +
+              '<span style="background:#FEE2E2;color:#B91C1C;padding:2px 8px;border-radius:6px;font-size:11.5px">🪙 ' + window.userAppState.tokens + ' tokens left</span>' +
+            '</div>' +
+            '<div class="progress" style="width:140px;height:6px;background:#FECACA;margin:0"><i style="width:35%;background:#DC2626"></i></div>' +
           '</div>' +
         '</div>' +
-        '<div style="position:absolute;right:-40px;bottom:-40px;width:240px;height:240px;background:radial-gradient(circle,rgba(255,255,255,0.15) 0%,transparent 70%);border-radius:50%"></div>' +
+        '<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">' +
+          '<a href="https://economictimes.indiatimes.com/masterclass/ai-for-students?utm_source=yolearn.ai" target="_blank" class="btn btn-pri" style="text-decoration:none;padding:11px 22px;font-size:13.5px;font-weight:800;background:#E4151B;color:#fff;border-radius:10px;display:inline-flex;align-items:center;gap:6px;box-shadow:0 4px 14px rgba(228,21,27,0.25)">' +
+            '<span>Enroll Now on Economic Times →</span>' +
+          '</a>' +
+          '<button class="btn btn-outline btn-sm" onclick="simulatePurchaseAction()" style="border-color:#0C8F6A;color:#0C8F6A;background:#fff;font-weight:700;padding:10px 16px;border-radius:10px;display:inline-flex;align-items:center;gap:6px">' +
+            '<span>✨ Simulate Purchase</span>' +
+          '</button>' +
+        '</div>' +
       '</div>';
   } else if (window.userAppState.state === 'purchased_locked') {
-    // PERSONALIZED ENROLLED PRE-LAUNCH COUNTDOWN BANNER
+    // POST-ENROLLMENT PRE-LAUNCH BANNER WITH PROGRESS
     container.innerHTML = 
-      '<div class="hero" style="background:linear-gradient(125deg,#0F2B48 0%,#1E3A8A 50%,#2563EB 100%);color:#fff;border-radius:20px;padding:28px 32px;box-shadow:0 12px 30px rgba(30,58,138,0.25);position:relative;overflow:hidden;margin-bottom:28px">' +
-        '<div style="position:relative;z-index:2">' +
-          '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap">' +
-            '<span class="chip chip-tg" style="font-weight:700;font-size:11.5px">✓ Confirmed Enrolled in Batch 7</span>' +
-            '<span class="chip" style="background:rgba(255,255,255,0.2);color:#fff;font-size:11px">🗓️ Starts ' + window.userAppState.courseStartDateStr + '</span>' +
+      '<div class="card" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border:1.5px solid #BFDBFE;border-radius:16px;padding:20px 24px;margin-bottom:22px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;box-shadow:0 2px 10px rgba(37,99,235,0.06)">' +
+        '<div style="max-width:700px">' +
+          '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">' +
+            '<span class="chip chip-tg" style="font-size:11px;background:#DCFCE7;color:#15803D;font-weight:700">✓ Enrolled in Cohort</span>' +
+            '<span class="tiny muted" style="color:#1E40AF;font-weight:700">🗓️ Course Starts ' + window.userAppState.courseStartDateStr + ' (Batch 7)</span>' +
           '</div>' +
-          '<h1 style="font-size:28px;font-weight:800;margin:0 0 6px;letter-spacing:-0.02em">Welcome to Batch 7, ' + window.userAppState.userName + '! 👋</h1>' +
-          '<div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);padding:6px 14px;border-radius:8px;margin-bottom:14px">' +
-            '<span style="font-size:18px">⏳</span>' +
-            '<span style="font-weight:800;font-size:14.5px;color:#93C5FD">Batch Begins in: 12 Days · 14 Hours · 20 Mins</span>' +
-          '</div>' +
-          '<p style="max-width:640px;margin:0 0 20px;font-size:14px;line-height:1.6;color:rgba(255,255,255,0.92)">' +
-            'Your official course video lectures and assignments are scheduled to unlock on <b>' + window.userAppState.courseStartDateStr + '</b>. In the meantime, use your <b>Pre-Read Materials</b>, <b>AI Tools</b>, and <b>Study Lab</b> to prepare ahead of the batch!' +
+          '<h3 style="font-size:18px;font-weight:800;color:#1E3A8A;margin:0 0 6px">The Times of India AI for Students Masterclass</h3>' +
+          '<p style="margin:0 0 10px;font-size:13.5px;color:#1E40AF;line-height:1.5">' +
+            'Your enrollment is confirmed! Videos and live classes unlock on start date. Prepare now using your unlocked pre-reading materials and AI Study Lab.' +
           '</p>' +
-          '<div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">' +
-            '<button class="btn" onclick="go(\'course\')" style="background:#FFFFFF;color:#1E3A8A;font-weight:800;font-size:14px;padding:12px 22px;border-radius:12px;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 15px rgba(0,0,0,0.15)">' +
-              '<span>View Masterclass &amp; Pre-Reads →</span>' +
-            '</button>' +
-            '<button class="btn" onclick="go(\'studylab\')" style="background:rgba(255,255,255,0.18);color:#fff;border:1px solid rgba(255,255,255,0.3);font-weight:700;font-size:13.5px;padding:11px 18px;border-radius:12px">' +
-              '<span>Explore Study Lab</span>' +
-            '</button>' +
+          '<!-- Progress row inside banner -->' +
+          '<div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:6px">' +
+            '<div style="font-size:12.5px;font-weight:700;color:#1E3A8A;display:flex;align-items:center;gap:6px">' +
+              '<span>⏳ Countdown: 12 Days to Launch</span>' +
+              '<span style="color:#3B82F6">·</span>' +
+              '<span style="background:#DBEAFE;color:#1E40AF;padding:2px 8px;border-radius:6px;font-size:11.5px">Pre-Reads 100% Ready</span>' +
+            '</div>' +
+            '<div class="progress" style="width:140px;height:6px;background:#BFDBFE;margin:0"><i style="width:10%;background:#2563EB"></i></div>' +
           '</div>' +
         '</div>' +
-        '<div style="position:absolute;right:-40px;bottom:-40px;width:240px;height:240px;background:radial-gradient(circle,rgba(255,255,255,0.15) 0%,transparent 70%);border-radius:50%"></div>' +
+        '<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">' +
+          '<button class="btn btn-pri" onclick="go(\'course\')" style="padding:11px 22px;font-size:13.5px;font-weight:800;background:#2563EB;color:#fff;border-radius:10px;display:inline-flex;align-items:center;gap:6px;box-shadow:0 4px 14px rgba(37,99,235,0.25)">' +
+            '<span>Open Masterclass Schedule →</span>' +
+          '</button>' +
+        '</div>' +
       '</div>';
   } else {
-    // COURSE LAUNCHED BANNER
+    // LAUNCHED / UNLOCKED STATE WITH FULL PROGRESS
     container.innerHTML = 
-      '<div class="hero" style="background:linear-gradient(125deg,#064E3B 0%,#0C8F6A 60%,#12B886 100%);color:#fff;border-radius:20px;padding:28px 32px;box-shadow:0 12px 30px rgba(12,143,106,0.25);position:relative;overflow:hidden;margin-bottom:28px">' +
-        '<div style="position:relative;z-index:2">' +
-          '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">' +
-            '<span class="chip" style="background:rgba(255,255,255,0.22);color:#fff;font-weight:700;font-size:11.5px">🎉 Masterclass Batch 7 is LIVE</span>' +
+      '<div class="card" style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5);border:1.5px solid #A7F3D0;border-radius:16px;padding:20px 24px;margin-bottom:22px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;box-shadow:0 2px 10px rgba(12,143,106,0.06)">' +
+        '<div style="max-width:700px">' +
+          '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">' +
+            '<span class="chip chip-tg" style="font-size:11px;background:#DCFCE7;color:#15803D;font-weight:700">🎉 Batch 7 LIVE</span>' +
+            '<span class="tiny muted" style="color:#065F46;font-weight:700">All Modules &amp; Videos Unlocked</span>' +
           '</div>' +
-          '<h1 style="font-size:28px;font-weight:800;margin:0 0 8px;letter-spacing:-0.02em">' + greeting + '</h1>' +
-          '<p style="max-width:640px;margin:0 0 20px;font-size:14px;line-height:1.6;color:rgba(255,255,255,0.92)">' +
-            'All 5 Modules, video lectures, and practice assessments are now completely unlocked. Resume Module 1 or practice with your AI tutor Pragya.' +
+          '<h3 style="font-size:18px;font-weight:800;color:#065F46;margin:0 0 6px">The Times of India AI for Students Masterclass</h3>' +
+          '<p style="margin:0 0 10px;font-size:13.5px;color:#064E3B;line-height:1.5">' +
+            'Continue your lessons and hands-on AI projects. All 5 modules and AI tutor features are fully active.' +
           '</p>' +
-          '<button class="btn" onclick="go(\'course\')" style="background:#FFFFFF;color:#0C8F6A;font-weight:800;font-size:14px;padding:12px 22px;border-radius:12px;display:inline-flex;align-items:center;gap:8px">' +
+          '<!-- Progress row inside banner -->' +
+          '<div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:6px">' +
+            '<div style="font-size:12.5px;font-weight:700;color:#065F46;display:flex;align-items:center;gap:6px">' +
+              '<span>Overall Progress: 62% complete (15/24 lessons)</span>' +
+            '</div>' +
+            '<div class="progress" style="width:140px;height:6px;background:#A7F3D0;margin:0"><i style="width:62%;background:#0C8F6A"></i></div>' +
+          '</div>' +
+        '</div>' +
+        '<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">' +
+          '<button class="btn btn-pri" onclick="go(\'course\')" style="padding:11px 22px;font-size:13.5px;font-weight:800;background:#0C8F6A;color:#fff;border-radius:10px;display:inline-flex;align-items:center;gap:6px;box-shadow:0 4px 14px rgba(12,143,106,0.25)">' +
             '<span>Continue Masterclass →</span>' +
           '</button>' +
         '</div>' +
